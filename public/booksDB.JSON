@@ -1,0 +1,358 @@
+[
+  {
+    "nombre": "El camino de los reyes",
+    "autor": "Brandon Sanderson",
+    "genero": "Fantasía",
+    "cantidad": 10,
+    "precio_estimado": 19.99
+  },
+  {
+    "nombre": "Cien años de soledad",
+    "autor": "Gabriel García Márquez",
+    "genero": "Realismo mágico",
+    "cantidad": 15,
+    "precio_estimado": 16.50
+  },
+  {
+    "nombre": "1984",
+    "autor": "George Orwell",
+    "genero": "Ciencia ficción",
+    "cantidad": 5,
+    "precio_estimado": 12.99
+  },
+  {
+    "nombre": "Los juegos del hambre",
+    "autor": "Suzanne Collins",
+    "genero": "Distopía",
+    "cantidad": 8,
+    "precio_estimado": 14.75
+  },
+  {
+    "nombre": "Orgullo y prejuicio",
+    "autor": "Jane Austen",
+    "genero": "Clásico",
+    "cantidad": 12,
+    "precio_estimado": 10.25
+  },
+  {
+    "nombre": "Fahrenheit 451",
+    "autor": "Ray Bradbury",
+    "genero": "Ciencia ficción",
+    "cantidad": 7,
+    "precio_estimado": 11.80
+  },
+  {
+    "nombre": "Harry Potter y la piedra filosofal",
+    "autor": "J.K. Rowling",
+    "genero": "Fantasía",
+    "cantidad": 20,
+    "precio_estimado": 18.00
+  },
+  {
+    "nombre": "Crónica de una muerte anunciada",
+    "autor": "Gabriel García Márquez",
+    "genero": "Realismo mágico",
+    "cantidad": 3,
+    "precio_estimado": 13.25
+  },
+  {
+    "nombre": "Crimen y castigo",
+    "autor": "Fyodor Dostoevsky",
+    "genero": "Clásico",
+    "cantidad": 9,
+    "precio_estimado": 15.40
+  },
+  {
+    "nombre": "Las aventuras de Sherlock Holmes",
+    "autor": "Arthur Conan Doyle",
+    "genero": "Misterio",
+    "cantidad": 11,
+    "precio_estimado": 12.90
+  },
+  {
+    "nombre": "Matar un ruiseñor",
+    "autor": "Harper Lee",
+    "genero": "Drama",
+    "cantidad": 6,
+    "precio_estimado": 14.20
+  },
+  {
+    "nombre": "La sombra del viento",
+    "autor": "Carlos Ruiz Zafón",
+    "genero": "Misterio",
+    "cantidad": 18,
+    "precio_estimado": 17.50
+  },
+  {
+    "nombre": "El señor de los anillos: La comunidad del anillo",
+    "autor": "J.R.R. Tolkien",
+    "genero": "Fantasía",
+    "cantidad": 14,
+    "precio_estimado": 21.75
+  },
+  {
+    "nombre": "Don Quijote de la Mancha",
+    "autor": "Miguel de Cervantes Saavedra",
+    "genero": "Clásico",
+    "cantidad": 10,
+    "precio_estimado": 16.90
+  },
+  {
+    "nombre": "La chica del tren",
+    "autor": "Paula Hawkins",
+    "genero": "Suspense",
+    "cantidad": 9,
+    "precio_estimado": 13.99
+  },
+  {
+    "nombre": "Percy Jackson y el ladrón del rayo",
+    "autor": "Rick Riordan",
+    "genero": "Fantasía",
+    "cantidad": 13,
+    "precio_estimado": 11.25
+  },
+  {
+    "nombre": "El secreto de las estrellas",
+    "autor": "Luna Estrellada",
+    "genero": "Fantasía",
+    "cantidad": 7,
+    "precio_estimado": 15.99
+  },
+  {
+    "nombre": "Sombras en la niebla",
+    "autor": "Aurora Oscura",
+    "genero": "Misterio",
+    "cantidad": 10,
+    "precio_estimado": 14.50
+  },
+  {
+    "nombre": "Revolución en el horizonte",
+    "autor": "A. Viento Nuevo",
+    "genero": "Ciencia ficción",
+    "cantidad": 6,
+    "precio_estimado": 16.80
+  },
+  {
+    "nombre": "Amores entrelazados",
+    "autor": "Carmen Enredos",
+    "genero": "Romance",
+    "cantidad": 12,
+    "precio_estimado": 9.75
+  },
+  {
+    "nombre": "El susurro de las olas",
+    "autor": "Marina Mística",
+    "genero": "Realismo mágico",
+    "cantidad": 8,
+    "precio_estimado": 12.25
+  },
+  {
+    "nombre": "Atrapados en el tiempo",
+    "autor": "Tim Viajero",
+    "genero": "Aventura",
+    "cantidad": 11,
+    "precio_estimado": 13.40
+  },
+  {
+    "nombre": "El enigma perdido",
+    "autor": "Alex Misterio",
+    "genero": "Suspense",
+    "cantidad": 9,
+    "precio_estimado": 14.99
+  },
+  {
+    "nombre": "La melodía del alma",
+    "autor": "Sofía Sentimiento",
+    "genero": "Drama",
+    "cantidad": 15,
+    "precio_estimado": 10.90
+  },
+  {
+    "nombre": "El reino de cristal",
+    "autor": "Elsa Escarcha",
+    "genero": "Fantasía",
+    "cantidad": 13,
+    "precio_estimado": 17.25
+  },
+  {
+    "nombre": "Códigos de la mente",
+    "autor": "Alan Cerebro",
+    "genero": "Ciencia ficción",
+    "cantidad": 7,
+    "precio_estimado": 11.80
+  },
+  {
+    "nombre": "Destino entrelazado",
+    "autor": "Leo Destino",
+    "genero": "Romance",
+    "cantidad": 10,
+    "precio_estimado": 15.20
+  },
+  {
+    "nombre": "La ciudad en el espejo",
+    "autor": "Diana Reflejo",
+    "genero": "Realismo mágico",
+    "cantidad": 8,
+    "precio_estimado": 13.75
+  },
+  {
+    "nombre": "Cazadores de estrellas",
+    "autor": "Orion Cazador",
+    "genero": "Aventura",
+    "cantidad": 11,
+    "precio_estimado": 12.60
+  },
+  {
+    "nombre": "El susurro del pasado",
+    "autor": "Eva Historia",
+    "genero": "Suspense",
+    "cantidad": 9,
+    "precio_estimado": 13.50
+  },
+  {
+    "nombre": "El lienzo de emociones",
+    "autor": "Pablo Pincelada",
+    "genero": "Drama",
+    "cantidad": 15,
+    "precio_estimado": 11.40
+  },{
+    "nombre": "El misterio de la estrella fugaz",
+    "autor": "Stella Enigma",
+    "genero": "Misterio",
+    "cantidad": 7,
+    "precio_estimado": 14.99
+  },
+  {
+    "nombre": "El jardín de los susurros",
+    "autor": "Rosa Murmuro",
+    "genero": "Realismo mágico",
+    "cantidad": 10,
+    "precio_estimado": 11.50
+  },
+  {
+    "nombre": "Revolución de las máquinas",
+    "autor": "Mecano Futuro",
+    "genero": "Ciencia ficción",
+    "cantidad": 6,
+    "precio_estimado": 18.80
+  },
+  {
+    "nombre": "Un romance en París",
+    "autor": "Pierre Amour",
+    "genero": "Romance",
+    "cantidad": 12,
+    "precio_estimado": 10.75
+  },
+  {
+    "nombre": "Las crónicas del tiempo perdido",
+    "autor": "Crono Tempus",
+    "genero": "Fantasía",
+    "cantidad": 8,
+    "precio_estimado": 13.25
+  },
+  {
+    "nombre": "La búsqueda del tesoro",
+    "autor": "Indiana Aventura",
+    "genero": "Aventura",
+    "cantidad": 11,
+    "precio_estimado": 14.40
+  },
+  {
+    "nombre": "Los hilos del destino",
+    "autor": "Fátima Destino",
+    "genero": "Drama",
+    "cantidad": 9,
+    "precio_estimado": 16.99
+  },
+  {
+    "nombre": "En las garras del enigma",
+    "autor": "Enrique Pregunta",
+    "genero": "Suspense",
+    "cantidad": 15,
+    "precio_estimado": 12.90
+  },
+  {
+    "nombre": "La órbita de las estrellas",
+    "autor": "Estela Galáctica",
+    "genero": "Ciencia ficción",
+    "cantidad": 13,
+    "precio_estimado": 19.25
+  },
+  {
+    "nombre": "Amor en la Ciudad Prohibida",
+    "autor": "Li Romance",
+    "genero": "Romance",
+    "cantidad": 7,
+    "precio_estimado": 14.20
+  },
+  {
+    "nombre": "La pintura de los recuerdos",
+    "autor": "Pablo Memoria",
+    "genero": "Realismo mágico",
+    "cantidad": 10,
+    "precio_estimado": 12.75
+  },
+  {
+    "nombre": "La isla de los secretos",
+    "autor": "Isabel Secreta",
+    "genero": "Aventura",
+    "cantidad": 11,
+    "precio_estimado": 13.60
+  },
+  {
+    "nombre": "El eco del silencio",
+    "autor": "Sofía Callada",
+    "genero": "Drama",
+    "cantidad": 9,
+    "precio_estimado": 15.50
+  },
+  {
+    "nombre": "Códigos de la mente",
+    "autor": "Alan Cerebro",
+    "genero": "Ciencia ficción",
+    "cantidad": 7,
+    "precio_estimado": 11.80
+  },
+  {
+    "nombre": "El enigma del relojero",
+    "autor": "Alex Misterio",
+    "genero": "Suspense",
+    "cantidad": 9,
+    "precio_estimado": 14.99
+  },
+  {
+    "nombre": "El canto de la naturaleza",
+    "autor": "Nina Naturaleza",
+    "genero": "Fantasía",
+    "cantidad": 15,
+    "precio_estimado": 10.90
+  },
+  {
+    "nombre": "El regreso de la magia",
+    "autor": "Merlín Encantado",
+    "genero": "Fantasía",
+    "cantidad": 13,
+    "precio_estimado": 17.25
+  },
+  {
+    "nombre": "En busca del tiempo perdido",
+    "autor": "Hugo Historia",
+    "genero": "Histórico",
+    "cantidad": 10,
+    "precio_estimado": 16.20
+  },
+  {
+    "nombre": "El ojo del huracán",
+    "autor": "María Tormenta",
+    "genero": "Aventura",
+    "cantidad": 8,
+    "precio_estimado": 13.75
+  },
+  {
+    "nombre": "El susurro de la noche",
+    "autor": "Noctis Susurro",
+    "genero": "Terror",
+    "cantidad": 6,
+    "precio_estimado": 15.50
+  }
+]
