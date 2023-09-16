@@ -1,10 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Item from "./Item";
 
-function ItemList() {
+function ItemList({ book }) {
+  console.log(book);
   return (
     <div>
-      <Item></Item>
+      {book.map((item) => {
+        return <Item producto={item} key={item.id}></Item>;
+      })}
     </div>
   );
 }

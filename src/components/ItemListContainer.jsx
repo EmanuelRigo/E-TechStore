@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import ItemList from "./ItemList";
 
 function ItemListContainer() {
   const [bookdata, setBookdata] = useState([]);
@@ -14,16 +15,7 @@ function ItemListContainer() {
 
   return (
     <div>
-      {bookdata.map((item) => {
-        let title = item.title;
-        let price = item.price;
-        return (
-          <article>
-            <h3>{title} </h3>
-            <h4>{price} </h4>
-          </article>
-        );
-      })}
+      <ItemList book={bookdata}></ItemList>
     </div>
   );
 }
