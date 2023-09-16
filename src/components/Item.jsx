@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function ItemList() {
+function Item() {
   return (
     <div>
-      <Item></Item>
+      <Link to={"/productos/producto.id"}>ITEM BOTON</Link>
     </div>
   );
 }
 
-export default ItemList;
+export default Item;

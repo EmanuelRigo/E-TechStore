@@ -5,6 +5,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
+import { Link } from "react-router-dom";
 
 import "../stylesheets/Navbarbookshop.css";
 
@@ -19,7 +20,10 @@ function Navbarbookshop() {
       className="bg-body-tertiary"
     >
       <Container>
-        <Navbar.Brand href="#home">BookShop</Navbar.Brand>
+        <Link className="navbar-brand" to="/">
+          BookShop
+        </Link>
+
         <div className="navbar__search">
           <Form.Control
             placeholder="buscar"
@@ -43,9 +47,9 @@ function Navbarbookshop() {
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
-          <Nav.Link href="#link">
+          <Link to="/cart">
             <AiOutlineShoppingCart className="navbar__cart"></AiOutlineShoppingCart>
-          </Nav.Link>
+          </Link>
         </Navbar.Collapse>
       </Container>
     </Navbar>
