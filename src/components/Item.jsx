@@ -1,10 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 function Item({ producto }) {
+  const props = useParams();
+
   return (
     <div>
-      <Link to={"/productos/producto.id"}>{producto.title}</Link>
+      <Link to={"/item/" + producto.id}>{producto.title}</Link>
+      <p>{producto.price}</p>
+      <button>agregar a carrito</button>
     </div>
   );
 }

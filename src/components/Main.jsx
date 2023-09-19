@@ -2,22 +2,15 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import ItemListContainer from "./ItemListContainer";
+import ItemDetailContainer from "./ItemDetailContainer";
 import Item from "./Item";
 import Cart from "./Cart";
+import ItemDetail from "./ItemDetail";
 
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useParams } from "react-router-dom";
 
 function Main() {
   const [search, setSearch] = useState(""); //usamos esto para la brra de busqueda
-  const [bookdata, setBookdata] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get("https://fakestoreapi.com/products")
-      .then((res) => setBookdata(res.data))
-      .then(console.log(bookdata))
-      .catch((err) => console.log(err));
-  }, []);
 
   return (
     <main>
@@ -25,7 +18,15 @@ function Main() {
         <Route path="/cart" element={<Cart></Cart>}></Route>
         <Route
           path="/"
-          element={<ItemListContainer book={bookdata}></ItemListContainer>}
+          element={<ItemListContainer></ItemListContainer>}
+        ></Route>
+        <Route
+          path="/categoria/:categoria"
+          element={<ItemListContainer></ItemListContainer>}
+        ></Route>
+        <Route
+          path="/item/:id"
+          element={<ItemDetailContainer></ItemDetailContainer>}
         ></Route>
       </Routes>
     </main>

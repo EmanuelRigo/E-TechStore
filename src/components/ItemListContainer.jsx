@@ -2,14 +2,16 @@ import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import ItemList from "./ItemList";
+import { useParams } from "react-router-dom";
 
 function ItemListContainer() {
   const [bookdata, setBookdata] = useState([]);
+
+  const props = useParams();
   useEffect(() => {
     axios
-      .get("https://fakestoreapi.com/products")
+      .get("https://api.escuelajs.co/api/v1/products")
       .then((res) => setBookdata(res.data))
-      .then(console.log(bookdata))
       .catch((err) => console.log(err));
   }, []);
 
