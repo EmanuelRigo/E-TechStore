@@ -4,9 +4,9 @@ function ItemDetail({ product }) {
   console.log(product);
   return (
     <div>
-      <h1>hola</h1>
-      <h2>itemdetsails</h2>
-      <h3>{product.id} </h3>
+      <h2>item details</h2>
+      <h3>{product.title} </h3>
+      <h2>{product.price} </h2>
     </div>
   );
 }

@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import axios from "axios";
-import ItemDetailList from "./ItemDetailList";
+import ItemDetail from "./ItemDetail";
 
 function ItemDetailContainer() {
   const [bookdata, setBookdata] = useState([]);
@@ -16,13 +16,23 @@ function ItemDetailContainer() {
       .then((res) => {
         setBookdata(res.data);
       })
-
       .catch((err) => console.log(err));
   }, []);
 
+  useEffect(() => {
+    const foundProduct = bookdata.find(
+      (product) => product.id === parseInt(params.id)
+    );
+    setProduct(foundProduct);
+  }, [bookdata]);
+
   return (
     <div>
-      <ItemDetailList products={bookdata}></ItemDetailList>
+      {product ? (
+        <ItemDetail product={product}></ItemDetail>
+      ) : (
+        <h2>cargando </h2>
+      )}
     </div>
   );
 }

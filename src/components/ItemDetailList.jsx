@@ -13,7 +13,6 @@ function ItemDetailList({ products }) {
     );
 
     setProduct(foundProduct);
-    console.log(producto);
   });
 
   return <ItemDetail product={producto}></ItemDetail>;

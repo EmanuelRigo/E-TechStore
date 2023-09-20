@@ -2,8 +2,6 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 
 function Item({ producto }) {
-  const props = useParams();
-
   return (
     <div>
       <Link to={"/item/" + producto.id}>{producto.title}</Link>

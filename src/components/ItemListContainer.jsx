@@ -7,11 +7,12 @@ import { useParams } from "react-router-dom";
 function ItemListContainer() {
   const [bookdata, setBookdata] = useState([]);
 
-  const props = useParams();
   useEffect(() => {
     axios
       .get("https://api.escuelajs.co/api/v1/products")
-      .then((res) => setBookdata(res.data))
+      .then((res) => {
+        setBookdata(res.data);
+      })
       .catch((err) => console.log(err));
   }, []);
 

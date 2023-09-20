@@ -3,8 +3,6 @@ import { Link, useParams } from "react-router-dom";
 import Item from "./Item";
 
 function ItemList({ book }) {
-  const props = useParams();
-
   return (
     <div>
       {book.map((item) => {
