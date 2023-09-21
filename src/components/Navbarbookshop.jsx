@@ -13,7 +13,26 @@ import "../stylesheets/Navbarbookshop.css";
 
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
-function Navbarbookshop() {
+function Navbarbookshop({ products }) {
+  const uniqueCategories = [
+    ...new Set(products.map((product) => product.category.name)),
+  ];
+
+  /* return  (
+    <div>
+      <label htmlFor="categorySelect">Selecciona una categoría:</label>
+      <select id="categorySelect">
+        <option value="">Todas las categorías</option>
+        {uniqueCategories.map((category) => (
+          <option>
+            <Link key={category} value={category} to={`/categoria/${category}`}>
+              {category}
+            </Link>
+          </option>
+        ))}
+      </select>
+    </div>
+  ); */
   return (
     <Navbar
       bg="danger"
@@ -38,7 +57,19 @@ function Navbarbookshop() {
           <Nav className="me-auto">
             <Nav.Link href="#link">Link</Nav.Link>
             <NavDropdown title="Categorias" id="basic-nav-dropdown">
-              <Link to="/categoria/aventura" className="dropdown-item">
+              {uniqueCategories.map((category) => (
+                <option>
+                  <Link
+                    className="dropdown-item"
+                    key={category}
+                    value={category}
+                    to={`/categoria/${category}`}
+                  >
+                    {category}
+                  </Link>
+                </option>
+              ))}
+              {/*              <Link to="/categoria/aventura" className="dropdown-item">
                 Aventura
               </Link>
               <Link to="/categoria/terror" className="dropdown-item">
@@ -46,7 +77,7 @@ function Navbarbookshop() {
               </Link>{" "}
               <Link to="/categoria/ciencia" className="dropdown-item">
                 ciencia
-              </Link>
+              </Link> */}
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">
                 Separated link

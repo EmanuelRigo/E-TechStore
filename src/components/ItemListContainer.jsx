@@ -1,11 +1,16 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
+
+import ItemList from "./ItemList";
+import Navbarbookshop from "./Navbarbookshop";
 
 function ItemListContainer() {
   const [bookdata, setBookdata] = useState([]);
+
+  const params = useParams();
+  console.log(params);
 
   useEffect(() => {
     axios
@@ -13,11 +18,13 @@ function ItemListContainer() {
       .then((res) => {
         setBookdata(res.data);
       })
+
       .catch((err) => console.log(err));
   }, []);
 
   return (
     <div>
+      <Navbarbookshop products={bookdata}></Navbarbookshop>
       <ItemList book={bookdata}></ItemList>
     </div>
   );
