@@ -58,16 +58,14 @@ function Navbarbookshop({ products }) {
             <Nav.Link href="#link">Link</Nav.Link>
             <NavDropdown title="Categorias" id="basic-nav-dropdown">
               {uniqueCategories.map((category) => (
-                <option>
-                  <Link
-                    className="dropdown-item"
-                    key={category}
-                    value={category}
-                    to={`/categoria/${category}`}
-                  >
-                    {category}
-                  </Link>
-                </option>
+                <Link
+                  key={category}
+                  value={category}
+                  className="dropdown-item"
+                  to={`/categoria/${category}`}
+                >
+                  {category}
+                </Link>
               ))}
               {/*              <Link to="/categoria/aventura" className="dropdown-item">
                 Aventura

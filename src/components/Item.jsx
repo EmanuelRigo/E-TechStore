@@ -6,6 +6,7 @@ function Item({ producto }) {
     <div>
       <Link to={"/item/" + producto.id}>{producto.title}</Link>
       <p>{producto.price}</p>
+      <h2> {producto.category.name} </h2>
       <button>agregar a carrito</button>
     </div>
   );

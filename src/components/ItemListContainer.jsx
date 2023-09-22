@@ -8,23 +8,40 @@ import Navbarbookshop from "./Navbarbookshop";
 
 function ItemListContainer() {
   const [bookdata, setBookdata] = useState([]);
+  const [navBarCategory, setNavbarCategory] = useState([]);
+  const [filteredBookdata, setFilteredBookdata] = useState([]);
+  const [categoriaFromParams, setCategoriaFromParams] = useState(null);
 
-  const params = useParams();
-  console.log(params);
+  const { categoria } = useParams();
+  const category = useParams();
 
   useEffect(() => {
+    setCategoriaFromParams(categoria);
     axios
       .get("https://api.escuelajs.co/api/v1/products")
       .then((res) => {
-        setBookdata(res.data);
+        if (categoria) {
+          console.log(categoria);
+          const filtrado = res.data.filter(
+            (product) => product.category.name === categoria
+          );
+          console.log(filtrado);
+          setBookdata(filtrado);
+          console.log(bookdata);
+          setNavbarCategory(res.data);
+        } else {
+          setBookdata(res.data);
+
+          console.log(bookdata);
+        }
       })
 
       .catch((err) => console.log(err));
-  }, []);
+  }, [category]);
 
   return (
     <div>
-      <Navbarbookshop products={bookdata}></Navbarbookshop>
+      <Navbarbookshop products={navBarCategory}></Navbarbookshop>
       <ItemList book={bookdata}></ItemList>
     </div>
   );
