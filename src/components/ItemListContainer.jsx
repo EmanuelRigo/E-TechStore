@@ -13,8 +13,9 @@ function ItemListContainer() {
   const [categoriaFromParams, setCategoriaFromParams] = useState(null);
 
   const { categoria } = useParams();
-  const category = useParams();
 
+  const category = useParams();
+  console.log(category);
   useEffect(() => {
     setCategoriaFromParams(categoria);
     axios
@@ -31,7 +32,7 @@ function ItemListContainer() {
           setNavbarCategory(res.data);
         } else {
           setBookdata(res.data);
-
+          setNavbarCategory(res.data);
           console.log(bookdata);
         }
       })
