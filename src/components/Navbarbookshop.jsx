@@ -13,10 +13,15 @@ import "../stylesheets/Navbarbookshop.css";
 
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
+import { useContext } from "react";
+import { contexto } from "./CustomProvider";
+
 function Navbarbookshop({ products }) {
   const uniqueCategories = [
     ...new Set(products.map((product) => product.category.name)),
   ];
+
+  const { totalProductos } = useContext(contexto);
 
   /* return  (
     <div>
