@@ -1,4 +1,7 @@
 import React from "react";
+import { contexto } from "./CustomProvider";
+import { useContext } from "react";
+
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
@@ -7,6 +10,7 @@ import ItemList from "./ItemList";
 import Navbarbookshop from "./Navbarbookshop";
 
 function ItemListContainer() {
+  const { navbarCategoryFunction } = useContext(contexto);
   const [bookdata, setBookdata] = useState([]);
   const [navBarCategory, setNavbarCategory] = useState([]);
   const [filteredBookdata, setFilteredBookdata] = useState([]);
@@ -28,10 +32,10 @@ function ItemListContainer() {
 
           setBookdata(filtrado);
 
-          setNavbarCategory(res.data);
+          navbarCategoryFunction(res.data);
         } else {
           setBookdata(res.data);
-          setNavbarCategory(res.data);
+          navbarCategoryFunction(res.data);
         }
       })
 
@@ -40,7 +44,6 @@ function ItemListContainer() {
 
   return (
     <div>
-      <Navbarbookshop products={navBarCategory}></Navbarbookshop>
       <ItemList book={bookdata}></ItemList>
     </div>
   );

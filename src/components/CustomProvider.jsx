@@ -13,6 +13,10 @@ const CustomProvider = ({ children }) => {
   const [totalProductos, setTotalProductos] = useState(10);
   const [navBarCategory, setNavbarCategory] = useState([]);
 
+  const navbarCategoryFunction = (item) => {
+    setNavbarCategory(item);
+  };
+
   const sumaredad = () => {
     setTotalProductos(totalProductos + 1);
   };
@@ -21,14 +25,16 @@ const CustomProvider = ({ children }) => {
     setTotalProductos(totalProductos - 1);
   };
 
-  console.log(navBarCategory);
-
   const valorDelContexto = {
     carrito: carrito,
     totalProductos: totalProductos,
     sumaredad: sumaredad,
     restaredad: restaredad,
+    navbarCategoryFunction: navbarCategoryFunction,
+    navBarCategory: navBarCategory,
   };
+
+  console.log(navBarCategory);
 
   return <Provider value={valorDelContexto}>{children}</Provider>;
 };

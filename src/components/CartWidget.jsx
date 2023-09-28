@@ -8,7 +8,7 @@ import { contexto } from "./CustomProvider";
 function CartWidget() {
   const { totalProductos } = useCart();
   const valorDelContexto = useContext(contexto);
-  console.log(valorDelContexto);
+
   return (
     <Link to="/cart">
       <div>{totalProductos} </div>

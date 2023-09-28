@@ -16,9 +16,12 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useContext } from "react";
 import { contexto } from "./CustomProvider";
 
-function Navbarbookshop({ products }) {
+function Navbarbookshop() {
+  const { navBarCategory } = useContext(contexto);
+  console.log(navBarCategory);
+
   const uniqueCategories = [
-    ...new Set(products.map((product) => product.category.name)),
+    ...new Set(navBarCategory.map((product) => product.category.name)),
   ];
 
   const { totalProductos } = useContext(contexto);

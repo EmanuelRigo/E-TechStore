@@ -10,6 +10,7 @@ function App() {
   return (
     <CustomProvider>
       <BrowserRouter>
+        <Navbarbookshop ></Navbarbookshop>
         <Main />
       </BrowserRouter>
     </CustomProvider>
