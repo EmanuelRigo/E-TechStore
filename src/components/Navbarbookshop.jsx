@@ -18,7 +18,6 @@ import { contexto } from "./CustomProvider";
 
 function Navbarbookshop() {
   const { navBarCategory } = useContext(contexto);
-  console.log(navBarCategory);
 
   const uniqueCategories = [
     ...new Set(navBarCategory.map((product) => product.category.name)),

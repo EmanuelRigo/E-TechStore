@@ -36,17 +36,16 @@ const CustomProvider = ({ children }) => {
       if (producto.id === pelicula.id) {
         return { ...producto, cantidad: producto.cantidad + contador };
       }
+
       return producto;
     });
     if (!copy.some((prod) => prod.id === pelicula.id)) {
       copy.push({
-        id: pelicula.id,
-        portada: pelicula.portada,
-        title: pelicula.title,
-        precio: pelicula.precio,
+        ...pelicula,
         cantidad: contador,
       });
     }
+    console.log(copy);
     setCarrito(copy);
     setTotalProductos(totalProductos + contador);
 

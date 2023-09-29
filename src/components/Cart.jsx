@@ -21,7 +21,8 @@ function Cart() {
                 <h2> {item.title} </h2>
               </div>
               <div className="detalles">
-                <p> {item.precio} </p>
+                <p> {item.price} </p>
+                <p>{item.updatedAt} </p>
                 <p>{item.cantidad} </p>
                 <button onClick={handleClick(item.id)}>eliminar</button>
               </div>
