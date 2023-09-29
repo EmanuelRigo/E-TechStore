@@ -7,12 +7,10 @@ function Item({ producto }) {
   const { sumaredad, restaredad } = useContext(contexto);
   return (
     <div>
-      <Link to={"/item/" + producto.id}>{producto.title}</Link>
       <p>{producto.price}</p>
-      <h2> {producto.category.name} </h2>
-      <button>agregar a carrito</button>
-      <button onClick={sumaredad}>sumar</button>
-      <button onClick={restaredad}>restar</button>
+      <h4> {producto.category.name} </h4>
+      <h2>{producto.title} </h2>
+      <Link to={"/item/" + producto.id}>ver mas</Link>
     </div>
   );
 }

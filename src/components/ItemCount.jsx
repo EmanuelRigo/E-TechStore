@@ -1,18 +1,29 @@
 import React, { useState } from "react";
+import { useCarrito } from "./CustomProvider";
+import { contexto } from "./CustomProvider";
+import { useContext } from "react";
+import { Link } from "react-router-dom";
 
-function ItemCount({ onAdd }) {
+function ItemCount({ product }) {
   const [contador, setContador] = useState(0);
 
+  const { agregarProducto, addProduct } = useContext(contexto);
+
   const handleSumar = () => {
-    setContador(contador + 1);
+    if (contador < 20) {
+      setContador(contador + 1);
+    }
   };
 
   const handleRestar = () => {
-    setContador(contador - 1);
+    if (contador > 1) {
+      setContador(contador - 1);
+    }
   };
 
   const handleConfirmar = () => {
-    onAdd(contador);
+    agregarProducto(contador, product);
+    addProduct(contador, product);
   };
 
   return (
@@ -20,7 +31,12 @@ function ItemCount({ onAdd }) {
       <h1>Contador: {contador}</h1>
       <button onClick={handleSumar}>+</button>
       <button onClick={handleRestar}>-</button>
-      <button onClick={handleConfirmar}>confirmar</button>
+      <Link
+        to={"/item/" + product.id + "/confirmAddition"}
+        onClick={handleConfirmar}
+      >
+        agregar a carrito{" "}
+      </Link>
     </div>
   );
 }

@@ -11,7 +11,7 @@ function ItemDetail({ product }) {
       <h2>item details </h2>
       <h3>{product.title} </h3>
       <h2>{product.price} </h2>
-      <ItemCount onAdd={onAdd}></ItemCount>
+      <ItemCount product={product}></ItemCount>
     </div>
   );
 }

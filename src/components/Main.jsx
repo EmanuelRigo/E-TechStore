@@ -6,6 +6,7 @@ import ItemDetailContainer from "./ItemDetailContainer";
 import Item from "./Item";
 import Cart from "./Cart";
 import ItemDetail from "./ItemDetail";
+import ConfirmAddition from "./ConfirmAddition";
 
 import { Routes, Route, useParams } from "react-router-dom";
 
@@ -27,6 +28,10 @@ function Main() {
         <Route
           path="/item/:id"
           element={<ItemDetailContainer></ItemDetailContainer>}
+        ></Route>
+        <Route
+          path="/item/:id/confirmAddition"
+          element={<ConfirmAddition></ConfirmAddition>}
         ></Route>
       </Routes>
     </main>
