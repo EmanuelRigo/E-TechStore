@@ -45,7 +45,7 @@ const CustomProvider = ({ children }) => {
         cantidad: contador,
       });
     }
-    console.log(copy);
+
     setCarrito(copy);
     setTotalProductos(totalProductos + contador);
 
