@@ -3,8 +3,13 @@ import { contexto } from "./CustomProvider";
 import { useContext } from "react";
 
 function Cart() {
-  const { carrito, eliminarProducto, vaciarCarrito, totalCarrito } =
-    useContext(contexto);
+  const {
+    carrito,
+    eliminarProducto,
+    vaciarCarrito,
+    totalCarrito,
+    incrementarCantidad,
+  } = useContext(contexto);
 
   const handleClick = (id) => () => eliminarProducto(id);
   console.log(carrito);
@@ -23,6 +28,12 @@ function Cart() {
               <div className="detalles">
                 <p> {item.price} </p>
                 <p>{item.updatedAt} </p>
+                <button onClick={() => incrementarCantidad(item.id)}>
+                  Sumar
+                </button>
+                {/*                 <button onClick={() => decrementarCantidad(item.id)}>
+                  Restar
+                </button> */}
                 <p>{item.cantidad} </p>
                 <button onClick={handleClick(item.id)}>eliminar</button>
               </div>

@@ -31,6 +31,15 @@ const CustomProvider = ({ children }) => {
     console.log(productAdded);
   };
 
+  const incrementarCantidad = (id) => {
+    const nuevosProductos = carrito.map((producto) =>
+      producto.id === id
+        ? { ...producto, cantidad: producto.cantidad + 1 }
+        : producto
+    );
+    setCarrito(nuevosProductos);
+  };
+
   const agregarProducto = (contador, pelicula) => {
     const copy = carrito.map((producto) => {
       if (producto.id === pelicula.id) {
@@ -89,6 +98,7 @@ const CustomProvider = ({ children }) => {
     carrito: carrito,
     addProduct: addProduct,
     productAdded: productAdded,
+    incrementarCantidad: incrementarCantidad,
   };
 
   return <Provider value={valorDelContexto}>{children}</Provider>;
