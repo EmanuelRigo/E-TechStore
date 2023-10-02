@@ -4,7 +4,7 @@ import { contexto } from "./CustomProvider";
 
 function ConfirmAddition() {
   const { productAdded } = useContext(contexto);
-  console.log(productAdded);
+
   return (
     <div>
       <h2>Los productos se agregaron al carrito</h2>

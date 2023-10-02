@@ -7,7 +7,8 @@ import { Link } from "react-router-dom";
 function ItemCount({ product }) {
   const [contador, setContador] = useState(0);
 
-  const { agregarProducto, addProduct } = useContext(contexto);
+  const { agregarProducto, addProduct, calcularTotal, total } =
+    useContext(contexto);
 
   const handleSumar = () => {
     if (contador < 20) {
@@ -24,6 +25,8 @@ function ItemCount({ product }) {
   const handleConfirmar = () => {
     agregarProducto(contador, product);
     addProduct(contador, product);
+    calcularTotal();
+    console.log(total);
   };
 
   return (

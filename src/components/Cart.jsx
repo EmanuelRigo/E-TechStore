@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { contexto } from "./CustomProvider";
 import { useContext } from "react";
 
@@ -9,7 +9,16 @@ function Cart() {
     vaciarCarrito,
     totalCarrito,
     incrementarCantidad,
+    calcularTotal,
+    total,
   } = useContext(contexto);
+
+  console.log(total);
+
+  useEffect(() => {
+    calcularTotal();
+    console.log(calcularTotal());
+  }, [carrito]);
 
   const handleClick = (id) => () => eliminarProducto(id);
   console.log(carrito);

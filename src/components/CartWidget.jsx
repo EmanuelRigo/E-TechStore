@@ -6,12 +6,12 @@ import { useContext } from "react";
 import { contexto } from "./CustomProvider";
 
 function CartWidget() {
-  const { totalProductos } = useCart();
+  const { totalProductos, total } = useCart();
   const valorDelContexto = useContext(contexto);
 
   return (
     <Link to="/cart">
-      <div>{totalProductos} </div>
+      <div>{total} </div>
       <AiOutlineShoppingCart className="navbar__cart"></AiOutlineShoppingCart>
     </Link>
   );

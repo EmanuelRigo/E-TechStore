@@ -11,12 +11,15 @@ export const useCart = () => {
 const CustomProvider = ({ children }) => {
   const [navBarCategory, setNavbarCategory] = useState([]);
   const [productAdded, setProductAdded] = useState({});
+
   const [carrito, setCarrito] = useState(
     JSON.parse(localStorage.getItem("carrito")) || []
   );
   const [totalProductos, setTotalProductos] = useState(
     parseInt(localStorage.getItem("totalProductos")) || 0
   );
+
+  const [total, setTotal] = useState(0);
 
   useEffect(() => {
     localStorage.setItem("carrito", JSON.stringify(carrito));
@@ -28,7 +31,6 @@ const CustomProvider = ({ children }) => {
 
   const addProduct = (contador, product) => {
     setProductAdded({ ...product, contador });
-    console.log(productAdded);
   };
 
   const incrementarCantidad = (id) => {
@@ -40,12 +42,19 @@ const CustomProvider = ({ children }) => {
     setCarrito(nuevosProductos);
   };
 
+  const calcularTotal = () => {
+    const cantidadTotal = carrito.reduce(
+      (total, producto) => total + producto.cantidad,
+      0
+    );
+    setTotal(cantidadTotal);
+  };
+
   const agregarProducto = (contador, pelicula) => {
     const copy = carrito.map((producto) => {
       if (producto.id === pelicula.id) {
         return { ...producto, cantidad: producto.cantidad + contador };
       }
-
       return producto;
     });
     if (!copy.some((prod) => prod.id === pelicula.id)) {
@@ -99,6 +108,8 @@ const CustomProvider = ({ children }) => {
     addProduct: addProduct,
     productAdded: productAdded,
     incrementarCantidad: incrementarCantidad,
+    calcularTotal: calcularTotal,
+    total: total,
   };
 
   return <Provider value={valorDelContexto}>{children}</Provider>;
