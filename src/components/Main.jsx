@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import ItemListContainer from "./ItemListContainer";
+import ItemList from "./ItemList";
 import ItemDetailContainer from "./ItemDetailContainer";
 import Item from "./Item";
 import Cart from "./Cart";
@@ -17,13 +18,10 @@ function Main() {
     <main>
       <Routes>
         <Route path="/cart" element={<Cart></Cart>}></Route>
-        <Route
-          path="/"
-          element={<ItemListContainer></ItemListContainer>}
-        ></Route>
+        <Route path="/" element={<ItemList></ItemList>}></Route>
         <Route
           path="/categoria/:categoria"
-          element={<ItemListContainer></ItemListContainer>}
+          element={<ItemList></ItemList>}
         ></Route>
         <Route
           path="/item/:id"

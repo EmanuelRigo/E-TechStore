@@ -1,18 +1,16 @@
-import React from "react";
-import { contexto } from "./CustomProvider";
-import { useContext } from "react";
+import React from "react"; //
+import { contexto } from "./CustomProvider"; //
+import { useContext } from "react"; //
 
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useEffect, useState } from "react"; //
+import axios from "axios"; //
 import { useParams } from "react-router-dom";
 
-import ItemList from "./ItemList";
+import ItemList from "./ItemList"; //
 
 function ItemListContainer() {
-  const { navbarCategoryFunction } = useContext(contexto);
+  const { navbarCategoryFunction } = useContext(contexto); //
   const [bookdata, setBookdata] = useState([]);
-
-  const { categoria } = useParams();
 
   const category = useParams();
 
@@ -20,9 +18,9 @@ function ItemListContainer() {
     axios
       .get("https://api.escuelajs.co/api/v1/products")
       .then((res) => {
-        if (categoria) {
+        if (category.categoria) {
           const filtrado = res.data.filter(
-            (product) => product.category.name === categoria
+            (product) => product.category.name === category.categoria
           );
 
           setBookdata(filtrado);

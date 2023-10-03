@@ -1,4 +1,6 @@
 import { createContext, useContext, useState, useEffect } from "react";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 
 export const contexto = createContext();
 const Provider = contexto.Provider;
@@ -33,6 +35,36 @@ const CustomProvider = ({ children }) => {
     calcularTotal();
     console.log(calcularTotal());
   }, [carrito]);
+
+  ////FUNCION PARA CONSEGUIR DATOS////
+
+  const [bookdata, setBookdata] = useState([]);
+
+  const category = useParams();
+
+  useEffect(() => {
+    axios
+      .get("https://api.escuelajs.co/api/v1/products")
+      .then((res) => {
+        if (category.categoria) {
+          const filtrado = res.data.filter(
+            (product) => product.category.name === category.categoria
+          );
+
+          setBookdata(filtrado);
+          navbarCategoryFunction(res.data);
+        } else {
+          setBookdata(res.data);
+          navbarCategoryFunction(res.data);
+        }
+      })
+
+      .catch((err) => console.log(err));
+  }, [category.categoria]);
+
+  console.log(bookdata);
+
+  ////////////////////////////////////
 
   const addProduct = (contador, product) => {
     setProductAdded({ ...product, contador });
@@ -123,6 +155,7 @@ const CustomProvider = ({ children }) => {
     total: total,
     decrementarCantidad: decrementarCantidad,
     funcionBuscar: funcionBuscar,
+    bookdata: bookdata,
   };
 
   return <Provider value={valorDelContexto}>{children}</Provider>;
