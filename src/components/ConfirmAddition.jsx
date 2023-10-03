@@ -1,9 +1,9 @@
 import React from "react";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { contexto } from "./CustomProvider";
 
 function ConfirmAddition() {
-  const { productAdded } = useContext(contexto);
+  const { productAdded, calcularTotal, carrito } = useContext(contexto);
 
   return (
     <div>

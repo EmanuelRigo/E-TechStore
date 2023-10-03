@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useCarrito } from "./CustomProvider";
 import { contexto } from "./CustomProvider";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 
 function ItemCount({ product }) {
-  const [contador, setContador] = useState(0);
+  const [contador, setContador] = useState(1);
 
-  const { agregarProducto, addProduct, calcularTotal, total } =
+  const { agregarProducto, addProduct, calcularTotal, total, carrito } =
     useContext(contexto);
 
   const handleSumar = () => {
@@ -25,7 +25,7 @@ function ItemCount({ product }) {
   const handleConfirmar = () => {
     agregarProducto(contador, product);
     addProduct(contador, product);
-    calcularTotal();
+
     console.log(total);
   };
 

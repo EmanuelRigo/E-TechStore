@@ -7,21 +7,16 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 
 import ItemList from "./ItemList";
-import Navbarbookshop from "./Navbarbookshop";
 
 function ItemListContainer() {
   const { navbarCategoryFunction } = useContext(contexto);
   const [bookdata, setBookdata] = useState([]);
-  const [navBarCategory, setNavbarCategory] = useState([]);
-  const [filteredBookdata, setFilteredBookdata] = useState([]);
-  const [categoriaFromParams, setCategoriaFromParams] = useState(null);
 
   const { categoria } = useParams();
 
   const category = useParams();
 
   useEffect(() => {
-    setCategoriaFromParams(categoria);
     axios
       .get("https://api.escuelajs.co/api/v1/products")
       .then((res) => {
@@ -31,7 +26,6 @@ function ItemListContainer() {
           );
 
           setBookdata(filtrado);
-
           navbarCategoryFunction(res.data);
         } else {
           setBookdata(res.data);

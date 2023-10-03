@@ -11,14 +11,10 @@ function Cart() {
     incrementarCantidad,
     calcularTotal,
     total,
+    decrementarCantidad,
   } = useContext(contexto);
 
   console.log(total);
-
-  useEffect(() => {
-    calcularTotal();
-    console.log(calcularTotal());
-  }, [carrito]);
 
   const handleClick = (id) => () => eliminarProducto(id);
   console.log(carrito);
@@ -40,9 +36,9 @@ function Cart() {
                 <button onClick={() => incrementarCantidad(item.id)}>
                   Sumar
                 </button>
-                {/*                 <button onClick={() => decrementarCantidad(item.id)}>
+                <button onClick={() => decrementarCantidad(item.id)}>
                   Restar
-                </button> */}
+                </button>
                 <p>{item.cantidad} </p>
                 <button onClick={handleClick(item.id)}>eliminar</button>
               </div>

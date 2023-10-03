@@ -29,6 +29,11 @@ const CustomProvider = ({ children }) => {
     localStorage.setItem("totalProductos", totalProductos.toString());
   }, [totalProductos]);
 
+  useEffect(() => {
+    calcularTotal();
+    console.log(calcularTotal());
+  }, [carrito]);
+
   const addProduct = (contador, product) => {
     setProductAdded({ ...product, contador });
   };
@@ -37,6 +42,15 @@ const CustomProvider = ({ children }) => {
     const nuevosProductos = carrito.map((producto) =>
       producto.id === id
         ? { ...producto, cantidad: producto.cantidad + 1 }
+        : producto
+    );
+    setCarrito(nuevosProductos);
+  };
+
+  const decrementarCantidad = (id) => {
+    const nuevosProductos = carrito.map((producto) =>
+      producto.id === id && producto.cantidad > 0
+        ? { ...producto, cantidad: producto.cantidad - 1 }
         : producto
     );
     setCarrito(nuevosProductos);
@@ -86,19 +100,16 @@ const CustomProvider = ({ children }) => {
     setNavbarCategory(item);
   };
 
-  const sumaredad = () => {
-    setTotalProductos(totalProductos + 1);
-  };
+  ////FUNCIONES PARA BUSCAR////
+  const [inputValue, setInputValue] = useState("");
 
-  const restaredad = () => {
-    setTotalProductos(totalProductos - 1);
+  const funcionBuscar = (array, inputValue) => {
+    return array.filter((item) => item.includes(inputValue));
   };
 
   const valorDelContexto = {
     carrito: carrito,
     totalProductos: totalProductos,
-    sumaredad: sumaredad,
-    restaredad: restaredad,
     navbarCategoryFunction: navbarCategoryFunction,
     navBarCategory: navBarCategory,
     agregarProducto: agregarProducto,
@@ -110,6 +121,8 @@ const CustomProvider = ({ children }) => {
     incrementarCantidad: incrementarCantidad,
     calcularTotal: calcularTotal,
     total: total,
+    decrementarCantidad: decrementarCantidad,
+    funcionBuscar: funcionBuscar,
   };
 
   return <Provider value={valorDelContexto}>{children}</Provider>;

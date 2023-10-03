@@ -13,33 +13,30 @@ import "../stylesheets/Navbarbookshop.css";
 
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { contexto } from "./CustomProvider";
 
 function Navbarbookshop() {
   const { navBarCategory } = useContext(contexto);
 
+  ///////////////
+  const [valor, setValor] = useState("");
+
+  // Función para manejar eventos onChange
+  const handleOnChange = (e) => {
+    const nuevoValor = e.target.value;
+    setValor(nuevoValor);
+  };
+  /////////////////
+
+  useEffect(() => {
+    console.log(valor);
+  }, [valor]);
+
   const uniqueCategories = [
     ...new Set(navBarCategory.map((product) => product.category.name)),
   ];
 
-  const { totalProductos } = useContext(contexto);
-
-  /* return  (
-    <div>
-      <label htmlFor="categorySelect">Selecciona una categoría:</label>
-      <select id="categorySelect">
-        <option value="">Todas las categorías</option>
-        {uniqueCategories.map((category) => (
-          <option>
-            <Link key={category} value={category} to={`/categoria/${category}`}>
-              {category}
-            </Link>
-          </option>
-        ))}
-      </select>
-    </div>
-  ); */
   return (
     <Navbar
       bg="danger"
@@ -57,6 +54,7 @@ function Navbarbookshop() {
             placeholder="buscar"
             aria-label="Small"
             aria-describedby="inputGroup-sizing-sm"
+            onChange={handleOnChange}
           />
         </div>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
