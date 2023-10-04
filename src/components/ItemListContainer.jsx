@@ -32,7 +32,7 @@ function ItemListContainer() {
       })
 
       .catch((err) => console.log(err));
-  }, [category]);
+  }, [category.categoria]);
 
   return (
     <div>

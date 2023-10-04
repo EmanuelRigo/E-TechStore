@@ -33,14 +33,16 @@ const CustomProvider = ({ children }) => {
 
   useEffect(() => {
     calcularTotal();
-    console.log(calcularTotal());
   }, [carrito]);
 
   ////FUNCION PARA CONSEGUIR DATOS////
 
   const [bookdata, setBookdata] = useState([]);
+  const [category, setCategory] = useState({});
 
-  const category = useParams();
+  const paramsFunction = (item) => {
+    setCategory(item);
+  };
 
   useEffect(() => {
     axios
@@ -50,7 +52,6 @@ const CustomProvider = ({ children }) => {
           const filtrado = res.data.filter(
             (product) => product.category.name === category.categoria
           );
-
           setBookdata(filtrado);
           navbarCategoryFunction(res.data);
         } else {
@@ -61,8 +62,6 @@ const CustomProvider = ({ children }) => {
 
       .catch((err) => console.log(err));
   }, [category.categoria]);
-
-  console.log(bookdata);
 
   ////////////////////////////////////
 
@@ -133,12 +132,18 @@ const CustomProvider = ({ children }) => {
   };
 
   ////FUNCIONES PARA BUSCAR////
+
   const [inputValue, setInputValue] = useState("");
 
-  const funcionBuscar = (array, inputValue) => {
-    return array.filter((item) => item.includes(inputValue));
+  const funcionBuscar = () => {
+    const filtrado = bookdata.filter((item) =>
+      item.title.toLowerCase().includes(inputValue.toLowerCase())
+    );
+    console.log(filtrado);
+    return bookdata;
   };
 
+  /////////////////////////////
   const valorDelContexto = {
     carrito: carrito,
     totalProductos: totalProductos,
@@ -156,6 +161,9 @@ const CustomProvider = ({ children }) => {
     decrementarCantidad: decrementarCantidad,
     funcionBuscar: funcionBuscar,
     bookdata: bookdata,
+    setCategory: setCategory,
+    paramsFunction: paramsFunction,
+    setInputValue: setInputValue,
   };
 
   return <Provider value={valorDelContexto}>{children}</Provider>;

@@ -17,21 +17,14 @@ import { useContext, useEffect, useState } from "react";
 import { contexto } from "./CustomProvider";
 
 function Navbarbookshop() {
-  const { navBarCategory } = useContext(contexto);
+  const { navBarCategory, funcionBuscar, setInputValue } = useContext(contexto);
 
   ///////////////
-  const [valor, setValor] = useState("");
-
-  // Función para manejar eventos onChange
-  const handleOnChange = (e) => {
+  const handleOnChangeNavBar = (e) => {
     const nuevoValor = e.target.value;
-    setValor(nuevoValor);
+    setInputValue(nuevoValor);
   };
   /////////////////
-
-  useEffect(() => {
-    console.log(valor);
-  }, [valor]);
 
   const uniqueCategories = [
     ...new Set(navBarCategory.map((product) => product.category.name)),
@@ -54,8 +47,11 @@ function Navbarbookshop() {
             placeholder="buscar"
             aria-label="Small"
             aria-describedby="inputGroup-sizing-sm"
-            onChange={handleOnChange}
+            onChange={handleOnChangeNavBar}
           />
+          <Link to={"/"} onClick={funcionBuscar}>
+            buscar
+          </Link>
         </div>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -72,15 +68,6 @@ function Navbarbookshop() {
                   {category}
                 </Link>
               ))}
-              {/*              <Link to="/categoria/aventura" className="dropdown-item">
-                Aventura
-              </Link>
-              <Link to="/categoria/terror" className="dropdown-item">
-                terror
-              </Link>{" "}
-              <Link to="/categoria/ciencia" className="dropdown-item">
-                ciencia
-              </Link> */}
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">
                 Separated link

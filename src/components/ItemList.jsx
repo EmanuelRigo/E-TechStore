@@ -4,8 +4,11 @@ import Item from "./Item";
 import { contexto } from "./CustomProvider"; //
 import { useContext } from "react"; //
 
-function ItemList({ book }) {
-  const { bookdata } = useContext(contexto);
+function ItemList() {
+  const { bookdata, paramsFunction, setCategory } = useContext(contexto);
+
+  const parametro = useParams();
+  paramsFunction(parametro);
 
   return (
     <div>
