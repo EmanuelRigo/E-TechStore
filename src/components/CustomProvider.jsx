@@ -13,6 +13,7 @@ export const useCart = () => {
 const CustomProvider = ({ children }) => {
   const [navBarCategory, setNavbarCategory] = useState([]);
   const [productAdded, setProductAdded] = useState({});
+  const [valorcambio, setValorCambio] = useState(0);
 
   const [carrito, setCarrito] = useState(
     JSON.parse(localStorage.getItem("carrito")) || []
@@ -22,6 +23,7 @@ const CustomProvider = ({ children }) => {
   );
 
   const [total, setTotal] = useState(0);
+  const [inputValue, setInputValue] = useState("");
 
   useEffect(() => {
     localStorage.setItem("carrito", JSON.stringify(carrito));
@@ -38,6 +40,7 @@ const CustomProvider = ({ children }) => {
   ////FUNCION PARA CONSEGUIR DATOS////
 
   const [bookdata, setBookdata] = useState([]);
+  const [bookdataFiltrado, setBookdataFiltrado] = useState();
   const [category, setCategory] = useState({});
 
   const paramsFunction = (item) => {
@@ -61,9 +64,23 @@ const CustomProvider = ({ children }) => {
       })
 
       .catch((err) => console.log(err));
-  }, [category.categoria]);
+  }, [category.categoria, valorcambio]);
 
   ////////////////////////////////////
+
+  ////FUNCIONES PARA BUSCAR////
+
+  const funcionBuscar = () => {
+    setValorCambio(+1);
+    console.log(valorcambio);
+    const filtradoBuscar = bookdata.filter((item) =>
+      item.title.toLowerCase().includes(inputValue.toLowerCase())
+    );
+
+    setBookdata(filtradoBuscar);
+  };
+
+  /////////////////////////////
 
   const addProduct = (contador, product) => {
     setProductAdded({ ...product, contador });
@@ -131,19 +148,6 @@ const CustomProvider = ({ children }) => {
     setNavbarCategory(item);
   };
 
-  ////FUNCIONES PARA BUSCAR////
-
-  const [inputValue, setInputValue] = useState("");
-
-  const funcionBuscar = () => {
-    const filtrado = bookdata.filter((item) =>
-      item.title.toLowerCase().includes(inputValue.toLowerCase())
-    );
-    console.log(filtrado);
-    return bookdata;
-  };
-
-  /////////////////////////////
   const valorDelContexto = {
     carrito: carrito,
     totalProductos: totalProductos,
@@ -164,6 +168,7 @@ const CustomProvider = ({ children }) => {
     setCategory: setCategory,
     paramsFunction: paramsFunction,
     setInputValue: setInputValue,
+    inputValue: inputValue,
   };
 
   return <Provider value={valorDelContexto}>{children}</Provider>;

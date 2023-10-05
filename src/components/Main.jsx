@@ -23,6 +23,7 @@ function Main() {
           path="/categoria/:categoria"
           element={<ItemList></ItemList>}
         ></Route>
+
         <Route
           path="/item/:id"
           element={<ItemDetailContainer></ItemDetailContainer>}

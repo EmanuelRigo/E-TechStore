@@ -17,7 +17,8 @@ import { useContext, useEffect, useState } from "react";
 import { contexto } from "./CustomProvider";
 
 function Navbarbookshop() {
-  const { navBarCategory, funcionBuscar, setInputValue } = useContext(contexto);
+  const { navBarCategory, funcionBuscar, setInputValue, inputValue } =
+    useContext(contexto);
 
   ///////////////
   const handleOnChangeNavBar = (e) => {
@@ -49,7 +50,7 @@ function Navbarbookshop() {
             aria-describedby="inputGroup-sizing-sm"
             onChange={handleOnChangeNavBar}
           />
-          <Link to={"/"} onClick={funcionBuscar}>
+          <Link to={`?busqueda=${inputValue} `} onClick={funcionBuscar}>
             buscar
           </Link>
         </div>
