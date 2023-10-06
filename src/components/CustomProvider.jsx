@@ -13,7 +13,7 @@ export const useCart = () => {
 const CustomProvider = ({ children }) => {
   const [navBarCategory, setNavbarCategory] = useState([]);
   const [productAdded, setProductAdded] = useState({});
-  const [valorcambio, setValorCambio] = useState(0);
+  const [valorcambio, setValorCambio] = useState(1);
 
   const [carrito, setCarrito] = useState(
     JSON.parse(localStorage.getItem("carrito")) || []
@@ -48,6 +48,9 @@ const CustomProvider = ({ children }) => {
   };
 
   useEffect(() => {
+
+    console.log("hola")
+    console.log(valorcambio)
     axios
       .get("https://api.escuelajs.co/api/v1/products")
       .then((res) => {
@@ -62,16 +65,15 @@ const CustomProvider = ({ children }) => {
           navbarCategoryFunction(res.data);
         }
       })
-
       .catch((err) => console.log(err));
-  }, [category.categoria, valorcambio]);
+  }, [category.categoria]);
 
   ////////////////////////////////////
 
   ////FUNCIONES PARA BUSCAR////
 
   const funcionBuscar = () => {
-    setValorCambio(+1);
+    setValorCambio( valorcambio + 1);
     console.log(valorcambio);
     const filtradoBuscar = bookdata.filter((item) =>
       item.title.toLowerCase().includes(inputValue.toLowerCase())
