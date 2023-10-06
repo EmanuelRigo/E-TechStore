@@ -50,7 +50,7 @@ function Navbarbookshop() {
             aria-describedby="inputGroup-sizing-sm"
             onChange={handleOnChangeNavBar}
           />
-          <Link to={`?busqueda=${inputValue} `} onClick={funcionBuscar}>
+          <Link to={`?busqueda=${inputValue} `} >
             buscar
           </Link>
         </div>

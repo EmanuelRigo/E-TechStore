@@ -1,24 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useParams, useLocation } from "react-router-dom";
 import Item from "./Item";
 import { contexto } from "./CustomProvider"; //
 import { useContext } from "react"; //
 
 
+
 function ItemList() {
+
+const { bookdata, paramsFunction, setCategory,setValorBusqueda } = useContext(contexto);
 
   //////
   const { categoria } = useParams();
   const { search } = useLocation();
   const params = new URLSearchParams(search);
-  const busqueda = params.get('busqueda');
+
+  const busqueda = params.get('busqueda'); 
+  setValorBusqueda(busqueda)
+
+
   //////
 
 
-  const { bookdata, paramsFunction, setCategory } = useContext(contexto);
+  
 
   const parametro = useParams();
-  console.log(parametro)
+
   paramsFunction(parametro);
 
   return (

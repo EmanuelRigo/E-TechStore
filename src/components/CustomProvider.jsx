@@ -1,6 +1,7 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { computeHeadingLevel } from "@testing-library/react";
 
 export const contexto = createContext();
 const Provider = contexto.Provider;
@@ -14,6 +15,8 @@ const CustomProvider = ({ children }) => {
   const [navBarCategory, setNavbarCategory] = useState([]);
   const [productAdded, setProductAdded] = useState({});
   const [valorcambio, setValorCambio] = useState(1);
+  const [valorbusqueda, setValorBusqueda] = useState()
+
 
   const [carrito, setCarrito] = useState(
     JSON.parse(localStorage.getItem("carrito")) || []
@@ -49,8 +52,7 @@ const CustomProvider = ({ children }) => {
 
   useEffect(() => {
 
-    console.log("hola")
-    console.log(valorcambio)
+
     axios
       .get("https://api.escuelajs.co/api/v1/products")
       .then((res) => {
@@ -60,23 +62,26 @@ const CustomProvider = ({ children }) => {
           );
           setBookdata(filtrado);
           navbarCategoryFunction(res.data);
+          if(valorbusqueda){funcionBuscar()} else {console.log("no esta")}
+          console.log(valorbusqueda)
+         
         } else {
           setBookdata(res.data);
           navbarCategoryFunction(res.data);
+          if(valorbusqueda){funcionBuscar()} else {console.log("no esta")}
+          console.log(valorbusqueda)
         }
       })
       .catch((err) => console.log(err));
-  }, [category.categoria]);
+  }, [category.categoria, valorbusqueda]);
 
   ////////////////////////////////////
 
   ////FUNCIONES PARA BUSCAR////
 
   const funcionBuscar = () => {
-    setValorCambio( valorcambio + 1);
-    console.log(valorcambio);
     const filtradoBuscar = bookdata.filter((item) =>
-      item.title.toLowerCase().includes(inputValue.toLowerCase())
+      item.title.toLowerCase().includes(valorbusqueda.toLowerCase())
     );
 
     setBookdata(filtradoBuscar);
@@ -150,6 +155,7 @@ const CustomProvider = ({ children }) => {
     setNavbarCategory(item);
   };
 
+
   const valorDelContexto = {
     carrito: carrito,
     totalProductos: totalProductos,
@@ -171,6 +177,7 @@ const CustomProvider = ({ children }) => {
     paramsFunction: paramsFunction,
     setInputValue: setInputValue,
     inputValue: inputValue,
+    setValorBusqueda: setValorBusqueda
   };
 
   return <Provider value={valorDelContexto}>{children}</Provider>;
