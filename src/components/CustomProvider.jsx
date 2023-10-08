@@ -59,19 +59,24 @@ const CustomProvider = ({ children }) => {
         if (category.categoria) {
           const filtrado = res.data.filter(
             (product) => product.category.name === category.categoria
-          );
+          )
+          if(valorbusqueda){
+            const filtradoBuscar = filtrado.filter((item) =>
+            item.title.toLowerCase().includes(valorbusqueda.toLowerCase()))
+          setBookdata(filtradoBuscar)
+          navbarCategoryFunction(res.data)
+        } else {console.log("no esta")
+           console.log(valorbusqueda)
           setBookdata(filtrado);
-          navbarCategoryFunction(res.data);
-          if(valorbusqueda){funcionBuscar()} else {console.log("no esta")}
-          console.log(valorbusqueda)
-         
+          navbarCategoryFunction(res.data)}    
         } else {
           setBookdata(res.data);
           navbarCategoryFunction(res.data);
           if(valorbusqueda){funcionBuscar()} else {console.log("no esta")}
-          console.log(valorbusqueda)
+      
         }
       })
+     
       .catch((err) => console.log(err));
   }, [category.categoria, valorbusqueda]);
 
