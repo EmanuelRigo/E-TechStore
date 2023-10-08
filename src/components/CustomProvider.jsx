@@ -15,8 +15,7 @@ const CustomProvider = ({ children }) => {
   const [navBarCategory, setNavbarCategory] = useState([]);
   const [productAdded, setProductAdded] = useState({});
   const [valorcambio, setValorCambio] = useState(1);
-  const [valorbusqueda, setValorBusqueda] = useState()
-
+  const [valorbusqueda, setValorBusqueda] = useState();
 
   const [carrito, setCarrito] = useState(
     JSON.parse(localStorage.getItem("carrito")) || []
@@ -51,32 +50,41 @@ const CustomProvider = ({ children }) => {
   };
 
   useEffect(() => {
-
-
     axios
       .get("https://api.escuelajs.co/api/v1/products")
       .then((res) => {
         if (category.categoria) {
           const filtrado = res.data.filter(
             (product) => product.category.name === category.categoria
-          )
-          if(valorbusqueda){
+          );
+          if (valorbusqueda) {
             const filtradoBuscar = filtrado.filter((item) =>
-            item.title.toLowerCase().includes(valorbusqueda.toLowerCase()))
-          setBookdata(filtradoBuscar)
-          navbarCategoryFunction(res.data)
-        } else {console.log("no esta")
-           console.log(valorbusqueda)
-          setBookdata(filtrado);
-          navbarCategoryFunction(res.data)}    
+              item.title.toLowerCase().includes(valorbusqueda.toLowerCase())
+            );
+            setBookdata(filtradoBuscar);
+            navbarCategoryFunction(res.data);
+          } else {
+            console.log("no esta");
+            console.log(valorbusqueda);
+            setBookdata(filtrado);
+            navbarCategoryFunction(res.data);
+          }
         } else {
-          setBookdata(res.data);
-          navbarCategoryFunction(res.data);
-          if(valorbusqueda){funcionBuscar()} else {console.log("no esta")}
-      
+          if (valorbusqueda) {
+            const filtradoBuscar = res.data.filter((item) =>
+              item.title.toLowerCase().includes(valorbusqueda.toLowerCase())
+            );
+            setBookdata(filtradoBuscar);
+            navbarCategoryFunction(res.data);
+          } else {
+            console.log("no esta");
+            console.log(valorbusqueda);
+            setBookdata(res.data);
+            navbarCategoryFunction(res.data);
+          }
         }
       })
-     
+
       .catch((err) => console.log(err));
   }, [category.categoria, valorbusqueda]);
 
@@ -160,7 +168,6 @@ const CustomProvider = ({ children }) => {
     setNavbarCategory(item);
   };
 
-
   const valorDelContexto = {
     carrito: carrito,
     totalProductos: totalProductos,
@@ -182,7 +189,7 @@ const CustomProvider = ({ children }) => {
     paramsFunction: paramsFunction,
     setInputValue: setInputValue,
     inputValue: inputValue,
-    setValorBusqueda: setValorBusqueda
+    setValorBusqueda: setValorBusqueda,
   };
 
   return <Provider value={valorDelContexto}>{children}</Provider>;
