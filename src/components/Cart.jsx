@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { contexto } from "./CustomProvider";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 
 function Cart() {
   const {
@@ -47,6 +48,7 @@ function Cart() {
         );
       })}
       <button onClick={vaciarCarrito}>vaciar carrito</button>
+      <Link to="/confirmAddress">continuar</Link>
     </>
   );
 }
