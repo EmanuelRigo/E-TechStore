@@ -168,6 +168,26 @@ const CustomProvider = ({ children }) => {
     setNavbarCategory(item);
   };
 
+  /////////CONSTRUCTOR DE CLIENTES/////////
+
+  class Client {
+    constructor(compras, datosEnvio, formasDePago, estaPagado) {
+      this.compras = compras;
+      this.datosEnvio = datosEnvio;
+      this.formasDePago = formasDePago;
+      this.estaPagado = estaPagado;
+    }
+  }
+
+  const [addressInfo, setAddressInfo] = useState({});
+
+  console.log(addressInfo);
+
+  const cliente = new Client(carrito, addressInfo, "Programador");
+
+  console.log(cliente);
+  ////////////////////////////////////////
+
   const valorDelContexto = {
     carrito: carrito,
     totalProductos: totalProductos,
@@ -190,6 +210,8 @@ const CustomProvider = ({ children }) => {
     setInputValue: setInputValue,
     inputValue: inputValue,
     setValorBusqueda: setValorBusqueda,
+    setAddressInfo: setAddressInfo,
+    cliente: cliente,
   };
 
   return <Provider value={valorDelContexto}>{children}</Provider>;

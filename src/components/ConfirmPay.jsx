@@ -1,10 +1,12 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 function ConfirmPay() {
   return (
-    <div>ConfirmPay
-    <Link to={"/showDetails"}>continuar</Link></div>
-  )
+    <div>
+      ConfirmPay
+      <Link to={"/showDetails"}>continuar</Link>
+    </div>
+  );
 }
 
-export default ConfirmPay
+export default ConfirmPay;
