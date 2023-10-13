@@ -16,8 +16,6 @@ function ConfirmAddress() {
   const [telefono, setTelefono] = useState("");
 
   const [linkHabilitado, setLinkHabilitado] = useState(false);
-  console.log(linkHabilitado);
-
   class AdressClient {
     constructor(name, surname, dni, address, city, country, postalCode, phone) {
       this.name = name;
@@ -41,7 +39,6 @@ function ConfirmAddress() {
     codigoPostal,
     telefono
   );
-  console.log(addressData);
 
   const handleContinue = () => {
     if (
@@ -58,6 +55,7 @@ function ConfirmAddress() {
       setLinkHabilitado(true);
     } else {
       alert("Por favor, complete todos los campos obligatorios.");
+      console.log("object");
     }
   };
 

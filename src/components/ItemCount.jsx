@@ -25,8 +25,6 @@ function ItemCount({ product }) {
   const handleConfirmar = () => {
     agregarProducto(contador, product);
     addProduct(contador, product);
-
-    console.log(total);
   };
 
   return (

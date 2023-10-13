@@ -15,10 +15,7 @@ function Cart() {
     decrementarCantidad,
   } = useContext(contexto);
 
-  console.log(total);
-
   const handleClick = (id) => () => eliminarProducto(id);
-  console.log(carrito);
   return (
     <>
       {carrito.map((item) => {

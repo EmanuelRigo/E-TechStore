@@ -64,8 +64,6 @@ const CustomProvider = ({ children }) => {
             setBookdata(filtradoBuscar);
             navbarCategoryFunction(res.data);
           } else {
-            console.log("no esta");
-            console.log(valorbusqueda);
             setBookdata(filtrado);
             navbarCategoryFunction(res.data);
           }
@@ -77,8 +75,6 @@ const CustomProvider = ({ children }) => {
             setBookdata(filtradoBuscar);
             navbarCategoryFunction(res.data);
           } else {
-            console.log("no esta");
-            console.log(valorbusqueda);
             setBookdata(res.data);
             navbarCategoryFunction(res.data);
           }
@@ -180,12 +176,12 @@ const CustomProvider = ({ children }) => {
   }
 
   const [addressInfo, setAddressInfo] = useState({});
+  const [payInfo, setPayInfo] = useState({});
 
-  console.log(addressInfo);
-
-  const cliente = new Client(carrito, addressInfo, "Programador");
+  const cliente = new Client(carrito, addressInfo, payInfo);
 
   console.log(cliente);
+
   ////////////////////////////////////////
 
   const valorDelContexto = {
@@ -212,6 +208,7 @@ const CustomProvider = ({ children }) => {
     setValorBusqueda: setValorBusqueda,
     setAddressInfo: setAddressInfo,
     cliente: cliente,
+    setPayInfo: setPayInfo,
   };
 
   return <Provider value={valorDelContexto}>{children}</Provider>;
