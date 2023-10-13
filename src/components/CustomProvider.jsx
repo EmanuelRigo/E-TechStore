@@ -182,6 +182,16 @@ const CustomProvider = ({ children }) => {
 
   console.log(cliente);
 
+  const [usuarios, setUsuarios] = useState([]);
+
+  console.log(usuarios);
+
+  const sumarUsuario = () => {
+    let copia = [...usuarios];
+    copia.push(new Client(carrito, addressInfo, payInfo, true));
+    setUsuarios(copia);
+  };
+  console.log(usuarios);
   ////////////////////////////////////////
 
   const valorDelContexto = {
@@ -209,6 +219,7 @@ const CustomProvider = ({ children }) => {
     setAddressInfo: setAddressInfo,
     cliente: cliente,
     setPayInfo: setPayInfo,
+    sumarUsuario: sumarUsuario,
   };
 
   return <Provider value={valorDelContexto}>{children}</Provider>;

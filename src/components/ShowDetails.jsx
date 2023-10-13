@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { contexto } from "./CustomProvider";
 
 function ShowDetails() {
-  const { cliente } = useContext(contexto);
+  const { cliente, sumarUsuario } = useContext(contexto);
   console.log(cliente);
 
   return (
@@ -20,7 +20,9 @@ function ShowDetails() {
           </p>
         );
       })}
-      <Link to={"/buy"}>confirmar compra</Link>
+      <Link onClick={sumarUsuario} to={"/buy"}>
+        confirmar compra
+      </Link>
     </div>
   );
 }
