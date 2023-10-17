@@ -1,13 +1,19 @@
 
 import { initializeApp } from "firebase/app";
 
+import { getFirestore } from "firebase/firestore"
+
 const firebaseConfig = {
-  apiKey: "AIzaSyDoonMdMRvUwRIKkcFf-RQhEl8JrWN0ho8",
-  authDomain: "bookshop-f99b0.firebaseapp.com",
-  projectId: "bookshop-f99b0",
-  storageBucket: "bookshop-f99b0.appspot.com",
-  messagingSenderId: "318273551194",
-  appId: "1:318273551194:web:74253793eebbe9c0299163"
+  apiKey: "AIzaSyChVy5oJkAha6Fc0_Pjl5EuKG1J54gCTAc",
+  authDomain: "e-techstore.firebaseapp.com",
+  projectId: "e-techstore",
+  storageBucket: "e-techstore.appspot.com",
+  messagingSenderId: "555171855236",
+  appId: "1:555171855236:web:355983acb5aa262692bbd1"
 };
 
+
 const app = initializeApp(firebaseConfig);
+export const db = getFirestore(app)
+
+console.log(db)

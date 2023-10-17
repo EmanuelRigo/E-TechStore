@@ -3,6 +3,9 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { computeHeadingLevel } from "@testing-library/react";
 
+import { db } from "../firebase";
+import { collection, getDocs } from "firebase/firestore";
+
 export const contexto = createContext();
 const Provider = contexto.Provider;
 
@@ -38,6 +41,24 @@ const CustomProvider = ({ children }) => {
   useEffect(() => {
     calcularTotal();
   }, [carrito]);
+
+  /////////PEDIDO A FIRESTORE////////
+
+  const productosCollection = collection(db, "products");
+  const pedidoFireStore = getDocs(productosCollection);
+
+  pedidoFireStore
+    .then((res) => {
+      res.docs.forEach((doc) => {
+        console.log(doc.data());
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  console.log(productosCollection);
+
+  //////////////////////////////////
 
   ////FUNCION PARA CONSEGUIR DATOS////
 
