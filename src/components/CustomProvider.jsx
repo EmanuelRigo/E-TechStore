@@ -44,24 +44,6 @@ const CustomProvider = ({ children }) => {
 
   /////////PEDIDO A FIRESTORE////////
 
-  const productosCollection = collection(db, "products");
-  const pedidoFireStore = getDocs(productosCollection);
-
-  pedidoFireStore
-    .then((res) => {
-      res.docs.forEach((doc) => {
-        console.log(doc.data());
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-  console.log(productosCollection);
-
-  //////////////////////////////////
-
-  ////FUNCION PARA CONSEGUIR DATOS////
-
   const [bookdata, setBookdata] = useState([]);
   const [bookdataFiltrado, setBookdataFiltrado] = useState();
   const [category, setCategory] = useState({});
@@ -69,6 +51,32 @@ const CustomProvider = ({ children }) => {
   const paramsFunction = (item) => {
     setCategory(item);
   };
+
+  const productosCollection = collection(db, "products");
+  const pedidoFireStore = getDocs(productosCollection);
+
+  useEffect(() => {
+    const documentosArray = [];
+
+    pedidoFireStore
+      .then((res) => {
+        res.docs.forEach((doc) => {
+          documentosArray.push(doc.data());
+        });
+        console.log(documentosArray);
+      })
+
+      .catch((err) => {
+        console.log(err);
+      });
+    console.log(productosCollection);
+
+    console.log("hola");
+  }, [category.categoria, valorbusqueda]);
+
+  //////////////////////////////////
+
+  ////FUNCION PARA CONSEGUIR DATOS////
 
   useEffect(() => {
     axios
