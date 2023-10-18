@@ -4,27 +4,32 @@ import { useState, useEffect } from "react";
 
 import axios from "axios";
 import ItemDetail from "./ItemDetail";
+import { collection, doc, getDoc } from "firebase/firestore";
+import { db } from "../firebase";
 
 function ItemDetailContainer() {
   const [bookdata, setBookdata] = useState([]);
-  const params = useParams();
+  const { id } = useParams();
   const [product, setProduct] = useState({});
 
-  useEffect(() => {
-    axios
-      .get("https://api.escuelajs.co/api/v1/products")
-      .then((res) => {
-        setBookdata(res.data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+  console.log(id);
 
   useEffect(() => {
-    const foundProduct = bookdata.find(
-      (product) => product.id === parseInt(params.id)
-    );
-    setProduct(foundProduct);
-  }, [bookdata]);
+    const productosCollection = collection(db, "products");
+    const referencia = doc(productosCollection, id);
+    const pedido = getDoc(referencia);
+    console.log(pedido);
+
+    pedido
+      .then((res) => {
+        const producto = { ...res.data(), id: res.id };
+        setProduct(producto);
+        console.log(producto);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <div>

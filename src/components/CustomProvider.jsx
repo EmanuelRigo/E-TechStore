@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { computeHeadingLevel } from "@testing-library/react";
 
 import { db } from "../firebase";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 
 export const contexto = createContext();
 const Provider = contexto.Provider;
@@ -53,7 +53,12 @@ const CustomProvider = ({ children }) => {
   };
 
   const productosCollection = collection(db, "products");
-  const pedidoFireStore = getDocs(productosCollection);
+
+  const filtro = query(
+    productosCollection,
+    where("category.name", "==", "computers")
+  );
+  const pedidoFireStore = getDocs(filtro);
 
   useEffect(() => {
     pedidoFireStore
@@ -63,12 +68,6 @@ const CustomProvider = ({ children }) => {
           id: doc.id,
         }));
         console.log(documentosArray);
-        /* res.docs.forEach((doc) => {
-          const productoFirestore = { ...doc.data(), id: doc.id };
-
-          console.log(productoFirestore);
-          documentosArray.push(productoFirestore);
-        }); */
         if (category.categoria) {
           const filtrado = documentosArray.filter(
             (product) => product.category.name === category.categoria
