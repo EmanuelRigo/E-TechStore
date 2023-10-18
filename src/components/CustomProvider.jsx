@@ -56,13 +56,19 @@ const CustomProvider = ({ children }) => {
   const pedidoFireStore = getDocs(productosCollection);
 
   useEffect(() => {
-    const documentosArray = [];
-
     pedidoFireStore
       .then((res) => {
-        res.docs.forEach((doc) => {
-          documentosArray.push(doc.data());
-        });
+        const documentosArray = res.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
+        console.log(documentosArray);
+        /* res.docs.forEach((doc) => {
+          const productoFirestore = { ...doc.data(), id: doc.id };
+
+          console.log(productoFirestore);
+          documentosArray.push(productoFirestore);
+        }); */
         if (category.categoria) {
           const filtrado = documentosArray.filter(
             (product) => product.category.name === category.categoria
@@ -93,9 +99,6 @@ const CustomProvider = ({ children }) => {
       .catch((err) => {
         console.log(err);
       });
-    console.log(productosCollection);
-
-    console.log("hola");
   }, [category.categoria, valorbusqueda]);
 
   //////////////////////////////////
@@ -233,18 +236,13 @@ const CustomProvider = ({ children }) => {
 
   const cliente = new Client(carrito, addressInfo, payInfo);
 
-  console.log(cliente);
-
   const [usuarios, setUsuarios] = useState([]);
-
-  console.log(usuarios);
 
   const sumarUsuario = () => {
     let copia = [...usuarios];
     copia.push(new Client(carrito, addressInfo, payInfo, true));
     setUsuarios(copia);
   };
-  console.log(usuarios);
   ////////////////////////////////////////
 
   const valorDelContexto = {
