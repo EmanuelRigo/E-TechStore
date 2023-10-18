@@ -63,7 +63,10 @@ const CustomProvider = ({ children }) => {
         res.docs.forEach((doc) => {
           documentosArray.push(doc.data());
         });
+
+        setBookdata(documentosArray);
         console.log(documentosArray);
+        navbarCategoryFunction(documentosArray);
       })
 
       .catch((err) => {

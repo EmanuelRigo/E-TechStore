@@ -4,25 +4,20 @@ import Item from "./Item";
 import { contexto } from "./CustomProvider"; //
 import { useContext } from "react"; //
 
-
-
 function ItemList() {
-
-const { bookdata, paramsFunction, setCategory,setValorBusqueda } = useContext(contexto);
+  const { bookdata, paramsFunction, setCategory, setValorBusqueda } =
+    useContext(contexto);
 
   //////
+
   const { categoria } = useParams();
   const { search } = useLocation();
   const params = new URLSearchParams(search);
 
-  const busqueda = params.get('busqueda'); 
-  setValorBusqueda(busqueda)
-
+  const busqueda = params.get("busqueda");
+  setValorBusqueda(busqueda);
 
   //////
-
-
-  
 
   const parametro = useParams();
 
@@ -30,11 +25,15 @@ const { bookdata, paramsFunction, setCategory,setValorBusqueda } = useContext(co
 
   return (
     <div>
-       <div>
-      <h1>Categoría: {categoria}</h1>
-      {busqueda ? <p>Búsqueda: {busqueda}</p> : <p>No hay término de búsqueda.</p>}
-      {/* Resto de tu componente */}
-    </div>
+      <div>
+        <h1>Categoría: {categoria}</h1>
+        {busqueda ? (
+          <p>Búsqueda: {busqueda}</p>
+        ) : (
+          <p>No hay término de búsqueda.</p>
+        )}
+        {/* Resto de tu componente */}
+      </div>
       {bookdata.map((item) => {
         return <Item producto={item} key={item.id}></Item>;
       })}
