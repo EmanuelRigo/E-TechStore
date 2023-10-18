@@ -63,12 +63,33 @@ const CustomProvider = ({ children }) => {
         res.docs.forEach((doc) => {
           documentosArray.push(doc.data());
         });
-
-        setBookdata(documentosArray);
-        console.log(documentosArray);
-        navbarCategoryFunction(documentosArray);
+        if (category.categoria) {
+          const filtrado = documentosArray.filter(
+            (product) => product.category.name === category.categoria
+          );
+          if (valorbusqueda) {
+            const filtradoBuscar = filtrado.filter((item) =>
+              item.title.toLowerCase().includes(valorbusqueda.toLowerCase())
+            );
+            setBookdata(filtradoBuscar);
+            navbarCategoryFunction(documentosArray);
+          } else {
+            setBookdata(filtrado);
+            navbarCategoryFunction(documentosArray);
+          }
+        } else {
+          if (valorbusqueda) {
+            const filtradoBuscar = documentosArray.filter((item) =>
+              item.title.toLowerCase().includes(valorbusqueda.toLowerCase())
+            );
+            setBookdata(filtradoBuscar);
+            navbarCategoryFunction(documentosArray);
+          } else {
+            setBookdata(documentosArray);
+            navbarCategoryFunction(documentosArray);
+          }
+        }
       })
-
       .catch((err) => {
         console.log(err);
       });
@@ -81,7 +102,7 @@ const CustomProvider = ({ children }) => {
 
   ////FUNCION PARA CONSEGUIR DATOS////
 
-  useEffect(() => {
+  /*  useEffect(() => {
     axios
       .get("https://api.escuelajs.co/api/v1/products")
       .then((res) => {
@@ -114,7 +135,7 @@ const CustomProvider = ({ children }) => {
       })
 
       .catch((err) => console.log(err));
-  }, [category.categoria, valorbusqueda]);
+  }, [category.categoria, valorbusqueda]); */
 
   ////////////////////////////////////
 
