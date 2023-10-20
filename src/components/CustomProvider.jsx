@@ -54,13 +54,59 @@ const CustomProvider = ({ children }) => {
 
   const productosCollection = collection(db, "products");
 
-  const filtro = query(
-    productosCollection,
-    where("category.name", "==", "computers")
-  );
-  const pedidoFireStore = getDocs(filtro);
-
   useEffect(() => {
+    console.log(category.categoria);
+
+    if (category.categoria) {
+      if (valorbusqueda) {
+        const filtro = query(
+          productosCollection,
+          where("category.name", "==", category.categoria)
+        );
+
+        const pedidoFireStore = getDocs(filtro);
+
+        pedidoFireStore.then((res) => {
+          const documentArray = res.docs.map((doc) => ({
+            ...doc.data(),
+            id: doc.id,
+          }));
+
+          const filtradoBuscar = documentArray.filter((item) =>
+            item.title.toLowerCase().includes(valorbusqueda.toLowerCase())
+          );
+          setBookdata(filtradoBuscar);
+        });
+      } else {
+        const filtro = query(
+          productosCollection,
+          where("category.name", "==", category.categoria)
+        );
+
+        const pedidoFireStore = getDocs(filtro);
+
+        pedidoFireStore.then((res) => {
+          const documentArray = res.docs.map((doc) => ({
+            ...doc.data(),
+            id: doc.id,
+          }));
+          console.log(documentArray);
+          setBookdata(documentArray);
+        });
+      }
+    } else {
+      const pedidoFireStore = getDocs(productosCollection);
+      console.log(pedidoFireStore);
+      pedidoFireStore.then((res) => {
+        const documentArray = res.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
+        console.log(documentArray);
+        setBookdata(documentArray);
+      });
+    }
+    /* 
     pedidoFireStore
       .then((res) => {
         const documentosArray = res.docs.map((doc) => ({
@@ -97,7 +143,7 @@ const CustomProvider = ({ children }) => {
       })
       .catch((err) => {
         console.log(err);
-      });
+      }); */
   }, [category.categoria, valorbusqueda]);
 
   //////////////////////////////////

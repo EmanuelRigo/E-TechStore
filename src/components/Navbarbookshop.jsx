@@ -50,32 +50,56 @@ function Navbarbookshop() {
             aria-describedby="inputGroup-sizing-sm"
             onChange={handleOnChangeNavBar}
           />
-          <Link to={`?busqueda=${inputValue} `} >
-            buscar
-          </Link>
+          <Link to={`?busqueda=${inputValue} `}>buscar</Link>
         </div>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <CartWidget></CartWidget>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#link">Link</Nav.Link>
+            <Nav.Link href="#link">Compras</Nav.Link>
             <NavDropdown title="Categorias" id="basic-nav-dropdown">
-              {uniqueCategories.map((category) => (
-                <Link
-                  key={category}
-                  value={category}
-                  className="dropdown-item"
-                  to={`/categoria/${category}`}
-                >
-                  {category}
-                </Link>
-              ))}
+              <Link
+                value="computers"
+                className="dropdown-item"
+                to={`/categoria/computers`}
+              >
+                computers
+              </Link>
+              <Link
+                value="gaming"
+                className="dropdown-item"
+                to={`/categoria/gaming`}
+              >
+                gaming
+              </Link>
+              <Link
+                value="phones"
+                className="dropdown-item"
+                to={`/categoria/phones`}
+              >
+                phones
+              </Link>
+              <Link
+                value="games"
+                className="dropdown-item"
+                to={`/categoria/games`}
+              >
+                games
+              </Link>
+              <Link
+                value="monitors"
+                className="dropdown-item"
+                to={`/categoria/monitors`}
+              >
+                monitores
+              </Link>
+
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">
                 Separated link
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
-          <CartWidget></CartWidget>
         </Navbar.Collapse>
       </Container>
     </Navbar>
