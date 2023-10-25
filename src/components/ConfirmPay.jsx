@@ -32,6 +32,7 @@ function ConfirmPay() {
     } else {
       alert("Por favor, complete todos los campos obligatorios.");
     }
+    console.log(cliente);
   };
 
   return (

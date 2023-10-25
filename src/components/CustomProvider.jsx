@@ -55,8 +55,6 @@ const CustomProvider = ({ children }) => {
   const productosCollection = collection(db, "products");
 
   useEffect(() => {
-    console.log(category.categoria);
-
     if (category.categoria) {
       if (valorbusqueda) {
         const filtro = query(
@@ -95,16 +93,33 @@ const CustomProvider = ({ children }) => {
         });
       }
     } else {
-      const pedidoFireStore = getDocs(productosCollection);
-      console.log(pedidoFireStore);
-      pedidoFireStore.then((res) => {
-        const documentArray = res.docs.map((doc) => ({
-          ...doc.data(),
-          id: doc.id,
-        }));
-        console.log(documentArray);
-        setBookdata(documentArray);
-      });
+      if (valorbusqueda) {
+        const pedidoFireStore = getDocs(productosCollection);
+        console.log(pedidoFireStore);
+        pedidoFireStore.then((res) => {
+          const documentArray = res.docs.map((doc) => ({
+            ...doc.data(),
+            id: doc.id,
+          }));
+          console.log(documentArray);
+          const filtradoBuscar = documentArray.filter((item) =>
+            item.title.toLowerCase().includes(valorbusqueda.toLowerCase())
+          );
+          setBookdata(filtradoBuscar);
+        });
+      } else {
+        const pedidoFireStore = getDocs(productosCollection);
+        console.log(pedidoFireStore);
+        pedidoFireStore.then((res) => {
+          const documentArray = res.docs.map((doc) => ({
+            ...doc.data(),
+            id: doc.id,
+          }));
+
+          console.log(documentArray);
+          setBookdata(documentArray);
+        });
+      }
     }
     /* 
     pedidoFireStore
@@ -278,6 +293,7 @@ const CustomProvider = ({ children }) => {
 
   const [addressInfo, setAddressInfo] = useState({});
   const [payInfo, setPayInfo] = useState({});
+  const [estaPagado, setEstaPagado] = useState(true);
 
   const cliente = new Client(carrito, addressInfo, payInfo);
 
@@ -315,6 +331,7 @@ const CustomProvider = ({ children }) => {
     setAddressInfo: setAddressInfo,
     cliente: cliente,
     setPayInfo: setPayInfo,
+    setEstaPagado: setEstaPagado,
     sumarUsuario: sumarUsuario,
   };
 

@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useParams, useLocation } from "react-router-dom";
 import Item from "./Item";
+import Heroes from "./Heroes";
 import { contexto } from "./CustomProvider"; //
 import { useContext } from "react"; //
 
@@ -23,21 +24,32 @@ function ItemList() {
 
   paramsFunction(parametro);
 
+  //////HEROES//////////////
+
+  const ordenRandom = Math.floor(Math.random() * bookdata.length);
+
+  const itemFound = bookdata.find((item) => item.orden == ordenRandom);
+
+  console.log(itemFound);
+  //////////////////////////////////////
+
   return (
-    <div>
-      <div>
-        <h1>Categoría: {categoria}</h1>
-        {busqueda ? (
-          <p>Búsqueda: {busqueda}</p>
-        ) : (
-          <p>No hay término de búsqueda.</p>
-        )}
-        {/* Resto de tu componente */}
+    <>
+      {categoria ? null : <Heroes itemFound={itemFound}></Heroes>}
+
+      <div className="container">
+        <div>
+          {categoria ? <h2>{categoria} </h2> : null}
+
+          {busqueda ? <p>resultados con: {busqueda}</p> : null}
+        </div>
+        <div className="grid-container">
+          {bookdata.map((item) => {
+            return <Item producto={item} key={item.id}></Item>;
+          })}
+        </div>
       </div>
-      {bookdata.map((item) => {
-        return <Item producto={item} key={item.id}></Item>;
-      })}
-    </div>
+    </>
   );
 }
 

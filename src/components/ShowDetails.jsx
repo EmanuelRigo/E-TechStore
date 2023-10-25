@@ -6,17 +6,26 @@ import { db } from "../firebase";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 function ShowDetails() {
-  const { cliente, sumarUsuario } = useContext(contexto);
+  const { cliente, sumarUsuario, vaciarCarrito, setEstaPagado } =
+    useContext(contexto);
   console.log(cliente);
   console.log(cliente.datosEnvio.name);
-  const handleClick = (e) => {
+
+  const handleClick = () => {
     const venta = {
       usuario: {
         nombre: cliente.datosEnvio.name,
         apellido: cliente.datosEnvio.surname,
         fecha: serverTimestamp(),
+        compras: cliente.compras,
+        domicilio: cliente.datosEnvio.address,
+        ciudad: cliente.datosEnvio.city,
+        telefono: cliente.datosEnvio.phone,
+        estaPago: (cliente.estaPagado = true),
       },
     };
+
+    console.log(venta);
 
     const ventasCollection = collection(db, "ventas");
     const pedido = addDoc(ventasCollection, venta);
@@ -28,6 +37,7 @@ function ShowDetails() {
       .catch((err) => {
         console.log(err);
       });
+    vaciarCarrito();
   };
 
   return (
