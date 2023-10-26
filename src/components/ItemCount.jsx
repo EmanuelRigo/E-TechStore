@@ -4,6 +4,8 @@ import { contexto } from "./CustomProvider";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 
+import Button from "react-bootstrap/Button";
+
 function ItemCount({ product }) {
   const [contador, setContador] = useState(1);
 
@@ -29,14 +31,19 @@ function ItemCount({ product }) {
 
   return (
     <div>
-      <h1>Contador: {contador}</h1>
-      <button onClick={handleSumar}>+</button>
-      <button onClick={handleRestar}>-</button>
+      <Button onClick={handleSumar} variant="success">
+        +
+      </Button>
+      <h1>Cantidad: {contador}</h1>
+      <Button onClick={handleRestar} variant="success">
+        -
+      </Button>
+
       <Link
         to={"/item/" + product.id + "/confirmAddition"}
         onClick={handleConfirmar}
       >
-        agregar a carrito{" "}
+        agregar a carrito
       </Link>
     </div>
   );

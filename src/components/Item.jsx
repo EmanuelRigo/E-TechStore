@@ -3,6 +3,10 @@ import { Link, useParams } from "react-router-dom";
 import { contexto } from "./CustomProvider";
 import { useContext } from "react";
 
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import Placeholder from "react-bootstrap/Placeholder";
+
 function Item({ producto }) {
   const { sumaredad, restaredad } = useContext(contexto);
   return (

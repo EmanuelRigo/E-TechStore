@@ -36,8 +36,23 @@ function ItemList() {
   return (
     <>
       {categoria ? null : <Heroes itemFound={itemFound}></Heroes>}
-
-      <div className="container">
+      <div className="gallery min-vh-100">
+        <div className="container-lg">
+          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+            <div className="col">hola</div>
+            <div className="col">hola</div>
+            <div className="col">hola</div>
+            <div className="col">hola</div>
+            <div className="col">hola</div>
+            <div className="col">hola</div>
+            <div className="col">hola</div>
+            <div className="col">hola</div>
+            <div className="col">hola</div>
+            <div className="col">hola</div>
+          </div>
+        </div>
+      </div>
+      {/*  <div className="container">
         <div>
           {categoria ? <h2>{categoria} </h2> : null}
 
@@ -48,7 +63,7 @@ function ItemList() {
             return <Item producto={item} key={item.id}></Item>;
           })}
         </div>
-      </div>
+      </div> */}
     </>
   );
 }
