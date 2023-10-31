@@ -34,3 +34,23 @@
 .card-text {
   height: 50%;
 }
+
+.counter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.count {
+  font-size: 20px;
+  padding: 0 15px;
+}
+
+.counter-container btn {
+  width: 47px;
+  height: 47px;
+  color: red;
+  background-color: red;
+}
+
+

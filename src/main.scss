@@ -1,0 +1,70 @@
+
+
+$primary: #8338e5;
+$danger: #ff4136;
+
+$theme-colors: (
+  "primary": $primary,
+  "danger": $danger,
+);
+
+// Create your own map
+$verde-neon: (
+  "verde-neon": #38e54d,
+);
+
+$violeta-personalizado: (
+  "violeta-personalizado" : #100022
+);
+
+.bg-verde-neon {
+  .btn-suma-resta {
+    width: 47px;
+    height: 47px;
+  }
+
+  .btn {
+    font-size: 25px;
+  }
+} 
+
+
+
+
+
+// Merge the maps
+$theme-colors: map-merge($violeta-personalizado, $verde-neon);
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+.cart {
+  position: relative;
+}
+
+.circleCart {
+  background-color: red;
+  position: absolute;
+  z-index: 1;
+  color: white;
+  border-radius: 100%;
+  height: 22px;
+  width: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 41px;
+
+  p {
+    margin: 0;
+    font-size: 12px;
+  }
+}
+
+.bg-dark {
+  p {
+    color: white;
+  }
+}
+
+body {
+  background-color: #100022;
+}

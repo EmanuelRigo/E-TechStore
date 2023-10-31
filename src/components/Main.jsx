@@ -19,12 +19,18 @@ function Main() {
   const [search, setSearch] = useState(""); //usamos esto para la brra de busqueda
 
   return (
-    <main>
+    <main className="bg-violeta-personalizado">
       <Routes>
         <Route path="/cart" element={<Cart></Cart>}></Route>
-        <Route path="/confirmAddress" element={<ConfirmAddress></ConfirmAddress>}></Route>
+        <Route
+          path="/confirmAddress"
+          element={<ConfirmAddress></ConfirmAddress>}
+        ></Route>
         <Route path="/confirmPay" element={<ConfirmPay></ConfirmPay>}></Route>
-        <Route path="/showDetails" element={<ShowDetails></ShowDetails>}></Route>
+        <Route
+          path="/showDetails"
+          element={<ShowDetails></ShowDetails>}
+        ></Route>
         <Route path="/buy" element={<Buy></Buy>}></Route>
         <Route path="/" element={<ItemList></ItemList>}></Route>
         <Route
@@ -46,4 +52,3 @@ function Main() {
 }
 
 export default Main;
- 

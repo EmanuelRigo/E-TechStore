@@ -30,22 +30,42 @@ function ItemCount({ product }) {
   };
 
   return (
-    <div>
-      <Button onClick={handleSumar} variant="success">
-        +
-      </Button>
-      <h1>Cantidad: {contador}</h1>
-      <Button onClick={handleRestar} variant="success">
-        -
-      </Button>
-
-      <Link
-        to={"/item/" + product.id + "/confirmAddition"}
-        onClick={handleConfirmar}
-      >
-        agregar a carrito
-      </Link>
-    </div>
+    <>
+      <div className="container rounded my-container bg-verde-neon">
+        <div className="row">
+          <div className="col-10">
+            <Link
+              to={"/item/" + product.id + "/confirmAddition"}
+              onClick={handleConfirmar}
+            >
+              <button className="btn btn-verde-neon  h-100 w-100 h5">
+                agrega {contador} al carrito
+              </button>
+            </Link>
+          </div>
+          <div className="col-2">
+            <div className="row">
+              <button
+                type="button"
+                onClick={handleSumar}
+                class="btn btn-suma-resta btn-verde-neon"
+              >
+                +
+              </button>
+            </div>
+            <div className="row">
+              <button
+                type="button"
+                onClick={handleRestar}
+                class="btn btn-suma-resta btn-verde-neon "
+              >
+                -
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 

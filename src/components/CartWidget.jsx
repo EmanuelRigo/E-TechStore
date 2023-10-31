@@ -10,9 +10,11 @@ function CartWidget() {
   const valorDelContexto = useContext(contexto);
 
   return (
-    <Link to="/cart">
-      <div>{total} </div>
-      <AiOutlineShoppingCart className="navbar__cart"></AiOutlineShoppingCart>
+    <Link to="/cart" className="cart">
+      <div className="circleCart">
+        <p>{total}</p>
+      </div>
+      <AiOutlineShoppingCart className="navbar__cart mx-2"></AiOutlineShoppingCart>
     </Link>
   );
 }

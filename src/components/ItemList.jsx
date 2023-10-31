@@ -31,24 +31,28 @@ function ItemList() {
   const itemFound = bookdata.find((item) => item.orden == ordenRandom);
 
   console.log(itemFound);
+
+  const primerosDoceElementos = bookdata.slice(0, 12);
   //////////////////////////////////////
 
   return (
     <>
       {categoria ? null : <Heroes itemFound={itemFound}></Heroes>}
-      <div className="gallery min-vh-100">
+      <div>
+        {categoria ? <h2>{categoria} </h2> : null}
+
+        {busqueda ? <p>resultados con: {busqueda}</p> : null}
+      </div>
+      <div className="">
         <div className="container-lg">
-          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3">
-            <div className="col">hola</div>
-            <div className="col">hola</div>
-            <div className="col">hola</div>
-            <div className="col">hola</div>
-            <div className="col">hola</div>
-            <div className="col">hola</div>
-            <div className="col">hola</div>
-            <div className="col">hola</div>
-            <div className="col">hola</div>
-            <div className="col">hola</div>
+          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
+            {primerosDoceElementos.map((item) => {
+              return (
+                <div className="col">
+                  <Item producto={item} key={item.id}></Item>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

@@ -13,7 +13,7 @@ function ItemDetail({ product }) {
     <>
       <div class="container">
         <div class="row">
-          <div class="col-md-8">
+          <div class="col-md-8 gy-5">
             <div>
               <img
                 src={product.image}
@@ -25,7 +25,7 @@ function ItemDetail({ product }) {
               />
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4 gy-5">
             <Card style={{ width: "18rem" }}>
               <Card.Body>
                 <Card.Title>{product.title}</Card.Title>
@@ -48,6 +48,9 @@ function ItemDetail({ product }) {
               </Card.Body>
             </Card>
           </div>
+        </div>
+        <div className="row">
+          <div className="col-md-12"></div>
         </div>
       </div>
     </>

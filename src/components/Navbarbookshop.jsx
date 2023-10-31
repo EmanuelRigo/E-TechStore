@@ -5,6 +5,8 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 import { Link } from "react-router-dom";
 import CartWidget from "./CartWidget";
@@ -32,93 +34,86 @@ function Navbarbookshop() {
   ];
 
   return (
-    <>
-      <style type="text/css">
-        {`
-    .btn-flat {
-      background-color: #001524;
-      color: white;
-    }
+    <Navbar expand="lg" bg="dark" data-bs-theme="dark" className="m-3 rounded">
+      <Container fluid>
+        <Link className="navbar-brand text-white" to="/">
+          E-TechStore
+        </Link>
 
-    .btn-xxl {
-      padding: 1rem 1.5rem;
-      font-size: 1.5rem;
-    }
-    `}
-      </style>
-
-      <Navbar
-        bg="danger"
-        data-bs-theme="dark"
-        expand="lg"
-        className="bg-body-tertiary my-custom-navbar"
-      >
-        <Container>
-          <Link className="navbar-brand" to="/">
-            BookShop
-          </Link>
-
-          <div className="navbar__search">
-            <Form.Control
-              placeholder="buscar"
-              aria-label="Small"
-              aria-describedby="inputGroup-sizing-sm"
-              onChange={handleOnChangeNavBar}
-            />
-            <Link to={`?busqueda=${inputValue} `}>buscar</Link>
-          </div>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <div>
           <CartWidget></CartWidget>
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link href="#link">Compras</Nav.Link>
-              <NavDropdown title="Categorias" id="basic-nav-dropdown">
-                <Link
-                  value="computers"
-                  className="dropdown-item"
-                  to={`/categoria/computers`}
-                >
-                  computers
-                </Link>
-                <Link
-                  value="gaming"
-                  className="dropdown-item"
-                  to={`/categoria/gaming`}
-                >
-                  gaming
-                </Link>
-                <Link
-                  value="phones"
-                  className="dropdown-item"
-                  to={`/categoria/phones`}
-                >
-                  phones
-                </Link>
-                <Link
-                  value="games"
-                  className="dropdown-item"
-                  to={`/categoria/games`}
-                >
-                  games
-                </Link>
-                <Link
-                  value="monitors"
-                  className="dropdown-item"
-                  to={`/categoria/monitors`}
-                >
-                  monitores
-                </Link>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        </div>
 
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">
-                  Separated link
-                </NavDropdown.Item>
-              </NavDropdown>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-    </>
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="#home">compras</Nav.Link>
+            <Nav.Link href="#link">Link</Nav.Link>
+            <NavDropdown
+              title="Categorias"
+              className="bg-dark"
+              id="basic-nav-dropdown"
+            >
+              <Link
+                value="computers"
+                className="dropdown-item"
+                to={`/categoria/computers`}
+              >
+                computers
+              </Link>
+              <Link
+                value="gaming"
+                className="dropdown-item"
+                to={`/categoria/gaming`}
+              >
+                gaming
+              </Link>
+              <Link
+                value="phones"
+                className="dropdown-item"
+                to={`/categoria/phones`}
+              >
+                phones
+              </Link>
+              <Link
+                value="games"
+                className="dropdown-item"
+                to={`/categoria/games`}
+              >
+                games
+              </Link>
+              <Link
+                value="monitors"
+                className="dropdown-item"
+                to={`/categoria/monitors`}
+              >
+                monitores
+              </Link>
+
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">
+                Separated link
+              </NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+
+          <Row>
+            <Col xs="auto">
+              <Form.Control
+                placeholder="Buscar"
+                className=" mr-sm-2"
+                onChange={handleOnChangeNavBar}
+              />
+            </Col>
+            <Col xs="auto">
+              <Button className="bg-verde-neon">
+                <Link to={`?busqueda=${inputValue} `}>buscar</Link>
+              </Button>
+            </Col>
+          </Row>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }
 
