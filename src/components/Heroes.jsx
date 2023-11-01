@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useContext } from "react";
 import { contexto } from "./CustomProvider";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Image } from "react-bootstrap";
 
 function Heroes({ itemFound }) {
   console.log(itemFound);
   return (
     <>
       <Container
-        className="bg-dark rounded p-5 my-5"
+        className="bg-dark heroe rounded p-5 my-5"
         data-bs-theme="dark"
         expand="lg"
       >
@@ -34,13 +34,14 @@ function Heroes({ itemFound }) {
             </div>
           </Col>
           <Col>
-            <img
+            <Image
               src={itemFound ? itemFound.image : null}
-              className="d-block mx-lg-auto img-fluid rounded"
+              className="d-block mx-lg-auto img-fluid roundedCircle bg-verde-neon"
               alt="Bootstrap Themes"
               width="700"
               height="500"
               loading="lazy"
+              roundedCircle
             />
           </Col>
         </Row>

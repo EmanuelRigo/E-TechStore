@@ -1,17 +1,12 @@
 
 
-$primary: #8338e5;
-$danger: #ff4136;
-
-$theme-colors: (
-  "primary": $primary,
-  "danger": $danger,
-);
 
 // Create your own map
 $verde-neon: (
-  "verde-neon": #38e54d,
+  "verde-neon": #28f100,
 );
+
+
 
 $violeta-personalizado: (
   "violeta-personalizado" : #100022
@@ -67,4 +62,20 @@ $theme-colors: map-merge($violeta-personalizado, $verde-neon);
 
 body {
   background-color: #100022;
+}
+
+.card {
+  border: none;
+  height: 100%;
+
+  img {
+    
+    background-image: radial-gradient(circle at 95.45% -4.17%, #f4ff00 0, #d6ff00 12.5%, #b1ff00 25%, #7fff00 37.5%, #27f100 50%, #00e112 62.5%, #00d52a 75%, #00cd40 87.5%, #00ca58 100%);
+    object-fit: contain;
+  }
+}
+
+.heroe {
+  img {    background-image: radial-gradient(circle at 95.45% -4.17%, #f4ff00 0, #d6ff00 12.5%, #b1ff00 25%, #7fff00 37.5%, #27f100 50%, #00e112 62.5%, #00d52a 75%, #00cd40 87.5%, #00ca58 100%);
+    object-fit: contain;}
 }
