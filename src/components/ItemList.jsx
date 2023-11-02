@@ -28,9 +28,7 @@ function ItemList() {
 
   const ordenRandom = Math.floor(Math.random() * bookdata.length);
 
-  const itemFound = bookdata.find((item) => item.orden == ordenRandom);
-
-  console.log(itemFound);
+  const itemFound = bookdata[ordenRandom];
 
   const primerosDoceElementos = bookdata.slice(0, 12);
   //////////////////////////////////////
@@ -44,7 +42,7 @@ function ItemList() {
         {busqueda ? <p>resultados con: {busqueda}</p> : null}
       </div>
       <div className="">
-        <div className="container-lg">
+        <div className="container-lg px-0">
           <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
             {primerosDoceElementos.map((item) => {
               return (

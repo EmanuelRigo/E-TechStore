@@ -29,10 +29,10 @@ function Item({ producto }) {
       </div>
  */}
       <Card data-bs-theme="dark" style={{ width: "100%" }}>
-        <Card.Img variant="top" src={producto.image} />
+        <Card.Img variant="top" src={"../images/" + producto.image} />
         <Card.Body>
           <Card.Title>{producto.title} </Card.Title>
-          <Card.Text>{producto.price}</Card.Text>
+          <Card.Text>${producto.price}</Card.Text>
 
           <Link to={"/item/" + producto.id} className="btn btn-verde-neon">
             ver mas

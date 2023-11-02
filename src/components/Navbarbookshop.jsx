@@ -34,7 +34,12 @@ function Navbarbookshop() {
   ];
 
   return (
-    <Navbar expand="lg" bg="dark" data-bs-theme="dark" className="m-3 rounded">
+    <Navbar
+      expand="lg"
+      bg="dark"
+      data-bs-theme="dark"
+      className="my-3 rounded container"
+    >
       <Container fluid>
         <Link className="navbar-brand text-white" to="/">
           E-TechStore

@@ -33,7 +33,7 @@ function ItemCount({ product }) {
     <>
       <div className="container rounded my-container bg-verde-neon">
         <div className="row">
-          <div className="col-10">
+          <div className="col-lg-10">
             <Link
               to={"/item/" + product.id + "/confirmAddition"}
               onClick={handleConfirmar}
@@ -43,7 +43,7 @@ function ItemCount({ product }) {
               </button>
             </Link>
           </div>
-          <div className="col-2">
+          <div className="col-lg-2">
             <div className="row">
               <button
                 type="button"

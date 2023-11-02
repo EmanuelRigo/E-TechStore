@@ -59,7 +59,7 @@ const CustomProvider = ({ children }) => {
       if (valorbusqueda) {
         const filtro = query(
           productosCollection,
-          where("category.name", "==", category.categoria)
+          where("category", "==", category.categoria)
         );
 
         const pedidoFireStore = getDocs(filtro);
@@ -78,7 +78,7 @@ const CustomProvider = ({ children }) => {
       } else {
         const filtro = query(
           productosCollection,
-          where("category.name", "==", category.categoria)
+          where("category", "==", category.categoria)
         );
 
         const pedidoFireStore = getDocs(filtro);

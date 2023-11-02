@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useContext } from "react";
 import { contexto } from "./CustomProvider";
-import { Container, Row, Col, Image } from "react-bootstrap";
+import { Container, Row, Col, Image, Card } from "react-bootstrap";
 
 function Heroes({ itemFound }) {
   console.log(itemFound);
   return (
     <>
       <Container
-        className="bg-dark heroe rounded p-5 my-5"
+        className="bg-dark heroe rounded p-5 my-5 hero"
         data-bs-theme="dark"
         expand="lg"
       >
@@ -17,7 +17,10 @@ function Heroes({ itemFound }) {
             <h1 className="display-5 fw-bold text-body-emphasis lh-1 mb-3">
               {itemFound ? itemFound.title : null}
             </h1>
-            <p className="lead">{itemFound ? itemFound.description : null}</p>
+
+            <Card.Text className="lead">
+              {itemFound ? itemFound.description : null}
+            </Card.Text>
             <div className="d-grid gap-2 d-md-flex justify-content-md-start">
               <button
                 type="button"
@@ -35,7 +38,7 @@ function Heroes({ itemFound }) {
           </Col>
           <Col>
             <Image
-              src={itemFound ? itemFound.image : null}
+              src={itemFound ? "../images/" + itemFound.image : null}
               className="d-block mx-lg-auto img-fluid roundedCircle bg-verde-neon"
               alt="Bootstrap Themes"
               width="700"

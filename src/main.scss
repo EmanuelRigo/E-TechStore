@@ -54,11 +54,6 @@ $theme-colors: map-merge($violeta-personalizado, $verde-neon);
   }
 }
 
-.bg-dark {
-  p {
-    color: white;
-  }
-}
 
 body {
   background-color: #100022;
@@ -69,13 +64,25 @@ body {
   height: 100%;
 
   img {
-    
-    background-image: radial-gradient(circle at 95.45% -4.17%, #f4ff00 0, #d6ff00 12.5%, #b1ff00 25%, #7fff00 37.5%, #27f100 50%, #00e112 62.5%, #00d52a 75%, #00cd40 87.5%, #00ca58 100%);
-    object-fit: contain;
+    background-image: radial-gradient(circle at 75.52% 19.59%, #ffffff 0, #ffffff 10%, #ffffff 20%, #ffffff 30%, #fff4f6 40%, #e0e0e0 50%, #bfccc8 60%, #a5bbb1 70%, #92ad9c 80%, #84a18a 90%, #7d977b 100%);
   }
 }
 
 .heroe {
   img {    background-image: radial-gradient(circle at 95.45% -4.17%, #f4ff00 0, #d6ff00 12.5%, #b1ff00 25%, #7fff00 37.5%, #27f100 50%, #00e112 62.5%, #00d52a 75%, #00cd40 87.5%, #00ca58 100%);
     object-fit: contain;}
+  p {
+    color: white;
+  }
+}
+
+.imgContainer {
+  background-image: radial-gradient(circle at 75.52% 19.59%, #ffffff 0, #ffffff 10%, #ffffff 20%, #ffffff 30%, #fff4f6 40%, #e0e0e0 50%, #bfccc8 60%, #a5bbb1 70%, #92ad9c 80%, #84a18a 90%, #7d977b 100%);
+  height: 500px;
+  display: flex;
+  justify-content: center;
+
+  img {
+    object-fit: cover;
+  }
 }
