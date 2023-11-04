@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useContext } from "react";
 import { contexto } from "./CustomProvider";
-import { Container, Row, Col, Image, Card } from "react-bootstrap";
+import { Container, Row, Col, Image, Card, Button } from "react-bootstrap";
 
 function Heroes({ itemFound }) {
   console.log(itemFound);
@@ -37,17 +37,52 @@ function Heroes({ itemFound }) {
             </div>
           </Col>
           <Col>
-            <Image
-              src={itemFound ? "../images/" + itemFound.image : null}
-              className="d-block mx-lg-auto img-fluid roundedCircle bg-verde-neon"
-              alt="Bootstrap Themes"
-              width="700"
-              height="500"
-              loading="lazy"
-              roundedCircle
-            />
+            <div className="h-50 w-50">
+              <Image
+                src={itemFound ? "../images/" + itemFound.image : null}
+                className="d-block mx-lg-auto img-fluid roundedCircle bg-verde-neon"
+                alt="Bootstrap Themes"
+                width="800"
+                height="800"
+                loading="lazy"
+                roundedCircle
+              />
+            </div>
           </Col>
         </Row>
+      </Container>
+
+      <Container
+        className="bg-dark heroe rounded p-5 my-5 hero"
+        data-bs-theme="dark"
+        expand="lg"
+      >
+        <Card>
+          <Row>
+            <Col>
+              <Card.Body>
+                <Card className="h2">Card Title</Card>
+                <Card.Text>
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </Card.Text>
+                <Button variant="primary">Go somewhere</Button>
+              </Card.Body>
+            </Col>
+            <Col>
+              <Image
+                variant="top"
+                src={itemFound ? "../images/" + itemFound.image : null}
+                className="d-block mx-lg-auto img-fluid roundedCircle bg-verde-neon"
+                alt="Bootstrap Themes"
+                width="800"
+                height="800"
+                loading="lazy"
+                roundedCircle
+              />
+            </Col>
+          </Row>
+        </Card>
       </Container>
     </>
   );

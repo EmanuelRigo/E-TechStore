@@ -4,6 +4,8 @@ import { contexto } from "./CustomProvider";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 
+import { AiOutlineLine, AiOutlinePlus } from "react-icons/ai";
+
 import Button from "react-bootstrap/Button";
 
 function ItemCount({ product }) {
@@ -31,38 +33,24 @@ function ItemCount({ product }) {
 
   return (
     <>
-      <div className="container rounded my-container bg-verde-neon">
+      <div className="container mt-4 rounded itemCount">
         <div className="row">
-          <div className="col-lg-10">
-            <Link
-              to={"/item/" + product.id + "/confirmAddition"}
-              onClick={handleConfirmar}
-            >
-              <button className="btn btn-verde-neon  h-100 w-100 h5">
-                agrega {contador} al carrito
-              </button>
-            </Link>
-          </div>
-          <div className="col-lg-2">
-            <div className="row">
-              <button
-                type="button"
-                onClick={handleSumar}
-                class="btn btn-suma-resta btn-verde-neon"
-              >
-                +
-              </button>
-            </div>
-            <div className="row">
-              <button
-                type="button"
-                onClick={handleRestar}
-                class="btn btn-suma-resta btn-verde-neon "
-              >
-                -
-              </button>
-            </div>
-          </div>
+          <Link
+            to={"/item/" + product.id + "/confirmAddition"}
+            onClick={handleConfirmar}
+            className="btn"
+          >
+            agrega {contador} al carrito
+          </Link>
+        </div>
+        <div className="row">
+          <button type="button" onClick={handleSumar} class="btn col ">
+            <AiOutlinePlus />
+          </button>
+
+          <button type="button" onClick={handleRestar} class="btn col ">
+            <AiOutlineLine />
+          </button>
         </div>
       </div>
     </>

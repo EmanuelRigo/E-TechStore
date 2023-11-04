@@ -2,8 +2,8 @@ import React from "react";
 import ItemCount from "./ItemCount";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import Badge from "react-bootstrap/Badge";
-import { Container, Row, Col, Image } from "react-bootstrap";
+
+import { Container, Row, Col, Image, Badge } from "react-bootstrap";
 
 function ItemDetail({ product }) {
   const onAdd = (parametro) => {
@@ -12,7 +12,7 @@ function ItemDetail({ product }) {
 
   return (
     <>
-      <Container className="bg-dark rounded">
+      <Container className="bg-dark rounded item">
         <Row>
           <Col lg={8} className="p-3">
             <div className="imgContainer rounded">
@@ -30,15 +30,22 @@ function ItemDetail({ product }) {
                   ${product.price}
                 </Card.Subtitle>
                 <Card.Text>{product.description}</Card.Text>
-                <Card.Subtitle className="mb-2 text-muted">
-                  llega mañana por $10
-                </Card.Subtitle>
+                <Card.Text className="mb-2 text-muted">
+                  {product.price > 60 ? (
+                    <p>
+                      llega
+                      <strong> gratis mañana</strong>
+                    </p>
+                  ) : (
+                    <p>
+                      llega <strong>mañana</strong> por $15
+                    </p>
+                  )}
+                </Card.Text>
                 <Card.Subtitle className="mb-2 text-muted">
                   stock: {product.stock}
                 </Card.Subtitle>
                 <ItemCount product={product}></ItemCount>
-                <Card.Link href="#">Card Link</Card.Link>
-                <Card.Link href="#">Another Link</Card.Link>
               </Card.Body>
             </Card>
           </Col>
