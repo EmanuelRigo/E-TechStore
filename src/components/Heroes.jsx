@@ -3,17 +3,19 @@ import { useContext } from "react";
 import { contexto } from "./CustomProvider";
 import { Container, Row, Col, Image, Card, Button } from "react-bootstrap";
 
+import { FaCartPlus } from "react-icons/fa";
+
 function Heroes({ itemFound }) {
   console.log(itemFound);
   return (
     <>
-      <Container
+      {/*     <Container
         className="bg-dark heroe rounded p-5 my-5 hero"
         data-bs-theme="dark"
         expand="lg"
       >
         <Row>
-          <Col>
+          <Col className="col-lg-8">
             <h1 className="display-5 fw-bold text-body-emphasis lh-1 mb-3">
               {itemFound ? itemFound.title : null}
             </h1>
@@ -36,7 +38,7 @@ function Heroes({ itemFound }) {
               </button>
             </div>
           </Col>
-          <Col>
+          <Col className="col-lg-4">
             <div className="h-50 w-50">
               <Image
                 src={itemFound ? "../images/" + itemFound.image : null}
@@ -51,9 +53,9 @@ function Heroes({ itemFound }) {
           </Col>
         </Row>
       </Container>
-
-      <Container
-        className="bg-dark heroe rounded p-5 my-5 hero"
+ */}
+      {/*      <Container
+        className="bg-dark heroe rounded p-md-5 my-5 hero"
         data-bs-theme="dark"
         expand="lg"
       >
@@ -75,13 +77,42 @@ function Heroes({ itemFound }) {
                 src={itemFound ? "../images/" + itemFound.image : null}
                 className="d-block mx-lg-auto img-fluid roundedCircle bg-verde-neon"
                 alt="Bootstrap Themes"
-                width="800"
-                height="800"
                 loading="lazy"
                 roundedCircle
               />
             </Col>
           </Row>
+        </Card>
+      </Container> */}
+
+      <Container
+        className="bg-dark heroe rounded p-2 p-md-5 my-5 hero "
+        data-bs-theme="dark"
+        expand="lg"
+      >
+        <Card>
+          <div className="row no-gutters d-flex align-items-center">
+            <div className="col-5 ">
+              <Card.Img
+                src={itemFound ? "../images/" + itemFound.image : null}
+                alt="Imagen de la tarjeta"
+              />
+            </div>
+            <div className="col-7">
+              <Card.Body>
+                <Card.Title className="mb-4">
+                  {itemFound ? itemFound.title : null}
+                </Card.Title>
+                <Card.Text className="d-none d-md-block">
+                  {itemFound ? itemFound.description : null}
+                </Card.Text>
+                <Button variant="verde-neon">
+                  <FaCartPlus></FaCartPlus>
+                  <p>agregar a carrito</p>
+                </Button>
+              </Card.Body>
+            </div>
+          </div>
         </Card>
       </Container>
     </>
