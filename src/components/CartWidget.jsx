@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useCart } from "./CustomProvider";
 import { useContext } from "react";
 import { contexto } from "./CustomProvider";
+import Badge from "react-bootstrap/Badge";
 
 function CartWidget() {
   const { totalProductos, total } = useCart();
@@ -11,9 +12,16 @@ function CartWidget() {
 
   return (
     <Link to="/cart" className="cart">
-      <div className="circleCart">
+      {/*   <div className="circleCart">
         <p>{total}</p>
-      </div>
+      </div> */}
+      <Badge
+        pill
+        bg="danger"
+        className="position-absolute top-0 start-100 translate-middle"
+      >
+        {total}
+      </Badge>
       <AiOutlineShoppingCart className="navbar__cart mx-2"></AiOutlineShoppingCart>
     </Link>
   );

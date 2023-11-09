@@ -85,36 +85,49 @@ function Heroes({ itemFound }) {
         </Card>
       </Container> */}
 
-      <Container
-        className="bg-dark heroe rounded p-2 p-md-5 my-5 hero "
+      {/*       <Container
+        className="bg-dark  rounded p-2 p-md-5 my-5 hero "
         data-bs-theme="dark"
         expand="lg"
-      >
-        <Card>
-          <div className="row no-gutters d-flex align-items-center">
-            <div className="col-5 ">
-              <Card.Img
-                src={itemFound ? "../images/" + itemFound.image : null}
-                alt="Imagen de la tarjeta"
-              />
-            </div>
-            <div className="col-7">
-              <Card.Body>
-                <Card.Title className="mb-4">
-                  {itemFound ? itemFound.title : null}
-                </Card.Title>
-                <Card.Text className="d-none d-md-block">
-                  {itemFound ? itemFound.description : null}
-                </Card.Text>
-                <Button variant="verde-neon">
-                  <FaCartPlus></FaCartPlus>
-                  <p>agregar a carrito</p>
-                </Button>
-              </Card.Body>
-            </div>
+      > */}
+      <Card data-bs-theme="dark" className="container py-3 heroe">
+        <div className="row p-md-4 no-gutters d-flex align-items-center">
+          <div className="col-5 ">
+            <Card.Img
+              src={itemFound ? "../images/" + itemFound.image : null}
+              alt="Imagen de la tarjeta"
+            />
           </div>
-        </Card>
-      </Container>
+          <div className="col-7">
+            <Card.Body className="px-0 py-2 p-md-4">
+              <Card.Title className="mb-3">
+                {itemFound ? itemFound.title : null}
+              </Card.Title>
+              <Card.Text className="d-none d-md-block">
+                {itemFound ? itemFound.description : null}
+              </Card.Text>
+              <Row>
+                <Col>
+                  {" "}
+                  <Button
+                    className="d-flex align-items-center justify-content-center"
+                    variant="verde-neon"
+                  >
+                    <FaCartPlus className="m-md-2"></FaCartPlus>
+                    <p className="d-none d-md-block m-0">agregar a carrito</p>
+                  </Button>
+                </Col>
+                <Col className="d-flex align-items-center">
+                  <Card.Text className="h2 text-verde-neon">
+                    ${itemFound ? itemFound.price : null}
+                  </Card.Text>
+                </Col>
+              </Row>
+            </Card.Body>
+          </div>
+        </div>
+      </Card>
+      {/*  </Container> */}
     </>
   );
 }

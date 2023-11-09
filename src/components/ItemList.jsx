@@ -42,8 +42,8 @@ function ItemList() {
         {busqueda ? <p>resultados con: {busqueda}</p> : null}
       </div>
       <div className="">
-        <div className="container-lg px-0">
-          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
+        <div className="container-lg mt-4 px-0">
+          <div className="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
             {primerosDoceElementos.map((item) => {
               return (
                 <div className="col">
