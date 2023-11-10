@@ -107,23 +107,23 @@ function Cart() {
           );
         })}
 
-        <Row className="mt-4 mx-4">
+        <Row className="mt-4 mx-md-4">
           <Col
-            md={"auto"}
-            className="d-flex align-items-center justify-content-center"
+            md={6}
+            className="d-flex mb-4 mb-md-0 align-items-center justify-content-center"
           >
             <h4 className="text-light m-0">
               Total ${sumarPrecios().toFixed(2)}{" "}
             </h4>
           </Col>
-          <Col>
+          <Col className="text-center">
             <Button className="btn-verde-neon m-1" onClick={vaciarCarrito}>
               vaciar carrito
             </Button>
 
-            <NavLink className="btn m-1 btn-verde-neon" to="/confirmAddress">
+            <Link className="btn m-1 btn-verde-neon" to="/confirmAddress">
               continuar
-            </NavLink>
+            </Link>
           </Col>
         </Row>
       </Container>

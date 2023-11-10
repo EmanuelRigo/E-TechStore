@@ -2,6 +2,7 @@ import React from "react";
 import { useContext, useEffect } from "react";
 import { contexto } from "./CustomProvider";
 import { Container, Card, Col, Row, Button, Image } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function ConfirmAddition() {
   const { productAdded, calcularTotal, carrito } = useContext(contexto);
@@ -34,12 +35,12 @@ function ConfirmAddition() {
                   : `Se agrego ${productAdded.contador} producto al carrito`}
               </Card.Title>
               <div className="d-none d-lg-block">
-                <Button className="btn-block " variant="verde-neon">
+                <Link className="btn m-1 btn-verde-neon" to="/">
                   seguir comprando
-                </Button>
-                <Button className="btn-block mx-2 " variant="verde-neon">
+                </Link>
+                <Link className="btn m-1 btn-verde-neon" to="/cart">
                   ir a carrito
-                </Button>
+                </Link>
               </div>
             </Card.Body>
 

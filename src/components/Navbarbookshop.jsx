@@ -111,9 +111,12 @@ function Navbarbookshop() {
               />
             </Col>
             <Col xs="auto">
-              <Button className="bg-verde-neon">
-                <Link to={`?busqueda=${inputValue} `}>buscar</Link>
-              </Button>
+              <Link
+                className="btn m-1 btn-verde-neon"
+                to={`?busqueda=${inputValue} `}
+              >
+                buscar
+              </Link>
             </Col>
           </Row>
         </Navbar.Collapse>
