@@ -77,69 +77,6 @@ function ConfirmAddress() {
 
   return (
     <>
-      {/* <div>
-        <h3>ConfirmAddress</h3>
-        <div>
-          <p>quien recibe</p>
-          <input
-            type="text"
-            placeholder="nombre"
-            value={nombre}
-            onChange={(e) => setNombre(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="apellido"
-            value={apellido}
-            onChange={(e) => setApellido(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="dni"
-            value={dni}
-            onChange={(e) => setDni(e.target.value)}
-          />
-        </div>
-        <div>
-          <p>donde lo recibis?</p>
-          <input
-            type="text"
-            placeholder="direccion"
-            value={direccion}
-            onChange={(e) => setDireccion(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="ciudad"
-            value={ciudad}
-            onChange={(e) => setCiudad(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="provincia"
-            value={provincia}
-            onChange={(e) => setProvincia(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="codigo postal"
-            value={codigoPostal}
-            onChange={(e) => setCodigoPostal(e.target.value)}
-          />
-        </div>
-        <div>
-          <p>telefono</p>
-          <input
-            type="text"
-            placeholder="telefono"
-            value={telefono}
-            onChange={(e) => setTelefono(e.target.value)}
-          />
-        </div>
-        <Link to={linkHabilitado ? "/confirmPay" : "#"}>Continuar</Link>
-        <button onClick={handleContinue}>confirmar</button>
-      </div> */}
-
       <Container className="bg-light p-3  rounded">
         <Row className="g-2 mb-2">
           <Col md={6}>
