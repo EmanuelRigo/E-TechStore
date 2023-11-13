@@ -15,50 +15,38 @@ import { Modal } from "react-bootstrap";
 function ConfirmAddress() {
   const { setAddressInfo } = useContext(contexto);
 
-  const [nombre, setNombre] = useState("");
-  const [apellido, setApellido] = useState("");
+  const [name, setName] = useState("");
+  const [surname, setSurname] = useState("");
   const [dni, setDni] = useState("");
-  const [direccion, setDireccion] = useState("");
-  const [ciudad, setCiudad] = useState("");
-  const [provincia, setProvincia] = useState("");
-  const [codigoPostal, setCodigoPostal] = useState("");
-  const [telefono, setTelefono] = useState("");
+  const [address, setAddress] = useState("");
+  const [city, setCity] = useState("");
+  const [country, setCountry] = useState("");
+  const [postalCode, setPostalCode] = useState("");
+  const [phone, setPhone] = useState("");
 
   const [linkHabilitado, setLinkHabilitado] = useState(false);
-  class AdressClient {
-    constructor(name, surname, dni, address, city, country, postalCode, phone) {
-      this.name = name;
-      this.surname = surname;
-      this.dni = dni;
-      this.address = address;
-      this.city = city;
-      this.coutry = country;
-      this.postalCode = postalCode;
-      this.phone = phone;
-    }
-  }
 
-  const addressData = new AdressClient(
-    nombre,
-    apellido,
-    dni,
-    direccion,
-    ciudad,
-    provincia,
-    codigoPostal,
-    telefono
-  );
+  const addressData = {
+    name: name,
+    surname: surname,
+    dni: dni,
+    address: address,
+    city: city,
+    country: country,
+    postalCode: postalCode,
+    phone: phone,
+  };
 
   const handleContinue = () => {
     if (
-      nombre.trim() &&
-      apellido.trim() &&
+      name.trim() &&
+      surname.trim() &&
       dni.trim() &&
-      direccion.trim() &&
-      ciudad.trim() &&
-      provincia.trim() &&
-      codigoPostal.trim() &&
-      telefono.trim()
+      address.trim() &&
+      city.trim() &&
+      country.trim() &&
+      postalCode.trim() &&
+      phone.trim()
     ) {
       setAddressInfo(addressData);
       setLinkHabilitado(true);
@@ -82,8 +70,8 @@ function ConfirmAddress() {
           <Col md={6}>
             <FloatingLabel controlId="floatingInputGrid" label="Nombre">
               <Form.Control
-                value={nombre}
-                onChange={(e) => setNombre(e.target.value)}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 type="text"
                 placeholder="Nombre"
               />
@@ -92,8 +80,8 @@ function ConfirmAddress() {
           <Col md={6}>
             <FloatingLabel controlId="floatingInputGrid" label="Apellido">
               <Form.Control
-                value={apellido}
-                onChange={(e) => setApellido(e.target.value)}
+                value={surname}
+                onChange={(e) => setSurname(e.target.value)}
                 type="text"
                 placeholder="Apellido"
               />
@@ -104,18 +92,18 @@ function ConfirmAddress() {
           <Col md={4}>
             <FloatingLabel controlId="floatingInputGrid" label="Direccion">
               <Form.Control
-                value={direccion}
-                onChange={(e) => setDireccion(e.target.value)}
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
                 type="text"
-                placeholder="direccion"
+                placeholder="address"
               />
             </FloatingLabel>
           </Col>
           <Col md={4}>
             <FloatingLabel controlId="floatingInputGrid" label="Ciudad">
               <Form.Control
-                value={ciudad}
-                onChange={(e) => setCiudad(e.target.value)}
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
                 type="text"
                 placeholder="ciudad"
               />
@@ -124,8 +112,8 @@ function ConfirmAddress() {
           <Col md={4}>
             <FloatingLabel controlId="floatingSelectGrid" label="Provincia">
               <Form.Select
-                value={provincia}
-                onChange={(e) => setProvincia(e.target.value)}
+                value={country}
+                onChange={(e) => setCountry(e.target.value)}
                 aria-label="Floating label select example"
               >
                 <option>Open this select menu</option>
@@ -162,8 +150,8 @@ function ConfirmAddress() {
           <Col md={4}>
             <FloatingLabel controlId="floatingInputGrid" label="Codigo Postal">
               <Form.Control
-                value={codigoPostal}
-                onChange={(e) => setCodigoPostal(e.target.value)}
+                value={postalCode}
+                onChange={(e) => setPostalCode(e.target.value)}
                 type="number"
                 placeholder="Codigo Postal"
               />
@@ -172,8 +160,8 @@ function ConfirmAddress() {
           <Col md={4}>
             <FloatingLabel controlId="floatingInputGrid" label="Telefono">
               <Form.Control
-                value={telefono}
-                onChange={(e) => setTelefono(e.target.value)}
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
                 type="number"
                 placeholder="Telefono"
               />
