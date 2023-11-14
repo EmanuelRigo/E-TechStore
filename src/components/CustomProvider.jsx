@@ -30,6 +30,8 @@ const CustomProvider = ({ children }) => {
   const [total, setTotal] = useState(0);
   const [inputValue, setInputValue] = useState("");
 
+  const [busquedaCompra, setBusquedaCompra] = useState("");
+
   useEffect(() => {
     localStorage.setItem("carrito", JSON.stringify(carrito));
   }, [carrito]);
@@ -306,6 +308,8 @@ const CustomProvider = ({ children }) => {
   };
   ////////////////////////////////////////
 
+  ////////////////////////////////////////
+
   const valorDelContexto = {
     carrito: carrito,
     totalProductos: totalProductos,
@@ -333,6 +337,8 @@ const CustomProvider = ({ children }) => {
     setPayInfo: setPayInfo,
     setEstaPagado: setEstaPagado,
     sumarUsuario: sumarUsuario,
+    busquedaCompra: busquedaCompra,
+    setBusquedaCompra: setBusquedaCompra,
   };
 
   return <Provider value={valorDelContexto}>{children}</Provider>;

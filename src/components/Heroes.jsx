@@ -108,7 +108,6 @@ function Heroes({ itemFound }) {
               </Card.Text>
               <Row>
                 <Col>
-                  {" "}
                   <Button
                     className="d-flex align-items-center justify-content-center"
                     variant="verde-neon"

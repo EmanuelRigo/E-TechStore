@@ -16,6 +16,7 @@ function ItemDetailContainer() {
 
   useEffect(() => {
     const productosCollection = collection(db, "products");
+    console.log(productosCollection);
     const referencia = doc(productosCollection, id);
     const pedido = getDoc(referencia);
     console.log(pedido);
