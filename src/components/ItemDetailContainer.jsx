@@ -7,10 +7,12 @@ import ItemDetail from "./ItemDetail";
 import { collection, doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase";
 
+import { Container, Spinner } from "react-bootstrap";
+
 function ItemDetailContainer() {
   const [bookdata, setBookdata] = useState([]);
   const { id } = useParams();
-  const [product, setProduct] = useState({});
+  const [product, setProduct] = useState();
 
   console.log(id);
 
@@ -37,7 +39,14 @@ function ItemDetailContainer() {
       {product ? (
         <ItemDetail product={product}></ItemDetail>
       ) : (
-        <h2>cargando </h2>
+        <Container className="d-flex align-items-center justify-content-center">
+          <Spinner
+            animation="border"
+            variant="verde-neon"
+            size="lg"
+            className="p-5 m-5"
+          />
+        </Container>
       )}
     </div>
   );

@@ -8,7 +8,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CartWidget from "./CartWidget";
 
 import "../stylesheets/Navbarbookshop.css";
@@ -23,15 +23,23 @@ function Navbarbookshop() {
     useContext(contexto);
 
   ///////////////
-  const handleOnChangeNavBar = (e) => {
-    const nuevoValor = e.target.value;
-    setInputValue(nuevoValor);
+  const [inputValue2, setInputValue2] = useState("");
+
+  const handleInputChange = (event) => {
+    setInputValue2(event.target.value);
+  };
+
+  const funcionBuscar2 = () => {
+    navigate(`?busqueda=${inputValue2} `);
+    setInputValue2("");
   };
   /////////////////
 
   const uniqueCategories = [
     ...new Set(navBarCategory.map((product) => product.category.name)),
   ];
+
+  const navigate = useNavigate();
 
   return (
     <Navbar
@@ -107,16 +115,17 @@ function Navbarbookshop() {
               <Form.Control
                 placeholder="Buscar"
                 className=" mr-sm-2"
-                onChange={handleOnChangeNavBar}
+                value={inputValue2}
+                onChange={handleInputChange}
               />
             </Col>
             <Col xs="auto">
-              <Link
+              <Button
                 className="btn m-1 btn-verde-neon"
-                to={`?busqueda=${inputValue} `}
+                onClick={funcionBuscar2}
               >
-                buscar
-              </Link>
+                Buscar
+              </Button>
             </Col>
           </Row>
         </Navbar.Collapse>
