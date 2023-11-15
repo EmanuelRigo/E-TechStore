@@ -188,28 +188,27 @@ function ConfirmAddress() {
         </Row>
       </Container>
 
-      <Button variant="primary" onClick={handleShow}>
-        Launch demo modal
-      </Button>
-
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Revise la informacion</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Row>
-            <Col md={4}>{addressData.name} </Col>
-            <Col md={4}>{addressData.surname} </Col>
-            <Col md={4}>{addressData.dni} </Col>
+            <Col md={12}>
+              {addressData.name} {addressData.surname}
+            </Col>
           </Row>
           <Row>
-            <Col md={4}>{addressData.address} </Col>
-            <Col md={4}>{addressData.city} </Col>
-            <Col md={4}>{addressData.country} </Col>
+            <Col md={6}>{addressData.address} </Col>
+            <Col md={6}>{addressData.city} </Col>
           </Row>
           <Row>
-            <Col md={4}>{addressData.postalCode} </Col>
-            <Col md={4}>{addressData.phone}</Col>
+            <Col md={6}>{addressData.country} </Col>
+            <Col md={6}>{addressData.postalCode} </Col>
+          </Row>
+          <Row>
+            <Col md={6}>{addressData.dni} </Col>
+            <Col md={6}>{addressData.phone}</Col>
           </Row>
         </Modal.Body>
         <Modal.Footer>

@@ -31,6 +31,7 @@ function ItemCount({ product }) {
     addProduct(contador, product);
   };
 
+  console.log(product);
   return (
     <>
       <div className="container mt-4 rounded itemCount">
