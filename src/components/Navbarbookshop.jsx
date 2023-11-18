@@ -60,7 +60,9 @@ function Navbarbookshop() {
 
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">compras</Nav.Link>
+            <Link className="nav-link" to="/compras">
+              compras
+            </Link>
             <Nav.Link href="#link">Link</Nav.Link>
             <NavDropdown
               title="Categorias"

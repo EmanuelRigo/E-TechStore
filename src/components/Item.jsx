@@ -11,24 +11,11 @@ function Item({ producto }) {
   const { sumaredad, restaredad } = useContext(contexto);
   return (
     <>
-      {/*       <div className="card card-item">
-        <div className="card-img__container">
-          <img className="card-img" src={producto.image} alt="" />
-        </div>
-
-        <div className="card-body">
-          <h2 className="h5 card-title">{producto.title}</h2>
-          <h3 className="h6 card-subtitle text-muted mb-2">
-            {producto.price}{" "}
-          </h3>
-
-          <Link to={"/item/" + producto.id} className="btn btn-primary">
-            ver mas
-          </Link>
-        </div>
-      </div>
- */}
-      <Card data-bs-theme="dark" style={{ width: "100%" }}>
+      <Card
+        data-bs-theme="dark"
+        className="card__item"
+        style={{ width: "100%" }}
+      >
         <Card.Img variant="top" src={"../images/" + producto.image} />
         <Card.Body>
           <Card.Title>{producto.title} </Card.Title>

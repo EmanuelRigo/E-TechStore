@@ -11448,10 +11448,11 @@ main {
   flex: 1;
 }
 
-.card {
+.card__item {
   border: none;
   height: 100%;
 }
+
 .card img {
   background-image: radial-gradient(circle at 75.52% 19.59%, #ffffff 0, #ffffff 10%, #ffffff 20%, #ffffff 30%, #fff4f6 40%, #e0e0e0 50%, #bfccc8 60%, #a5bbb1 70%, #92ad9c 80%, #84a18a 90%, #7d977b 100%);
 }

@@ -19,6 +19,7 @@ const CustomProvider = ({ children }) => {
   const [productAdded, setProductAdded] = useState({});
   const [valorcambio, setValorCambio] = useState(1);
   const [valorbusqueda, setValorBusqueda] = useState();
+  const [ventas, setVentas] = useState();
 
   const [carrito, setCarrito] = useState(
     JSON.parse(localStorage.getItem("carrito")) || []
@@ -123,86 +124,26 @@ const CustomProvider = ({ children }) => {
         });
       }
     }
-    /* 
-    pedidoFireStore
-      .then((res) => {
-        const documentosArray = res.docs.map((doc) => ({
-          ...doc.data(),
-          id: doc.id,
-        }));
-        console.log(documentosArray);
-        if (category.categoria) {
-          const filtrado = documentosArray.filter(
-            (product) => product.category.name === category.categoria
-          );
-          if (valorbusqueda) {
-            const filtradoBuscar = filtrado.filter((item) =>
-              item.title.toLowerCase().includes(valorbusqueda.toLowerCase())
-            );
-            setBookdata(filtradoBuscar);
-            navbarCategoryFunction(documentosArray);
-          } else {
-            setBookdata(filtrado);
-            navbarCategoryFunction(documentosArray);
-          }
-        } else {
-          if (valorbusqueda) {
-            const filtradoBuscar = documentosArray.filter((item) =>
-              item.title.toLowerCase().includes(valorbusqueda.toLowerCase())
-            );
-            setBookdata(filtradoBuscar);
-            navbarCategoryFunction(documentosArray);
-          } else {
-            setBookdata(documentosArray);
-            navbarCategoryFunction(documentosArray);
-          }
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      }); */
   }, [category.categoria, valorbusqueda]);
 
+  const ventasCollection = collection(db, "ventas");
+
+  useEffect(() => {
+    const pedidoFireStoreVentas = getDocs(ventasCollection);
+
+    pedidoFireStoreVentas.then((res) => {
+      const documentArrayVentas = res.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+
+      setVentas(documentArrayVentas);
+      console.log(documentArrayVentas);
+      console.log(ventas);
+    });
+  }, []);
+
   //////////////////////////////////
-
-  ////FUNCION PARA CONSEGUIR DATOS////
-
-  /*  useEffect(() => {
-    axios
-      .get("https://api.escuelajs.co/api/v1/products")
-      .then((res) => {
-        if (category.categoria) {
-          const filtrado = res.data.filter(
-            (product) => product.category.name === category.categoria
-          );
-          if (valorbusqueda) {
-            const filtradoBuscar = filtrado.filter((item) =>
-              item.title.toLowerCase().includes(valorbusqueda.toLowerCase())
-            );
-            setBookdata(filtradoBuscar);
-            navbarCategoryFunction(res.data);
-          } else {
-            setBookdata(filtrado);
-            navbarCategoryFunction(res.data);
-          }
-        } else {
-          if (valorbusqueda) {
-            const filtradoBuscar = res.data.filter((item) =>
-              item.title.toLowerCase().includes(valorbusqueda.toLowerCase())
-            );
-            setBookdata(filtradoBuscar);
-            navbarCategoryFunction(res.data);
-          } else {
-            setBookdata(res.data);
-            navbarCategoryFunction(res.data);
-          }
-        }
-      })
-
-      .catch((err) => console.log(err));
-  }, [category.categoria, valorbusqueda]); */
-
-  ////////////////////////////////////
 
   ////FUNCIONES PARA BUSCAR////
 
@@ -339,6 +280,7 @@ const CustomProvider = ({ children }) => {
     sumarUsuario: sumarUsuario,
     busquedaCompra: busquedaCompra,
     setBusquedaCompra: setBusquedaCompra,
+    ventas: ventas,
   };
 
   return <Provider value={valorDelContexto}>{children}</Provider>;

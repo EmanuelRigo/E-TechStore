@@ -14,6 +14,7 @@ import ConfirmAddress from "./ConfirmAddress";
 import ConfirmPay from "./ConfirmPay";
 import ShowDetails from "./ShowDetails";
 import Buy from "./Buy";
+import SalesList from "./SalesList";
 
 function Main() {
   const [search, setSearch] = useState(""); //usamos esto para la brra de busqueda
@@ -22,6 +23,7 @@ function Main() {
     <main className="bg-violeta-personalizado">
       <Routes>
         <Route path="/cart" element={<Cart></Cart>}></Route>
+        <Route path="/compras" element={<SalesList></SalesList>}></Route>
         <Route
           path="/confirmAddress"
           element={<ConfirmAddress></ConfirmAddress>}

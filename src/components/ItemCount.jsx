@@ -15,7 +15,7 @@ function ItemCount({ product }) {
     useContext(contexto);
 
   const handleSumar = () => {
-    if (contador < 20) {
+    if (contador < product.stock) {
       setContador(contador + 1);
     }
   };
