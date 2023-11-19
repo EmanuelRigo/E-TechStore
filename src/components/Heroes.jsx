@@ -19,7 +19,11 @@ function Heroes({ itemFound }) {
   return (
     <>
       {itemFound ? (
-        <Card data-bs-theme="dark" className="container py-3 heroe">
+        <Card
+          border="0"
+          data-bs-theme="dark"
+          className="container py-3 heroe border-none"
+        >
           <div className="row p-md-4 no-gutters d-flex align-items-center">
             <div className="col-5 ">
               <Card.Img

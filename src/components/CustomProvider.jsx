@@ -91,20 +91,20 @@ const CustomProvider = ({ children }) => {
             ...doc.data(),
             id: doc.id,
           }));
-          console.log(documentArray);
+
           setBookdata(documentArray);
         });
       }
     } else {
       if (valorbusqueda) {
         const pedidoFireStore = getDocs(productosCollection);
-        console.log(pedidoFireStore);
+
         pedidoFireStore.then((res) => {
           const documentArray = res.docs.map((doc) => ({
             ...doc.data(),
             id: doc.id,
           }));
-          console.log(documentArray);
+
           const filtradoBuscar = documentArray.filter((item) =>
             item.title.toLowerCase().includes(valorbusqueda.toLowerCase())
           );
@@ -112,14 +112,13 @@ const CustomProvider = ({ children }) => {
         });
       } else {
         const pedidoFireStore = getDocs(productosCollection);
-        console.log(pedidoFireStore);
+
         pedidoFireStore.then((res) => {
           const documentArray = res.docs.map((doc) => ({
             ...doc.data(),
             id: doc.id,
           }));
 
-          console.log(documentArray);
           setBookdata(documentArray);
         });
       }
@@ -138,8 +137,6 @@ const CustomProvider = ({ children }) => {
       }));
 
       setVentas(documentArrayVentas);
-      console.log(documentArrayVentas);
-      console.log(ventas);
     });
   }, []);
 

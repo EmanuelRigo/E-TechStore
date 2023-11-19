@@ -1,8 +1,7 @@
 import React from "react";
-import { Container, Row, Card, Badge } from "react-bootstrap";
+import { Container, Row, Card, Badge, Spinner } from "react-bootstrap";
 
 function SalesItems({ item }) {
-  console.log({ item });
   return (
     <>
       <Card border="verde-neon" data-bs-theme="dark" className="my-3">
