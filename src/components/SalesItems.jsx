@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Card, Badge, Spinner } from "react-bootstrap";
+import { Container, Row, Card, Badge, Spinner, Col } from "react-bootstrap";
 
 function SalesItems({ item }) {
   return (
@@ -17,10 +17,16 @@ function SalesItems({ item }) {
               ""
             )}
           </Card.Title>
-          <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </Card.Text>
+          <Row>
+            <Col md={6}>
+              <Card.Text>
+                recibe: {item.envio.name} {item.envio.surname}
+              </Card.Text>
+            </Col>
+            <Col md={6}>
+              <Card.Text>Total: NUMERO</Card.Text>
+            </Col>
+          </Row>
         </Card.Body>
       </Card>
     </>

@@ -11,8 +11,14 @@ import Button from "react-bootstrap/Button";
 function ItemCount({ product }) {
   const [contador, setContador] = useState(1);
 
-  const { agregarProducto, addProduct, calcularTotal, total, carrito } =
-    useContext(contexto);
+  const {
+    agregarProducto,
+    addProduct,
+    calcularTotal,
+    total,
+    carrito,
+    setTotalVentas,
+  } = useContext(contexto);
 
   const handleSumar = () => {
     if (contador < product.stock) {

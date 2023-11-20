@@ -15,6 +15,7 @@ function ShowDetails() {
     setEstaPagado,
     setBusquedaCompra,
     busquedaCompra,
+    totalVentas,
   } = useContext(contexto);
 
   const navigate = useNavigate();
@@ -28,6 +29,7 @@ function ShowDetails() {
       envio: cliente.datosEnvio,
       metodoDePago: cliente.formasDePago,
       estaPago: (cliente.estaPagado = true),
+      total: totalVentas,
     };
 
     const ventasCollection = collection(db, "ventas");

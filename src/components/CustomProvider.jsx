@@ -20,6 +20,7 @@ const CustomProvider = ({ children }) => {
   const [valorcambio, setValorCambio] = useState(1);
   const [valorbusqueda, setValorBusqueda] = useState();
   const [ventas, setVentas] = useState();
+  const [totalVentas, setTotalVentas] = useState();
 
   const [carrito, setCarrito] = useState(
     JSON.parse(localStorage.getItem("carrito")) || []
@@ -125,21 +126,6 @@ const CustomProvider = ({ children }) => {
     }
   }, [category.categoria, valorbusqueda]);
 
-  const ventasCollection = collection(db, "ventas");
-
-  useEffect(() => {
-    const pedidoFireStoreVentas = getDocs(ventasCollection);
-
-    pedidoFireStoreVentas.then((res) => {
-      const documentArrayVentas = res.docs.map((doc) => ({
-        ...doc.data(),
-        id: doc.id,
-      }));
-
-      setVentas(documentArrayVentas);
-    });
-  }, []);
-
   //////////////////////////////////
 
   ////FUNCIONES PARA BUSCAR////
@@ -244,6 +230,8 @@ const CustomProvider = ({ children }) => {
     copia.push(new Client(carrito, addressInfo, payInfo, true));
     setUsuarios(copia);
   };
+
+  console.log(totalVentas);
   ////////////////////////////////////////
 
   ////////////////////////////////////////
@@ -278,6 +266,8 @@ const CustomProvider = ({ children }) => {
     busquedaCompra: busquedaCompra,
     setBusquedaCompra: setBusquedaCompra,
     ventas: ventas,
+    setTotalVentas: setTotalVentas,
+    totalVentas: totalVentas,
   };
 
   return <Provider value={valorDelContexto}>{children}</Provider>;

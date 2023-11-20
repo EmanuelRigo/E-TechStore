@@ -22,6 +22,8 @@ function Cart() {
     calcularTotal,
     total,
     decrementarCantidad,
+    setCarrito,
+    setTotalVentas,
   } = useContext(contexto);
 
   let totalSuma = 0;
@@ -33,6 +35,7 @@ function Cart() {
     );
 
     console.log(totalSuma);
+    setTotalVentas(totalSuma);
     return totalSuma;
   }
 
