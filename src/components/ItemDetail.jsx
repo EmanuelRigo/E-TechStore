@@ -31,7 +31,7 @@ function ItemDetail({ product }) {
                 </Card.Subtitle>
                 <Card.Text>{product.description}</Card.Text>
                 <Card.Text className="mb-2 text-muted">
-                  {product.price > 60 ? (
+                  {product.price > 160 ? (
                     <p>
                       llega
                       <strong> gratis mañana</strong>

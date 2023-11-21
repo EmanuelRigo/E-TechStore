@@ -5,7 +5,7 @@ import { contexto } from "./CustomProvider";
 import { Button } from "react-bootstrap";
 
 function ConfirmPay() {
-  const { cliente, setPayInfo } = useContext(contexto);
+  const { cliente, setPayInfo, totalVentas } = useContext(contexto);
   console.log(cliente);
 
   const [cardExpiry, setCardExpiry] = useState("");
@@ -13,14 +13,6 @@ function ConfirmPay() {
   const [cardCode, setCardCode] = useState("");
 
   const [linkHabilitado, setLinkHabilitado] = useState(false);
-
-  /*   class PayClient {
-    constructor(cardName, cardNumber, cardCode) {
-      this.cardName = cardName;
-      this.cardNumber = cardNumber;
-      this.cardCode = cardCode;
-    }
-  } */
 
   console.log(linkHabilitado);
 
@@ -49,11 +41,11 @@ function ConfirmPay() {
       <div class="container mt-4 d-flex justify-content-center main">
         <div class="card">
           <div class="d-flex justify-content-between px-3 pt-4">
-            <span class="pay">Pay amount</span>
+            <span class="pay">Total a pagar</span>
             <div class="amount">
               <div class="inner">
                 <span class="dollar">$</span>
-                <span class="total">999</span>
+                <span class="total">{totalVentas} </span>
               </div>
             </div>
           </div>

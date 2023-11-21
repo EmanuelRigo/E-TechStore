@@ -20,7 +20,8 @@ const CustomProvider = ({ children }) => {
   const [valorcambio, setValorCambio] = useState(1);
   const [valorbusqueda, setValorBusqueda] = useState();
   const [ventas, setVentas] = useState();
-  const [totalVentas, setTotalVentas] = useState();
+  const [totalVentas, setTotalVentas] = useState(0);
+  const [valorEnvio, setValorEnvio] = useState(0);
 
   const [carrito, setCarrito] = useState(
     JSON.parse(localStorage.getItem("carrito")) || []
@@ -155,7 +156,7 @@ const CustomProvider = ({ children }) => {
 
   const decrementarCantidad = (id) => {
     const nuevosProductos = carrito.map((producto) =>
-      producto.id === id && producto.cantidad > 0
+      producto.id === id && producto.cantidad > 1
         ? { ...producto, cantidad: producto.cantidad - 1 }
         : producto
     );
@@ -231,7 +232,7 @@ const CustomProvider = ({ children }) => {
     setUsuarios(copia);
   };
 
-  console.log(totalVentas);
+  console.log(typeof totalVentas);
   ////////////////////////////////////////
 
   ////////////////////////////////////////
@@ -268,6 +269,8 @@ const CustomProvider = ({ children }) => {
     ventas: ventas,
     setTotalVentas: setTotalVentas,
     totalVentas: totalVentas,
+    valorEnvio: valorEnvio,
+    setValorEnvio: setValorEnvio,
   };
 
   return <Provider value={valorDelContexto}>{children}</Provider>;

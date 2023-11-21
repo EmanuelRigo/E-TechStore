@@ -2,6 +2,8 @@ import React from "react";
 import { Container, Row, Card, Badge, Spinner, Col } from "react-bootstrap";
 
 function SalesItems({ item }) {
+  const fecha = item.fecha.toDate();
+
   return (
     <>
       <Card border="verde-neon" data-bs-theme="dark" className="my-3">
@@ -18,13 +20,16 @@ function SalesItems({ item }) {
             )}
           </Card.Title>
           <Row>
-            <Col md={6}>
+            <Col md={4}>
               <Card.Text>
                 recibe: {item.envio.name} {item.envio.surname}
               </Card.Text>
             </Col>
-            <Col md={6}>
-              <Card.Text>Total: NUMERO</Card.Text>
+            <Col md={4}>
+              <Card.Text>Total: ${item.total} </Card.Text>
+            </Col>
+            <Col md={4}>
+              <Card.Text>fecha: {fecha.toLocaleString()} </Card.Text>
             </Col>
           </Row>
         </Card.Body>

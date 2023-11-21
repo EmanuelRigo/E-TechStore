@@ -24,6 +24,9 @@ function Cart() {
     decrementarCantidad,
     setCarrito,
     setTotalVentas,
+    totalVentas,
+    setValorEnvio,
+    valorEnvio,
   } = useContext(contexto);
 
   let totalSuma = 0;
@@ -33,11 +36,31 @@ function Cart() {
       (total, item) => total + item.price * item.cantidad,
       0
     );
+    const totalSuma2 = Number(totalSuma.toFixed(2)) + valorEnvio;
+    const totalSuma3 = Number(totalSuma.toFixed(2));
 
-    console.log(totalSuma);
-    setTotalVentas(totalSuma);
+    console.log(totalSuma2);
+    setTotalVentas(Number(totalSuma2.toFixed(2)));
+    if (totalSuma3 > 160) {
+      setValorEnvio(0);
+    } else {
+      setValorEnvio(100);
+      console.log(typeof valorEnvio);
+    }
     return totalSuma;
   }
+
+  /*   const calcularCostoEnvio = () => {
+    if (totalSuma3 > 80) {
+      setValorEnvio(0);
+    } else {
+      setValorEnvio(100);
+      console.log(typeof valorEnvio);
+    }
+  }; */
+
+  sumarPrecios();
+  // calcularCostoEnvio();
 
   const handleClick = (id) => () => eliminarProducto(id);
   return (
@@ -110,14 +133,18 @@ function Cart() {
           );
         })}
 
+        <Row className="bg-light rounded m-2 justify-content-center">
+          <Col>
+            {valorEnvio == 0 ? "envio gratis" : "envio: $" + valorEnvio}{" "}
+          </Col>
+        </Row>
+
         <Row className="mt-4 mx-md-4">
           <Col
             md={6}
             className="d-flex mb-4 mb-md-0 align-items-center justify-content-center"
           >
-            <h4 className="text-light m-0">
-              Total ${sumarPrecios().toFixed(2)}{" "}
-            </h4>
+            <h4 className="text-light m-0">Total ${totalVentas} </h4>
           </Col>
           <Col className="text-center">
             <Button className="btn-verde-neon m-1" onClick={vaciarCarrito}>

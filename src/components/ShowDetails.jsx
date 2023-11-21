@@ -16,6 +16,7 @@ function ShowDetails() {
     setBusquedaCompra,
     busquedaCompra,
     totalVentas,
+    valorEnvio,
   } = useContext(contexto);
 
   const navigate = useNavigate();
@@ -30,6 +31,7 @@ function ShowDetails() {
       metodoDePago: cliente.formasDePago,
       estaPago: (cliente.estaPagado = true),
       total: totalVentas,
+      valorEnvio: valorEnvio,
     };
 
     const ventasCollection = collection(db, "ventas");
@@ -58,6 +60,7 @@ function ShowDetails() {
               {cliente.datosEnvio.name} {cliente.datosEnvio.surname}
             </p>
             <p>{cliente.datosEnvio.address}</p>
+            <p>${totalVentas} </p>
           </Col>
           <Col md={6}>
             {cliente.compras.map((item) => {
