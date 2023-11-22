@@ -53,9 +53,9 @@ const CustomProvider = ({ children }) => {
   const [bookdataFiltrado, setBookdataFiltrado] = useState();
   const [category, setCategory] = useState({});
 
-  const paramsFunction = (item) => {
+  /*   const paramsFunction = (item) => {
     setCategory(item);
-  };
+  }; */
 
   const productosCollection = collection(db, "products");
 
@@ -255,7 +255,7 @@ const CustomProvider = ({ children }) => {
     funcionBuscar: funcionBuscar,
     bookdata: bookdata,
     setCategory: setCategory,
-    paramsFunction: paramsFunction,
+
     setInputValue: setInputValue,
     inputValue: inputValue,
     setValorBusqueda: setValorBusqueda,

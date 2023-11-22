@@ -7,23 +7,24 @@ import { useContext } from "react"; //
 import { Container, Row, Col } from "react-bootstrap";
 
 function ItemList() {
-  const { bookdata, paramsFunction, setCategory, setValorBusqueda } =
-    useContext(contexto);
+  const { bookdata, setCategory, setValorBusqueda } = useContext(contexto);
 
   //////
 
   const { categoria } = useParams();
   const { search } = useLocation();
   const params = new URLSearchParams(search);
+  console.log(params);
 
   const busqueda = params.get("busqueda");
+  console.log(busqueda);
   setValorBusqueda(busqueda);
 
   //////
 
   const parametro = useParams();
 
-  paramsFunction(parametro);
+  setCategory(parametro);
 
   //////HEROES//////////////
 

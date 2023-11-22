@@ -8,7 +8,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation, matchPath } from "react-router-dom";
 import CartWidget from "./CartWidget";
 
 import "../stylesheets/Navbarbookshop.css";
@@ -28,12 +28,21 @@ function Navbarbookshop() {
   const handleInputChange = (event) => {
     setInputValue2(event.target.value);
   };
+  ////////////
+
+  const categoriaBuscada = useLocation();
+
+  console.log(categoriaBuscada);
 
   const funcionBuscar2 = () => {
-    navigate(`?busqueda=${inputValue2} `);
-    setInputValue2("");
+    if (categoriaBuscada.pathname.includes("/categoria/")) {
+      navigate(`?busqueda=${inputValue2} `);
+      setInputValue2("");
+    } else {
+      navigate(`/?busqueda=${inputValue2} `);
+      setInputValue2("");
+    }
   };
-  /////////////////
 
   const uniqueCategories = [
     ...new Set(navBarCategory.map((product) => product.category.name)),
@@ -70,11 +79,11 @@ function Navbarbookshop() {
               id="basic-nav-dropdown"
             >
               <Link
-                value="computers"
+                value="notebooks"
                 className="dropdown-item"
-                to={`/categoria/computers`}
+                to={`/categoria/notebooks`}
               >
-                computers
+                notebooks
               </Link>
               <Link
                 value="gaming"
