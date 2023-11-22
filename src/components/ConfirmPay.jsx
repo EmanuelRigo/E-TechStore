@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { contexto } from "./CustomProvider";
 import { Button } from "react-bootstrap";
@@ -52,7 +52,12 @@ function ConfirmPay() {
           <div class="px-3 pt-3">
             <label for="card number" class="d-flex justify-content-between">
               <span class="labeltxt">CARD NUMBER</span>
-              <img src="../images/download (4).png" width="25" class="image" />
+              <img
+                src="../images/download (4).png"
+                alt="card"
+                width="25"
+                class="image"
+              />
             </label>
             <input
               type="number"

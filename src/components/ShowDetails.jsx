@@ -1,6 +1,6 @@
 import React from "react";
-import Buy from "./Buy";
-import { Link, useNavigate } from "react-router-dom";
+
+import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { contexto } from "./CustomProvider";
 import { db } from "../firebase";
@@ -10,9 +10,9 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 function ShowDetails() {
   const {
     cliente,
-    sumarUsuario,
+
     vaciarCarrito,
-    setEstaPagado,
+
     setBusquedaCompra,
     busquedaCompra,
     totalVentas,

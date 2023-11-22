@@ -1,8 +1,4 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import axios from "axios";
-import { useParams } from "react-router-dom";
-import { computeHeadingLevel } from "@testing-library/react";
-
 import { db } from "../firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
 
@@ -17,7 +13,6 @@ export const useCart = () => {
 const CustomProvider = ({ children }) => {
   const [navBarCategory, setNavbarCategory] = useState([]);
   const [productAdded, setProductAdded] = useState({});
-  const [valorcambio, setValorCambio] = useState(1);
   const [valorbusqueda, setValorBusqueda] = useState();
   const [ventas, setVentas] = useState();
   const [totalVentas, setTotalVentas] = useState(0);
@@ -50,12 +45,7 @@ const CustomProvider = ({ children }) => {
   /////////PEDIDO A FIRESTORE////////
 
   const [bookdata, setBookdata] = useState([]);
-  const [bookdataFiltrado, setBookdataFiltrado] = useState();
   const [category, setCategory] = useState({});
-
-  /*   const paramsFunction = (item) => {
-    setCategory(item);
-  }; */
 
   const productosCollection = collection(db, "products");
 
@@ -187,8 +177,6 @@ const CustomProvider = ({ children }) => {
 
     setCarrito(copy);
     setTotalProductos(totalProductos + contador);
-
-    const nombre = "¡Agregaste " + pelicula.nombre + " al carrito!";
   };
 
   const eliminarProducto = (id) => {
@@ -245,7 +233,6 @@ const CustomProvider = ({ children }) => {
     agregarProducto: agregarProducto,
     eliminarProducto: eliminarProducto,
     vaciarCarrito: vaciarCarrito,
-    carrito: carrito,
     addProduct: addProduct,
     productAdded: productAdded,
     incrementarCantidad: incrementarCantidad,

@@ -1,15 +1,6 @@
-import React, { useEffect, useState } from "react";
 import { useContext } from "react";
 import { contexto } from "./CustomProvider";
-import {
-  Container,
-  Row,
-  Col,
-  Image,
-  Card,
-  Button,
-  Spinner,
-} from "react-bootstrap";
+import { Container, Row, Col, Card, Button, Spinner } from "react-bootstrap";
 
 import { FaCartPlus } from "react-icons/fa";
 

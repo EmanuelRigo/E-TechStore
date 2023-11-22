@@ -1,14 +1,7 @@
-import React, { useEffect } from "react";
 import { contexto } from "./CustomProvider";
 import { useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Container, Row, Col, Button, Card, Image } from "react-bootstrap";
-import {
-  AiOutlineLine,
-  AiOutlinePlus,
-  AiOutlineClose,
-  AiOutlineCloseSquare,
-} from "react-icons/ai";
 
 import { GrClose, GrAdd, GrSubtract } from "react-icons/gr";
 
@@ -17,12 +10,11 @@ function Cart() {
     carrito,
     eliminarProducto,
     vaciarCarrito,
-    totalCarrito,
+
     incrementarCantidad,
-    calcularTotal,
-    total,
+
     decrementarCantidad,
-    setCarrito,
+
     setTotalVentas,
     totalVentas,
     setValorEnvio,
@@ -50,17 +42,7 @@ function Cart() {
     return totalSuma;
   }
 
-  /*   const calcularCostoEnvio = () => {
-    if (totalSuma3 > 80) {
-      setValorEnvio(0);
-    } else {
-      setValorEnvio(100);
-      console.log(typeof valorEnvio);
-    }
-  }; */
-
   sumarPrecios();
-  // calcularCostoEnvio();
 
   const handleClick = (id) => () => eliminarProducto(id);
   return (
@@ -135,7 +117,7 @@ function Cart() {
 
         <Row className="bg-light rounded m-2 justify-content-center">
           <Col>
-            {valorEnvio == 0 ? "envio gratis" : "envio: $" + valorEnvio}{" "}
+            {valorEnvio === 0 ? "envio gratis" : "envio: $" + valorEnvio}{" "}
           </Col>
         </Row>
 

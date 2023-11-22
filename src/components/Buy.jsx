@@ -6,26 +6,10 @@ import { contexto } from "./CustomProvider";
 import { Container } from "react-bootstrap";
 
 function Buy() {
-  const { cliente, busquedaCompra } = useContext(contexto);
+  const { busquedaCompra } = useContext(contexto);
 
   const [sale, setSale] = useState();
 
-  /*  useEffect(() => {
-    const productosCollection = collection(db, "ventas");
-    const referencia = doc(productosCollection, busquedaCompra);
-    const pedido = getDoc(referencia);
-    console.log(pedido.data());
-
-    pedido
-      .then((res) => {
-        const producto = { ...res.data(), id: res.id };
-        setSale(producto);
-        console.log(producto);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []); */
   useEffect(() => {
     const obtenerDatos = async () => {
       try {

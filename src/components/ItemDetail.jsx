@@ -1,15 +1,11 @@
 import React from "react";
 import ItemCount from "./ItemCount";
-import Button from "react-bootstrap/Button";
+
 import Card from "react-bootstrap/Card";
 
-import { Container, Row, Col, Image, Badge, Spinner } from "react-bootstrap";
+import { Container, Row, Col, Image } from "react-bootstrap";
 
 function ItemDetail({ product }) {
-  const onAdd = (parametro) => {
-    console.log(parametro);
-  };
-
   return (
     <>
       <Container className="bg-dark rounded item">

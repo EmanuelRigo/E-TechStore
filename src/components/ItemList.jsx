@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { Link, useParams, useLocation } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import Item from "./Item";
 import Heroes from "./Heroes";
 import { contexto } from "./CustomProvider"; //

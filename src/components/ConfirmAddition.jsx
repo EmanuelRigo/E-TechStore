@@ -1,30 +1,14 @@
 import React from "react";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { contexto } from "./CustomProvider";
-import { Container, Card, Col, Row, Button, Image } from "react-bootstrap";
+import { Card, Col, Row, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 function ConfirmAddition() {
-  const { productAdded, calcularTotal, carrito } = useContext(contexto);
+  const { productAdded } = useContext(contexto);
 
   return (
     <>
-      {/*       <div>
-        <h2>Los productos se agregaron al carrito</h2>
-        {productAdded.title} {}
-        {productAdded.contador} <button>ir a carrito</button>
-      </div> */}
-      {/*       <Container data-bs-theme="dark" className="bg-dark">
-        <Row>
-          <Col md={8}>
-            <h3 className="text-light">
-              Se agregaron {productAdded.contador} al carrito
-            </h3>
-          </Col>
-          <Col md={4}></Col>
-        </Row>
-      </Container> */}
-
       <Card data-bs-theme="dark" className="container px-0 py-3">
         <div className="row justify-content-center my-2 mx-0 no-gutters d-flex align-items-center">
           <div className="col-7">
@@ -43,18 +27,6 @@ function ConfirmAddition() {
                 </Link>
               </div>
             </Card.Body>
-
-            {/*   <Row className="d-none d-lg-block">
-              <Col md={4} className="d-flex justify-content-center">
-                <Button className="btn-block " variant="verde-neon">
-                  seguir comprando
-                </Button>
-                <Button className="btn-block " variant="verde-neon">
-                  ir a carrito
-                </Button>
-              </Col>
-              <Col md={4} className=" d-flex justify-content-center"></Col>
-            </Row> */}
           </div>
           <div className="col-4 col-md-3 ">
             <Card.Img

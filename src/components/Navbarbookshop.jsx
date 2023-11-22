@@ -4,31 +4,23 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import InputGroup from "react-bootstrap/InputGroup";
+
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import { Link, useNavigate, useLocation, matchPath } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import CartWidget from "./CartWidget";
 
 import "../stylesheets/Navbarbookshop.css";
 
-import { AiOutlineShoppingCart } from "react-icons/ai";
-
-import { useContext, useEffect, useState } from "react";
-import { contexto } from "./CustomProvider";
+import { useState } from "react";
 
 function Navbarbookshop() {
-  const { navBarCategory, funcionBuscar, setInputValue, inputValue } =
-    useContext(contexto);
-
-  ///////////////
   const [inputValue2, setInputValue2] = useState("");
 
   const handleInputChange = (event) => {
     setInputValue2(event.target.value);
   };
-  ////////////
 
   const categoriaBuscada = useLocation();
 
@@ -43,10 +35,6 @@ function Navbarbookshop() {
       setInputValue2("");
     }
   };
-
-  const uniqueCategories = [
-    ...new Set(navBarCategory.map((product) => product.category.name)),
-  ];
 
   const navigate = useNavigate();
 

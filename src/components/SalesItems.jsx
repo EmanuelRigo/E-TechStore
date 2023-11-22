@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Card, Badge, Spinner, Col } from "react-bootstrap";
+import { Row, Card, Badge, Col } from "react-bootstrap";
 
 function SalesItems({ item }) {
   const fecha = item.fecha.toDate();

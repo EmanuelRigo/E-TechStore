@@ -2,7 +2,6 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-import axios from "axios";
 import ItemDetail from "./ItemDetail";
 import { collection, doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase";
@@ -10,7 +9,6 @@ import { db } from "../firebase";
 import { Container, Spinner } from "react-bootstrap";
 
 function ItemDetailContainer() {
-  const [bookdata, setBookdata] = useState([]);
   const { id } = useParams();
   const [product, setProduct] = useState();
 
