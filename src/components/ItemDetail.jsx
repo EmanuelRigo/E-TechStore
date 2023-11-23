@@ -16,32 +16,36 @@ function ItemDetail({ product }) {
             </div>
           </Col>
           <Col lg={4} className="p-3">
-            <Card style={{ width: "100%" }}>
-              <Card.Body>
-                <Card.Title>{product.title}</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">
-                  estrellas
-                </Card.Subtitle>
-                <Card.Subtitle className="mb-2 text-muted">
-                  ${product.price}
-                </Card.Subtitle>
-                <Card.Text>{product.description}</Card.Text>
-                <Card.Text className="mb-2 text-muted">
-                  {product.price > 160 ? (
-                    <p>
-                      llega
-                      <strong> gratis mañana</strong>
-                    </p>
-                  ) : (
-                    <p>
-                      llega <strong>mañana</strong> por $15
-                    </p>
-                  )}
-                </Card.Text>
-                <Card.Subtitle className="mb-2 text-muted">
-                  stock: {product.stock}
-                </Card.Subtitle>
-                <ItemCount product={product}></ItemCount>
+            <Card className="h-100" style={{ width: "100%" }}>
+              <Card.Body className="d-flex flex-column justify-content-between">
+                <div>
+                  <Card.Title>{product.title}</Card.Title>
+                  <Card.Subtitle className="mb-2 text-muted">
+                    estrellas
+                  </Card.Subtitle>
+                  <Card.Subtitle className="mb-2 text-muted">
+                    ${product.price}
+                  </Card.Subtitle>
+                  <Card.Text className="mb-3">{product.description}</Card.Text>
+                </div>
+                <div>
+                  <Card.Subtitle className="mb-2 text-muted">
+                    stock: {product.stock}
+                  </Card.Subtitle>
+                  <Card.Text className="mb-2 text-muted">
+                    {product.price > 160 ? (
+                      <p>
+                        llega
+                        <strong> gratis mañana</strong>
+                      </p>
+                    ) : (
+                      <p>
+                        llega <strong>mañana</strong> por $15
+                      </p>
+                    )}
+                  </Card.Text>
+                  <ItemCount product={product}></ItemCount>
+                </div>
               </Card.Body>
             </Card>
           </Col>

@@ -8,7 +8,7 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 
 import Row from "react-bootstrap/Row";
-import { Container } from "react-bootstrap";
+import { Container, Card, ListGroup } from "react-bootstrap";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import { Modal } from "react-bootstrap";
 
@@ -193,23 +193,22 @@ function ConfirmAddress() {
           <Modal.Title>Revise la informacion</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Row>
-            <Col md={12}>
-              {addressData.name} {addressData.surname}
-            </Col>
-          </Row>
-          <Row>
-            <Col md={6}>{addressData.address} </Col>
-            <Col md={6}>{addressData.city} </Col>
-          </Row>
-          <Row>
-            <Col md={6}>{addressData.country} </Col>
-            <Col md={6}>{addressData.postalCode} </Col>
-          </Row>
-          <Row>
-            <Col md={6}>{addressData.dni} </Col>
-            <Col md={6}>{addressData.phone}</Col>
-          </Row>
+          <ListGroup as="ul">
+            <ListGroup.Item as="li">
+              Nombre y apellido: {addressData.name} {addressData.surname}
+            </ListGroup.Item>
+            <ListGroup.Item as="li">
+              Direccion: {addressData.address}, {addressData.city}
+            </ListGroup.Item>
+            <ListGroup.Item as="li">
+              Probincia y Codigo Postal: {addressData.country},
+              {addressData.postalCode}
+            </ListGroup.Item>
+            <ListGroup.Item as="li">
+              Telefono: {addressData.phone}
+            </ListGroup.Item>
+            <ListGroup.Item as="li">DNI: {addressData.dni} </ListGroup.Item>
+          </ListGroup>
         </Modal.Body>
         <Modal.Footer>
           <Link
