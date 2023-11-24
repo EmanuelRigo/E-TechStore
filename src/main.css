@@ -11417,6 +11417,7 @@ textarea.form-control-lg {
 }
 .cart {
   position: relative;
+  margin-right: 20px;
 }
 
 .circleCart {
@@ -11430,7 +11431,7 @@ textarea.form-control-lg {
   display: flex;
   align-items: center;
   justify-content: center;
-  left: 41px;
+  left: 37px;
 }
 .circleCart p {
   margin: 0;
@@ -11452,6 +11453,10 @@ main {
   border: none;
   height: 100%;
 }
+.card__item svg {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
 
 .card img {
   background-image: radial-gradient(circle at 75.52% 19.59%, #ffffff 0, #ffffff 10%, #ffffff 20%, #ffffff 30%, #fff4f6 40%, #e0e0e0 50%, #bfccc8 60%, #a5bbb1 70%, #92ad9c 80%, #84a18a 90%, #7d977b 100%);
@@ -11468,6 +11473,9 @@ main {
 }
 .heroe button p {
   color: #000;
+}
+.heroe button svg {
+  font-size: 1.5rem;
 }
 
 .imgContainer {
@@ -11502,4 +11510,12 @@ main {
 
 strong {
   color: #00a800;
+}
+
+.nav-link:hover {
+  color: #fff;
+}
+
+.nav-link:focus {
+  color: #fff;
 }/*# sourceMappingURL=main.css.map */

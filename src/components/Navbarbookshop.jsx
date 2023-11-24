@@ -26,6 +26,12 @@ function Navbarbookshop() {
 
   console.log(categoriaBuscada);
 
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      funcionBuscar2();
+    }
+  };
+
   const funcionBuscar2 = () => {
     if (categoriaBuscada.pathname.includes("/categoria/")) {
       navigate(`?busqueda=${inputValue2} `);
@@ -58,9 +64,11 @@ function Navbarbookshop() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Link className="nav-link" to="/compras">
-              compras
+              Compras
             </Link>
-            <Nav.Link href="#link">Link</Nav.Link>
+            <Link className="nav-link" to="/favoritos">
+              Favoritos
+            </Link>
             <NavDropdown
               title="Categorias"
               className="bg-dark"
@@ -116,6 +124,7 @@ function Navbarbookshop() {
                 className=" mr-sm-2"
                 value={inputValue2}
                 onChange={handleInputChange}
+                onKeyDown={handleKeyPress}
               />
             </Col>
             <Col xs="auto">

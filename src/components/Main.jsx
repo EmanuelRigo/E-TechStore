@@ -11,6 +11,7 @@ import ConfirmPay from "./ConfirmPay";
 import ShowDetails from "./ShowDetails";
 import Buy from "./Buy";
 import SalesList from "./SalesList";
+import Favorites from "./Favorites";
 
 function Main() {
   return (
@@ -42,6 +43,7 @@ function Main() {
           path="/item/:id/confirmAddition"
           element={<ConfirmAddition></ConfirmAddition>}
         ></Route>
+        <Route path="/favoritos" element={<Favorites></Favorites>}></Route>
       </Routes>
     </main>
   );

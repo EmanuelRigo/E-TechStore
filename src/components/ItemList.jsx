@@ -13,10 +13,9 @@ function ItemList() {
   const { categoria } = useParams();
   const { search } = useLocation();
   const params = new URLSearchParams(search);
-  console.log(params);
 
   const busqueda = params.get("busqueda");
-  console.log(busqueda);
+
   setValorBusqueda(busqueda);
 
   //////
@@ -34,9 +33,54 @@ function ItemList() {
   const primerosDoceElementos = bookdata.slice(0, 12);
   //////////////////////////////////////
 
+  const ifBusqueda = () => {
+    if (busqueda) {
+      if (bookdata.length === 0) {
+        return (
+          <Container className="container-lg mt-4 px-0">
+            <Row className="bg-light rounded my-4 mx-0 justify-content-center">
+              <Col className="py-3 col-auto">
+                <h4>No hay elementos con ese nombre</h4>
+              </Col>
+            </Row>
+          </Container>
+        );
+      } else {
+        return (
+          <Row className="row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3 ">
+            {bookdata.map((item) => {
+              return (
+                <div className="col" key={item.id}>
+                  <Item producto={item}></Item>
+                </div>
+              );
+            })}
+          </Row>
+        );
+      }
+    } else {
+      return (
+        <Row className="row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3 ">
+          {busqueda
+            ? bookdata
+            : primerosDoceElementos.map((item) => {
+                return (
+                  <div className="col" key={item.id}>
+                    <Item producto={item}></Item>
+                  </div>
+                );
+              })}
+        </Row>
+      );
+    }
+  };
+
+  ////////////////////////////////////////
+
   return (
     <>
-      {categoria ? null : <Heroes itemFound={itemFound}></Heroes>}
+      {categoria || busqueda ? null : <Heroes itemFound={itemFound}></Heroes>}
+
       <Container className="container-lg mt-4 px-0">
         <Row className=" bg-light gx-3 rounded my-4 mx-0 mx-auto ">
           {categoria ? (
@@ -56,16 +100,7 @@ function ItemList() {
             </Col>
           ) : null}
         </Row>
-
-        <Row className="row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3 ">
-          {primerosDoceElementos.map((item) => {
-            return (
-              <div className="col">
-                <Item producto={item} key={item.id}></Item>
-              </div>
-            );
-          })}
-        </Row>
+        {ifBusqueda()}
       </Container>
     </>
   );

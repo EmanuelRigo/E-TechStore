@@ -6,7 +6,7 @@ import { FaCartPlus } from "react-icons/fa";
 
 function Heroes({ itemFound }) {
   const { agregarProducto } = useContext(contexto);
-  console.log(itemFound);
+
   return (
     <>
       {itemFound ? (
@@ -40,7 +40,7 @@ function Heroes({ itemFound }) {
                       }}
                     >
                       <FaCartPlus className="m-md-2"></FaCartPlus>
-                      <p className="d-none d-md-block m-0">agregar a carrito</p>
+                      <p className="d-none d-lg-block m-0">agregar a carrito</p>
                     </Button>
                   </Col>
                   <Col className="d-flex align-items-center">

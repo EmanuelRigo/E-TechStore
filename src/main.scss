@@ -33,8 +33,11 @@ $violeta-personalizado: (
 $theme-colors: map-merge($violeta-personalizado, $verde-neon );
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
+
+
 .cart {
   position: relative;
+  margin-right: 20px;
 }
 
 .circleCart {
@@ -48,7 +51,7 @@ $theme-colors: map-merge($violeta-personalizado, $verde-neon );
   display: flex;
   align-items: center;
   justify-content: center;
-  left: 41px;
+  left: 37px;
 
   p {
     margin: 0;
@@ -73,6 +76,12 @@ main {
   height: 100%;
 
 
+  svg {
+    font-size: 1.5rem;
+    cursor: pointer
+   
+  }
+
 }
 
 .card {
@@ -94,6 +103,8 @@ main {
     p {
       color: #000;
     }
+
+    svg {font-size: 1.5rem;}
   }
 
 
@@ -145,3 +156,10 @@ strong {
   color: #00a800
 }
 
+.nav-link:hover {
+  color:#fff
+}
+
+.nav-link:focus {
+  color:#fff
+}
