@@ -5,7 +5,7 @@ import SalesItems from "./SalesItems";
 import { db } from "../firebase";
 import { collection, getDocs } from "firebase/firestore";
 
-import { Container, Spinner } from "react-bootstrap";
+import { Container, Spinner, Row, Col } from "react-bootstrap";
 
 function SalesList() {
   const [ventas, setVentas] = useState();
@@ -47,7 +47,15 @@ function SalesList() {
         </Container>
       );
     } else if (ventas.length === 0) {
-      setContenido(<h3>No hay componentes</h3>);
+      setContenido(
+        <Container className="container-lg mt-4 px-0">
+          <Row className=" bg-light gx-3 rounded my-4 mx-0 mx-auto ">
+            <Col className="d-flex align-items-center justify-content-center py-3 mx-auto">
+              <h2>No hay compras</h2>
+            </Col>
+          </Row>
+        </Container>
+      );
     }
   }, [ventas]);
   return <div>{contenido}</div>;

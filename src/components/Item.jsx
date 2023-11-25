@@ -3,8 +3,12 @@ import { Link } from "react-router-dom";
 
 import { FaRegHeart, FaHeart } from "react-icons/fa6";
 import { Card, Row, Col } from "react-bootstrap";
+import { useContext } from "react";
+import { contexto } from "./CustomProvider";
 
 function Item({ producto }) {
+  const { addFavorites, favorites } = useContext(contexto);
+
   return (
     <>
       <Card
@@ -21,7 +25,27 @@ function Item({ producto }) {
                 <Card.Text>${producto.price}</Card.Text>
               </Col>
               <Col className="d-flex align-items-center justify-content-end ">
-                <FaRegHeart className="text-verde-neon"></FaRegHeart>
+                {favorites.some((articulo) => articulo.id === producto.id) ? (
+                  <FaHeart
+                    onClick={() => {
+                      addFavorites(producto);
+                    }}
+                    className="text-verde-neon"
+                  ></FaHeart>
+                ) : (
+                  <FaRegHeart
+                    onClick={() => {
+                      addFavorites(producto);
+                    }}
+                    className="text-verde-neon"
+                  ></FaRegHeart>
+                )}
+                {/*  <FaRegHeart
+                  onClick={() => {
+                    addFavorites(producto);
+                  }}
+                  className="text-verde-neon"
+                ></FaRegHeart> */}
               </Col>
             </Row>
 

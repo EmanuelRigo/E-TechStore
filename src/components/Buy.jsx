@@ -3,7 +3,7 @@ import { useContext, useState, useEffect } from "react";
 import { collection, doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import { contexto } from "./CustomProvider";
-import { Container } from "react-bootstrap";
+import { Container, Spinner, Button } from "react-bootstrap";
 
 function Buy() {
   const { busquedaCompra } = useContext(contexto);
@@ -38,10 +38,16 @@ function Buy() {
         <Container className="bg-light">
           <p>{`Gracias por la compra ${sale.envio.name}`}</p>
           <p>{`Los ${sale.compras.length} productos llegarán en RANDOM días`}</p>
+          <Button>ir a inicio</Button>
         </Container>
       ) : (
-        <Container className="bg-light">
-          <p>Cargando datos...</p>
+        <Container className="d-flex  align-items-center justify-content-center">
+          <Spinner
+            animation="border"
+            variant="verde-neon"
+            size="lg"
+            className="p-5 m-5"
+          />
         </Container>
       )}
     </>

@@ -28,7 +28,15 @@ const CustomProvider = ({ children }) => {
   const [total, setTotal] = useState(0);
   const [inputValue, setInputValue] = useState("");
 
+  const [favorites, setFavorites] = useState(
+    JSON.parse(localStorage.getItem("favorites")) || []
+  );
+
   const [busquedaCompra, setBusquedaCompra] = useState("");
+
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [favorites]);
 
   useEffect(() => {
     localStorage.setItem("carrito", JSON.stringify(carrito));
@@ -195,6 +203,16 @@ const CustomProvider = ({ children }) => {
     setNavbarCategory(item);
   };
 
+  function addFavorites(item) {
+    const productoExistente = favorites.find((prod) => prod.id === item.id);
+    if (productoExistente) {
+      const nuevosFavoritos = favorites.filter((prod) => prod.id !== item.id);
+      setFavorites(nuevosFavoritos);
+    } else {
+      setFavorites([...favorites, item]);
+    }
+  }
+
   /////////CONSTRUCTOR DE CLIENTES/////////
 
   class Client {
@@ -258,6 +276,8 @@ const CustomProvider = ({ children }) => {
     totalVentas: totalVentas,
     valorEnvio: valorEnvio,
     setValorEnvio: setValorEnvio,
+    addFavorites: addFavorites,
+    favorites: favorites,
   };
 
   return <Provider value={valorDelContexto}>{children}</Provider>;

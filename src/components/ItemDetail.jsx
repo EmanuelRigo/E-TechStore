@@ -2,8 +2,11 @@ import React from "react";
 import ItemCount from "./ItemCount";
 
 import Card from "react-bootstrap/Card";
+import { FaRegStar, FaStar } from "react-icons/fa";
 
 import { Container, Row, Col, Image } from "react-bootstrap";
+
+const calificacion = 3;
 
 function ItemDetail({ product }) {
   return (
@@ -20,10 +23,16 @@ function ItemDetail({ product }) {
               <Card.Body className="d-flex flex-column justify-content-between">
                 <div>
                   <Card.Title>{product.title}</Card.Title>
-                  <Card.Subtitle className="mb-2 text-muted">
-                    estrellas
-                  </Card.Subtitle>
-                  <Card.Subtitle className="mb-2 text-muted">
+
+                  {[...new Array(5)].map((star, index) => {
+                    return index < product.qualification ? (
+                      <FaStar />
+                    ) : (
+                      <FaRegStar />
+                    );
+                  })}
+
+                  <Card.Subtitle className="my-2 text-muted">
                     ${product.price}
                   </Card.Subtitle>
                   <Card.Text className="mb-3">{product.description}</Card.Text>
