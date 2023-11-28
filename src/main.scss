@@ -94,6 +94,7 @@ main {
   img {    background-image: radial-gradient(circle at 95.45% -4.17%, #f4ff00 0, #d6ff00 12.5%, #b1ff00 25%, #7fff00 37.5%, #27f100 50%, #00e112 62.5%, #00d52a 75%, #00cd40 87.5%, #00ca58 100%);
     object-fit: contain;
     border-radius: 50%;
+    cursor: pointer
   }
   p {
     color: white;
@@ -162,4 +163,17 @@ strong {
 
 .nav-link:focus {
   color:#fff
+}
+
+
+.itemFavorite {
+
+  img {
+    height: 7rem;
+  }
+
+
+  svg {
+    font-size: 2rem;
+  }
 }

@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { contexto } from "./CustomProvider";
 import { Container, Row, Col, Card, Button, Spinner } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 import { FaCartPlus } from "react-icons/fa";
 
@@ -17,10 +18,12 @@ function Heroes({ itemFound }) {
         >
           <div className="row p-md-4 no-gutters d-flex align-items-center">
             <div className="col-5 ">
-              <Card.Img
-                src={itemFound ? "../images/" + itemFound.image : null}
-                alt="Imagen de la tarjeta"
-              />
+              <Link to={"/item/" + itemFound.id}>
+                <Card.Img
+                  src={itemFound ? "../images/" + itemFound.image : null}
+                  alt="Imagen de la tarjeta"
+                />
+              </Link>
             </div>
             <div className="col-7">
               <Card.Body className="px-0 py-2 p-md-4">

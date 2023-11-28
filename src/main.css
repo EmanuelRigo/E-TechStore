@@ -11467,6 +11467,7 @@ main {
   -o-object-fit: contain;
      object-fit: contain;
   border-radius: 50%;
+  cursor: pointer;
 }
 .heroe p {
   color: white;
@@ -11518,4 +11519,11 @@ strong {
 
 .nav-link:focus {
   color: #fff;
+}
+
+.itemFavorite img {
+  height: 7rem;
+}
+.itemFavorite svg {
+  font-size: 2rem;
 }/*# sourceMappingURL=main.css.map */

@@ -213,6 +213,12 @@ const CustomProvider = ({ children }) => {
     }
   }
 
+  const eliminarFavorito = (id) => {
+    const copy = [...favorites];
+
+    setFavorites(copy.filter((i) => i.id !== id));
+  };
+
   /////////CONSTRUCTOR DE CLIENTES/////////
 
   class Client {
@@ -278,6 +284,7 @@ const CustomProvider = ({ children }) => {
     setValorEnvio: setValorEnvio,
     addFavorites: addFavorites,
     favorites: favorites,
+    eliminarFavorito: eliminarFavorito,
   };
 
   return <Provider value={valorDelContexto}>{children}</Provider>;

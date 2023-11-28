@@ -40,12 +40,6 @@ function Item({ producto }) {
                     className="text-verde-neon"
                   ></FaRegHeart>
                 )}
-                {/*  <FaRegHeart
-                  onClick={() => {
-                    addFavorites(producto);
-                  }}
-                  className="text-verde-neon"
-                ></FaRegHeart> */}
               </Col>
             </Row>
 

@@ -1,14 +1,18 @@
 import React from "react";
 import ItemCount from "./ItemCount";
+import { useContext } from "react";
+import { contexto } from "./CustomProvider";
 
 import Card from "react-bootstrap/Card";
 import { FaRegStar, FaStar } from "react-icons/fa";
+import { FaRegHeart, FaHeart } from "react-icons/fa6";
 
 import { Container, Row, Col, Image } from "react-bootstrap";
-
-const calificacion = 3;
+import MyCarousel from "./MyCarousel";
 
 function ItemDetail({ product }) {
+  const { favorites, producto, addFavorites } = useContext(contexto);
+
   return (
     <>
       <Container className="bg-dark rounded item">
@@ -24,13 +28,38 @@ function ItemDetail({ product }) {
                 <div>
                   <Card.Title>{product.title}</Card.Title>
 
-                  {[...new Array(5)].map((star, index) => {
-                    return index < product.qualification ? (
-                      <FaStar />
-                    ) : (
-                      <FaRegStar />
-                    );
-                  })}
+                  <Row>
+                    <Col>
+                      {[...new Array(5)].map((star, index) => {
+                        return index < product.qualification ? (
+                          <FaStar />
+                        ) : (
+                          <FaRegStar />
+                        );
+                      })}
+                    </Col>
+                    <Col className="d-flex justify-content-end align-items-center">
+                      {favorites.some(
+                        (articulo) => articulo.id === product.id
+                      ) ? (
+                        <FaHeart
+                          style={{ fontSize: "1.5rem" }}
+                          onClick={() => {
+                            addFavorites(product);
+                          }}
+                          className="text-verde-neon"
+                        ></FaHeart>
+                      ) : (
+                        <FaRegHeart
+                          style={{ fontSize: "1.5rem" }}
+                          onClick={() => {
+                            addFavorites(product);
+                          }}
+                          className="text-verde-neon"
+                        ></FaRegHeart>
+                      )}
+                    </Col>
+                  </Row>
 
                   <Card.Subtitle className="my-2 text-muted">
                     ${product.price}
@@ -60,6 +89,7 @@ function ItemDetail({ product }) {
           </Col>
         </Row>
       </Container>
+      <MyCarousel></MyCarousel>
     </>
   );
 }
