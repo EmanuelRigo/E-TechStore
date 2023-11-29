@@ -4,6 +4,7 @@ import { collection, doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import { contexto } from "./CustomProvider";
 import { Container, Spinner, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function Buy() {
   const { busquedaCompra } = useContext(contexto);
@@ -38,7 +39,9 @@ function Buy() {
         <Container className="bg-light">
           <p>{`Gracias por la compra ${sale.envio.name}`}</p>
           <p>{`Los ${sale.compras.length} productos llegarán en RANDOM días`}</p>
-          <Button>ir a inicio</Button>
+          <Link className="btn m-1 btn-verde-neon" to={"/"}>
+            ir al inicio
+          </Link>
         </Container>
       ) : (
         <Container className="d-flex  align-items-center justify-content-center">

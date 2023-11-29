@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ItemCount from "./ItemCount";
 import { useContext } from "react";
 import { contexto } from "./CustomProvider";
@@ -9,6 +9,7 @@ import { FaRegHeart, FaHeart } from "react-icons/fa6";
 
 import { Container, Row, Col, Image } from "react-bootstrap";
 import MyCarousel from "./MyCarousel";
+import { useParams, useNavigate } from "react-router-dom";
 
 function ItemDetail({ product }) {
   const { favorites, producto, addFavorites } = useContext(contexto);

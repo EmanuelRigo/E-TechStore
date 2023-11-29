@@ -125,8 +125,14 @@ function Cart() {
           })}
 
           <Row className="bg-light rounded m-2 justify-content-center">
-            <Col>
-              {valorEnvio === 0 ? "envio gratis" : "envio: $" + valorEnvio}
+            <Col className="py-4 px-5 ">
+              {valorEnvio === 0 ? (
+                <p className="h5 m-0">
+                  envio <strong>gratis</strong>
+                </p>
+              ) : (
+                <p className="h5 m-0">valor envio: $ {valorEnvio} </p>
+              )}
             </Col>
           </Row>
 

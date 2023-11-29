@@ -215,8 +215,9 @@ const CustomProvider = ({ children }) => {
 
   const eliminarFavorito = (id) => {
     const copy = [...favorites];
-
-    setFavorites(copy.filter((i) => i.id !== id));
+    const index = copy.find((item) => item.id === id);
+    setTotalProductos(totalProductos - index.cantidad);
+    setCarrito(copy.filter((i) => i.id !== id));
   };
 
   /////////CONSTRUCTOR DE CLIENTES/////////

@@ -2,19 +2,37 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { contexto } from "./CustomProvider";
-import { Button } from "react-bootstrap";
+import { Button, Container, Card, Row, Col } from "react-bootstrap";
 
 function ConfirmPay() {
   const { cliente, setPayInfo, totalVentas } = useContext(contexto);
-  console.log(cliente);
 
   const [cardExpiry, setCardExpiry] = useState("");
-  const [cardNumber, setCardNumer] = useState("");
+  const [cardNumber, setCardNumber] = useState("");
   const [cardCode, setCardCode] = useState("");
 
   const [linkHabilitado, setLinkHabilitado] = useState(false);
 
-  console.log(linkHabilitado);
+  /////
+
+  const handleCardNumberChange = (e) => {
+    let inputWithoutSpaces = e.target.value.replace(/\D/g, "").slice(0, 16);
+
+    let formattedInput = inputWithoutSpaces.replace(/(.{4})/g, "$1 ");
+
+    if (
+      (e.nativeEvent.inputType === "deleteContentBackward" &&
+        formattedInput.charAt(formattedInput.length - 1) === " ") ||
+      (e.nativeEvent.inputType === "insertText" &&
+        formattedInput.length > 0 &&
+        formattedInput.charAt(formattedInput.length - 1) === " ")
+    ) {
+      formattedInput = formattedInput.slice(0, -1);
+    }
+
+    setCardNumber(formattedInput);
+  };
+  /////
 
   const payData = {
     cardExpiry: cardExpiry,
@@ -36,9 +54,8 @@ function ConfirmPay() {
   };
 
   return (
-    <div>
-      <h3>Confirm Pay</h3>
-      <div class="container mt-4 d-flex justify-content-center main">
+    <>
+      <div class="container mt-4 d-flex justify-content-center">
         <div class="card">
           <div class="d-flex justify-content-between px-3 pt-4">
             <span class="pay">Total a pagar</span>
@@ -50,22 +67,25 @@ function ConfirmPay() {
             </div>
           </div>
           <div class="px-3 pt-3">
-            <label for="card number" class="d-flex justify-content-between">
+            <label
+              for="card number"
+              class="d-flex justify-content-between mb-2"
+            >
               <span class="labeltxt">CARD NUMBER</span>
               <img
+                style={{ width: "3rem" }}
                 src="../images/download (4).png"
                 alt="card"
-                width="25"
                 class="image"
               />
             </label>
             <input
-              type="number"
+              type="text"
               name="number"
-              class="form-control inputtxt"
+              className="form-control inputtxt"
               placeholder="8881 2545 2545 2245"
               value={cardNumber}
-              onChange={(e) => setCardNumer(e.target.value)}
+              onChange={handleCardNumberChange}
             />
           </div>
           <div class="d-flex justify-content-between px-3 pt-4">
@@ -73,11 +93,29 @@ function ConfirmPay() {
               <label for="date" class="exptxt">
                 Expiry
               </label>
+
+              <select class="form-control expiry" name="" id="">
+                <option value="" disabled selected>
+                  Selecciona un mes
+                </option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+              </select>
               <input
                 type="number"
                 name="number"
                 class="form-control expiry"
-                placeholder="MM / YY"
+                placeholder="Mes / Año"
                 value={cardExpiry}
                 onChange={(e) => setCardExpiry(e.target.value)}
               />
@@ -98,12 +136,57 @@ function ConfirmPay() {
           </div>
           <div class="d-flex align-items-center justify-content-between px-3 py-4">
             <div>
-              <Button onClick={handleContinue}>continuar</Button>
+              <Button variant="verde-neon" onClick={handleContinue}>
+                continuar
+              </Button>
             </div>
           </div>
         </div>
       </div>
-    </div>
+
+      <Container className="mt-4 d-flex justify-content-center">
+        <Row>
+          <Col className="bg-light" sm={6}>
+            <Row>
+              <span>Total a pagar</span>
+              <span>${totalVentas}</span>
+            </Row>
+            <Row>
+              <Col sm={9}>
+                {" "}
+                <label
+                  for="card number"
+                  class="d-flex justify-content-between mb-2"
+                >
+                  <span class="labeltxt">CARD NUMBER</span>
+                  <img
+                    style={{ width: "3rem" }}
+                    src="../images/download (4).png"
+                    alt="card"
+                    class="image"
+                  />
+                </label>
+                <input
+                  type="text"
+                  name="number"
+                  className="form-control inputtxt"
+                  placeholder="8881 2545 2545 2245"
+                  value={cardNumber}
+                  onChange={handleCardNumberChange}
+                />
+              </Col>
+              <Col sm={3}></Col>
+            </Row>
+          </Col>
+        </Row>
+      </Container>
+
+      <Container>
+        <Row className="bg-primary" style={{ height: "2rem" }}>
+          <Col className="bg-danger" md={6}></Col>
+        </Row>
+      </Container>
+    </>
   );
 }
 

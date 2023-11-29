@@ -11526,4 +11526,12 @@ strong {
 }
 .itemFavorite svg {
   font-size: 2rem;
+}
+
+.carousel-control-prev {
+  position: relative;
+}
+
+.carousel-control-next {
+  position: relative;
 }/*# sourceMappingURL=main.css.map */

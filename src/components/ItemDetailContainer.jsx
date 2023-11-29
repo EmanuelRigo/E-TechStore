@@ -14,6 +14,9 @@ function ItemDetailContainer() {
 
   console.log(id);
 
+  const params = useParams();
+  console.log(params);
+
   useEffect(() => {
     const productosCollection = collection(db, "products");
     console.log(productosCollection);
@@ -30,7 +33,7 @@ function ItemDetailContainer() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [params.id]);
 
   return (
     <div>
