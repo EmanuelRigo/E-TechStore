@@ -112,7 +112,7 @@ function Cart() {
                     className="d-flex flex-column pt-2 align-items-center justify-content-center"
                   >
                     <Image
-                      className="w-100 bg-verde-neon rounded"
+                      className="w-100 bg-dark rounded"
                       src={"/images/" + item.image}
                     />
                     <Card.Title className="m-2 text-center">

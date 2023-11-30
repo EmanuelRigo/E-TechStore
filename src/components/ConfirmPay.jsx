@@ -15,7 +15,8 @@ import {
 function ConfirmPay() {
   const { cliente, setPayInfo, totalVentas } = useContext(contexto);
 
-  const [cardExpiry, setCardExpiry] = useState("");
+  const [cardExpiryMonth, setCardExpiryMonth] = useState("");
+  const [cardExpiryYear, setCardExpiryYear] = useState("");
   const [cardNumber, setCardNumber] = useState("");
   const [cardCode, setCardCode] = useState("");
 
@@ -43,7 +44,8 @@ function ConfirmPay() {
   /////
 
   const payData = {
-    cardExpiry: cardExpiry,
+    cardExpiryMonth: cardExpiryMonth,
+    cardExpiryYear: cardExpiryYear,
     cardNumber: cardNumber,
     cardCode: cardCode,
   };
@@ -51,7 +53,7 @@ function ConfirmPay() {
   const navigate = useNavigate();
 
   const handleContinue = (e) => {
-    if (cardExpiry && cardNumber && cardCode) {
+    if (cardExpiryYear && cardNumber && cardCode && cardExpiryMonth) {
       setPayInfo(payData);
       setLinkHabilitado(true);
       navigate("/showDetails");
@@ -124,8 +126,8 @@ function ConfirmPay() {
                 name="number"
                 class="form-control expiry"
                 placeholder="Mes / Año"
-                value={cardExpiry}
-                onChange={(e) => setCardExpiry(e.target.value)}
+                //    value={cardExpiry}
+                //  onChange={(e) => setCardExpiry(e.target.value)}
               />
             </div>
             <div>
@@ -152,50 +154,13 @@ function ConfirmPay() {
         </div>
       </div>
 
-      <Container className="mt-4 d-flex justify-content-center">
-        <Row>
-          <Col className="bg-light" sm={6}>
-            <Row>
-              <span>Total a pagar</span>
-              <span>${totalVentas}</span>
-            </Row>
-            <Row>
-              <Col sm={9}>
-                {" "}
-                <label
-                  for="card number"
-                  class="d-flex justify-content-between mb-2"
-                >
-                  <span class="labeltxt">CARD NUMBER</span>
-                  <img
-                    style={{ width: "3rem" }}
-                    src="../images/download (4).png"
-                    alt="card"
-                    class="image"
-                  />
-                </label>
-                <input
-                  type="text"
-                  name="number"
-                  className="form-control inputtxt"
-                  placeholder="8881 2545 2545 2245"
-                  value={cardNumber}
-                  onChange={handleCardNumberChange}
-                />
-              </Col>
-              <Col sm={3}></Col>
-            </Row>
-          </Col>
-        </Row>
-      </Container>
-
       <Container>
         <Row className="bg-primary ">
           <Col className="bg-light rounded mx-auto" sm={9} md={9} lg={6}>
             <Row>
-              <Col className="d-flex justify-content-between">
-                <span>Total a pagar</span>
-                <span>${totalVentas}</span>
+              <Col className="d-flex justify-content-between py-4">
+                <span className="h4">Total a pagar</span>
+                <span className="h4">${totalVentas}</span>
               </Col>
             </Row>
             <Row>
@@ -203,7 +168,7 @@ function ConfirmPay() {
                 <FloatingLabel
                   controlId="floatingInputGrid"
                   label="Numero de tarjeta"
-                  style={{width:"100%"}}
+                  style={{ width: "100%" }}
                 >
                   <Form.Control
                     type="text"
@@ -228,27 +193,54 @@ function ConfirmPay() {
                 </FloatingLabel>
               </Col>
             </Row>
-            <Row>
+            <Row className="mt-3">
               <Col sm={6}>
-              <select class="form-control expiry" name="" id="">
-                <option value="" disabled selected>
-                  Mes de expiracion
-                </option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-              </select>
+                <Form.Select
+                  size="lg"
+                  onChange={(e) => setCardExpiryMonth(e.target.value)}
+                >
+                  <option value="" disabled selected>
+                    Mes de vencimiento
+                  </option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                </Form.Select>
               </Col>
-              <Col sm={6}></Col>
+              <Col sm={6}>
+                <Form.Select
+                  size="lg"
+                  onChange={(e) => setCardExpiryYear(e.target.value)}
+                >
+                  <option value="" disabled selected>
+                    año de vencimiento
+                  </option>
+                  <option value="2023">2023</option>
+                  <option value="2024">2024</option>
+                  <option value="2025">2025</option>
+                  <option value="2026">2026</option>
+                  <option value="2027">2027</option>
+                  <option value="2028">2028</option>
+                  <option value="2029">2029</option>
+                  <option value="2030">2030</option>
+                </Form.Select>
+              </Col>
+            </Row>
+            <Row className="my-3">
+              <Col>
+                <Button variant="verde-neon" onClick={handleContinue}>
+                  continuar
+                </Button>
+              </Col>
             </Row>
           </Col>
         </Row>
