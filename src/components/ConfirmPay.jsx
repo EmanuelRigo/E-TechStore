@@ -2,7 +2,15 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { contexto } from "./CustomProvider";
-import { Button, Container, Card, Row, Col } from "react-bootstrap";
+import {
+  Button,
+  Container,
+  Card,
+  Row,
+  Col,
+  FloatingLabel,
+  Form,
+} from "react-bootstrap";
 
 function ConfirmPay() {
   const { cliente, setPayInfo, totalVentas } = useContext(contexto);
@@ -182,8 +190,67 @@ function ConfirmPay() {
       </Container>
 
       <Container>
-        <Row className="bg-primary" style={{ height: "2rem" }}>
-          <Col className="bg-danger" md={6}></Col>
+        <Row className="bg-primary ">
+          <Col className="bg-light rounded mx-auto" sm={9} md={9} lg={6}>
+            <Row>
+              <Col className="d-flex justify-content-between">
+                <span>Total a pagar</span>
+                <span>${totalVentas}</span>
+              </Col>
+            </Row>
+            <Row>
+              <Col sm={8} className="d-flex justify-content-between">
+                <FloatingLabel
+                  controlId="floatingInputGrid"
+                  label="Numero de tarjeta"
+                  style={{width:"100%"}}
+                >
+                  <Form.Control
+                    type="text"
+                    name="number"
+                    className="form-control inputtxt"
+                    placeholder="8881 2545 2545 2245"
+                    value={cardNumber}
+                    onChange={handleCardNumberChange}
+                  />
+                </FloatingLabel>
+              </Col>
+              <Col sm={4}>
+                <FloatingLabel controlId="floatingInputGrid" label="CVV">
+                  <Form.Control
+                    type="number"
+                    name="number"
+                    class="form-control"
+                    placeholder="123"
+                    value={cardCode}
+                    onChange={(e) => setCardCode(e.target.value)}
+                  />
+                </FloatingLabel>
+              </Col>
+            </Row>
+            <Row>
+              <Col sm={6}>
+              <select class="form-control expiry" name="" id="">
+                <option value="" disabled selected>
+                  Mes de expiracion
+                </option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+              </select>
+              </Col>
+              <Col sm={6}></Col>
+            </Row>
+          </Col>
         </Row>
       </Container>
     </>
