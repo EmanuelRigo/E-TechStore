@@ -43,6 +43,21 @@ function ConfirmPay() {
   };
   /////
 
+
+  ////
+
+  const handleCardCodeChange = (e) => {
+    const inputValue = e.target.value;
+
+    if (inputValue.length <= 3) {
+      setCardCode(inputValue);
+    } else {
+      setCardCode(inputValue.substring(0, 3));
+    }
+  };
+
+  ////
+
   const payData = {
     cardExpiryMonth: cardExpiryMonth,
     cardExpiryYear: cardExpiryYear,
@@ -188,7 +203,7 @@ function ConfirmPay() {
                     class="form-control"
                     placeholder="123"
                     value={cardCode}
-                    onChange={(e) => setCardCode(e.target.value)}
+                    onChange={handleCardCodeChange}
                   />
                 </FloatingLabel>
               </Col>
