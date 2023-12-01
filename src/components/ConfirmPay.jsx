@@ -65,7 +65,7 @@ function ConfirmPay() {
 
   return (
     <>
-      <div class="container mt-4 d-flex justify-content-center">
+      {/*   <div class="container mt-4 d-flex justify-content-center">
         <div class="card">
           <div class="d-flex justify-content-between px-3 pt-4">
             <span class="pay">Total a pagar</span>
@@ -152,10 +152,10 @@ function ConfirmPay() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <Container>
-        <Row className="bg-primary ">
+        <Row>
           <Col className="bg-light rounded mx-auto" sm={9} md={9} lg={6}>
             <Row>
               <Col className="d-flex justify-content-between py-4">
