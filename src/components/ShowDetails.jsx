@@ -11,7 +11,6 @@ import {
   Col,
   Button,
   Card,
-  Badge,
   ListGroup,
 } from "react-bootstrap";
 
@@ -113,6 +112,13 @@ function ShowDetails() {
                     </ListGroup.Item>
                   );
                 })}
+                    <ListGroup.Item variant="light" >
+                  <Row>
+                    <Col sm={9}>Total:</Col>
+                    <Col sm={3}>${totalVentas}</Col>
+               
+                  </Row>
+                </ListGroup.Item>
               </ListGroup>
             </Card>
           </Col>

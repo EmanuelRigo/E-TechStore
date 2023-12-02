@@ -3,13 +3,17 @@ import { useContext, useState, useEffect } from "react";
 import { collection, doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import { contexto } from "./CustomProvider";
-import { Container, Spinner, Button } from "react-bootstrap";
+import { Container, Spinner, Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 function Buy() {
   const { busquedaCompra } = useContext(contexto);
 
   const [sale, setSale] = useState();
+  const [date, setDate] = useState();
+
+  const [day, setDay] = useState();
+  const [month, setMonth] = useState();
 
   useEffect(() => {
     const obtenerDatos = async () => {
@@ -21,7 +25,19 @@ function Buy() {
         if (pedido.exists()) {
           const producto = { ...pedido.data(), id: pedido.id };
           setSale(producto);
-          console.log(producto);
+          ////
+          let fecha = new Date(producto.fecha.toDate()); // Convierte el objeto Firestore a un objeto de fecha de JavaScript
+
+          // Sumar 3 días
+          fecha.setDate(fecha.getDate() + 3);
+
+          //////
+          setDate(fecha);
+          setDay(date.getDate())
+          setMonth(date.getMonth() + 1)
+          console.log(day, month)
+          console.log(producto.fecha.toDate());
+          console.log(typeof date);
         } else {
           console.log("El documento no existe.");
         }
@@ -36,13 +52,21 @@ function Buy() {
   return (
     <>
       {sale ? (
-        <Container className="bg-light">
-          <p>{`Gracias por la compra ${sale.envio.name}`}</p>
-          <p>{`Los ${sale.compras.length} productos llegarán en RANDOM días`}</p>
-          <Link className="btn m-1 btn-verde-neon" to={"/"}>
-            ir al inicio
-          </Link>
-        </Container>
+        <>
+          <Container>
+            <Card className="text-center">
+              <Card.Body>
+                <Card.Title>
+                  Gracias por la compra {sale.envio.name}!
+                </Card.Title>
+                <Card.Text>
+                  los productos llegaran el {day}/{month}
+                </Card.Text>
+                <Button variant="verde-neon">inicio</Button>
+              </Card.Body>
+            </Card>
+          </Container>
+        </>
       ) : (
         <Container className="d-flex  align-items-center justify-content-center">
           <Spinner
