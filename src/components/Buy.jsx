@@ -26,17 +26,15 @@ function Buy() {
           const producto = { ...pedido.data(), id: pedido.id };
           setSale(producto);
           ////
-          let fecha = new Date(producto.fecha.toDate()); // Convierte el objeto Firestore a un objeto de fecha de JavaScript
-
-          // Sumar 3 días
+          let fecha = new Date(producto.fecha.toDate());
           fecha.setDate(fecha.getDate() + 3);
 
           //////
           setDate(fecha);
-          setDay(date.getDate())
-          setMonth(date.getMonth() + 1)
+          setDay(fecha.getDate())
+          setMonth(fecha.getMonth() + 1)
           console.log(day, month)
-          console.log(producto.fecha.toDate());
+          console.log(producto.fecha.getDate());
           console.log(typeof date);
         } else {
           console.log("El documento no existe.");
@@ -62,7 +60,9 @@ function Buy() {
                 <Card.Text>
                   los productos llegaran el {day}/{month}
                 </Card.Text>
-                <Button variant="verde-neon">inicio</Button>
+                <Link to={"/"} className="btn btn-verde-neon">
+              inicio
+            </Link>
               </Card.Body>
             </Card>
           </Container>

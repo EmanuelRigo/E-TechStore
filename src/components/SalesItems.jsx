@@ -1,8 +1,19 @@
 import React from "react";
-import { Row, Card, Badge, Col } from "react-bootstrap";
+import { Row, Card, Badge, Col,  Button } from "react-bootstrap";
+import { collection, doc, deleteDoc } from "firebase/firestore";
+import { db } from "../firebase";
 
 function SalesItems({ item }) {
   const fecha = item.fecha.toDate();
+
+  const handleDelete = async ()=>{
+    try {
+      await deleteDoc(doc(collection(db, 'ventas'), item.id))
+      console.log("se elimino")
+    } catch (error) {
+      console.log("no se pudo eliminar")
+    }
+  }
 
   return (
     <>
@@ -28,8 +39,13 @@ function SalesItems({ item }) {
             <Col md={4}>
               <Card.Text>Total: ${item.total} </Card.Text>
             </Col>
-            <Col md={4}>
+            <Col md={2}>
               <Card.Text>fecha: {fecha.toLocaleString()} </Card.Text>
+            </Col>
+            <Col md={2}>
+              <Card.Text>
+                <Button onClick={handleDelete} > eliminar</Button> 
+                </Card.Text>
             </Col>
           </Row>
         </Card.Body>

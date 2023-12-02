@@ -23,7 +23,8 @@ function SalesList() {
 
       setVentas(documentArrayVentas);
     });
-  }, []);
+  }, [ventasCollection]);
+
   const [contenido, setContenido] = useState(null);
 
   useEffect(() => {
