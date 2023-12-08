@@ -30,7 +30,7 @@ $violeta-personalizado: (
 
 
 // Merge the maps
-$theme-colors: map-merge($violeta-personalizado, $verde-neon );
+$theme-colors: map-merge($violeta-personalizado, $verde-neon,);
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
 
@@ -178,10 +178,12 @@ strong {
   }
 }
 
-.carousel-control-prev {
-  position: relative;
+ .carousel-control-prev {
+  left: -20px;
+  width: 2rem;
 }
 
 .carousel-control-next{
-  position: relative;
-}
+  right: -20px;
+  width: 2rem;
+} 

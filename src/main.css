@@ -11529,9 +11529,11 @@ strong {
 }
 
 .carousel-control-prev {
-  position: relative;
+  left: -20px;
+  width: 2rem;
 }
 
 .carousel-control-next {
-  position: relative;
+  right: -20px;
+  width: 2rem;
 }/*# sourceMappingURL=main.css.map */

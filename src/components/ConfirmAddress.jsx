@@ -12,6 +12,8 @@ import { Container, Card, ListGroup } from "react-bootstrap";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import { Modal } from "react-bootstrap";
 
+import { Notify } from "notiflix";
+
 function ConfirmAddress() {
   const { setAddressInfo } = useContext(contexto);
 
@@ -53,8 +55,7 @@ function ConfirmAddress() {
       handleShow();
       console.log(addressData);
     } else {
-      alert("Por favor, complete todos los campos obligatorios.");
-      console.log("object");
+      Notify.failure('por favor llene todos los campos');
     }
   };
 
@@ -65,7 +66,7 @@ function ConfirmAddress() {
 
   return (
     <>
-      <Container className="bg-light p-3  rounded">
+      <Container className="bg-light p-3 rounded">
         <Row className="g-2 mb-2">
           <Col md={6}>
             <FloatingLabel controlId="floatingInputGrid" label="Nombre">
@@ -106,6 +107,7 @@ function ConfirmAddress() {
                 onChange={(e) => setCity(e.target.value)}
                 type="text"
                 placeholder="ciudad"
+                required
               />
             </FloatingLabel>
           </Col>
@@ -201,7 +203,7 @@ function ConfirmAddress() {
               Direccion: {addressData.address}, {addressData.city}
             </ListGroup.Item>
             <ListGroup.Item as="li">
-              Probincia y Codigo Postal: {addressData.country},
+              Provincia y Codigo Postal: {addressData.country},
               {addressData.postalCode}
             </ListGroup.Item>
             <ListGroup.Item as="li">

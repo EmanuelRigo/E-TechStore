@@ -93,7 +93,7 @@ function ShowDetails() {
               data-bs-theme="dark"
             >
               <ListGroup>
-                {" "}
+                
                 <ListGroup.Item variant="light" >
                   <Row>
                     <Col sm={6}>producto</Col>

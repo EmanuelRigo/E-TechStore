@@ -49,7 +49,7 @@ const MyCarousel = () => {
   }, [subconjuntos]);
 
   return (
-    <Carousel className="container slide bg-dark rounded mt-4 py-4 px-1">
+    <Carousel className="container bg-dark rounded mt-4 py-4 px-1 d-none d-md-block">
       {conjunto.map((subconjunto, index) => (
         <Carousel.Item key={index}>
           <Container>

@@ -11,6 +11,7 @@ import {
   FloatingLabel,
   Form,
 } from "react-bootstrap";
+import { Notify } from "notiflix";
 
 function ConfirmPay() {
   const { cliente, setPayInfo, totalVentas } = useContext(contexto);
@@ -73,7 +74,7 @@ function ConfirmPay() {
       setLinkHabilitado(true);
       navigate("/showDetails");
     } else {
-      alert("Por favor, complete todos los campos obligatorios.");
+      Notify.failure('por favor llene todos los campos');
     }
     console.log(cliente);
   };

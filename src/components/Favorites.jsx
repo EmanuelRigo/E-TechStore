@@ -4,6 +4,7 @@ import { contexto } from "./CustomProvider";
 import { Col, Row, Container, Image, Button } from "react-bootstrap";
 import { FaCartPlus } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
+import { Notify } from "notiflix";
 
 function Favorites() {
   const { favorites, agregarProducto, addFavorites } = useContext(contexto);
@@ -46,6 +47,9 @@ function Favorites() {
                   <Button
                     onClick={() => {
                       agregarProducto(1, item);
+                      Notify.success("se agrego al carrito", {
+                        success: { background: "#28f100", textColor:"black",  },
+                      });
                     }}
                     className="d-flex align-items-center justify-content-center px-3 py-1 mx-3"
                     variant="verde-neon"

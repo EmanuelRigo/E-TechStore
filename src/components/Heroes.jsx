@@ -2,11 +2,14 @@ import { useContext } from "react";
 import { contexto } from "./CustomProvider";
 import { Container, Row, Col, Card, Button, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import Notiflix from "notiflix";
+import { Notify } from "notiflix";
 
 import { FaCartPlus } from "react-icons/fa";
 
 function Heroes({ itemFound }) {
   const { agregarProducto } = useContext(contexto);
+  const customColor = "#ff6600";
 
   return (
     <>
@@ -40,6 +43,9 @@ function Heroes({ itemFound }) {
                       variant="verde-neon"
                       onClick={() => {
                         agregarProducto(1, itemFound);
+                        Notify.success("se agrego al carrito", {
+                          success: { background: "#28f100", textColor:"black",  },
+                        });
                       }}
                     >
                       <FaCartPlus className="m-md-2"></FaCartPlus>

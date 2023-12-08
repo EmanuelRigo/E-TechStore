@@ -116,8 +116,8 @@ function Navbarbookshop() {
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
-
-          <Row>
+          {/* 
+          <Row > 
             <Col xs="auto">
               <Form.Control
                 placeholder="Buscar"
@@ -134,6 +134,16 @@ function Navbarbookshop() {
               >
                 Buscar
               </Button>
+            </Col>
+          </Row> */}
+
+          <Row>
+            <Col className="d-flex input-group ">
+              
+              <button className="btn btn-verde-neon"  onClick={funcionBuscar2}>buscar</button>
+              <input type="text" className="form-control"   value={inputValue2}
+                onChange={handleInputChange}
+                onKeyDown={handleKeyPress}/>
             </Col>
           </Row>
         </Navbar.Collapse>
