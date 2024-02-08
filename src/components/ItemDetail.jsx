@@ -31,9 +31,9 @@ function ItemDetail({ product }) {
                     <Col>
                       {[...new Array(5)].map((star, index) => {
                         return index < product.qualification ? (
-                          <FaStar />
+                          <FaStar key={index} />
                         ) : (
-                          <FaRegStar />
+                          <FaRegStar key={index} />
                         );
                       })}
                     </Col>
@@ -71,14 +71,14 @@ function ItemDetail({ product }) {
                   </Card.Subtitle>
                   <Card.Text className="mb-2 text-muted">
                     {product.price > 160 ? (
-                      <p>
+                      <span>
                         llega
                         <strong> gratis mañana</strong>
-                      </p>
+                      </span>
                     ) : (
-                      <p>
+                      <span>
                         llega <strong>mañana</strong> por $15
-                      </p>
+                      </span>
                     )}
                   </Card.Text>
                   <ItemCount product={product}></ItemCount>

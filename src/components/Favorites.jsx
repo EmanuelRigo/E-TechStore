@@ -23,6 +23,7 @@ function Favorites() {
         favorites.map((item) => {
           return (
             <Container
+              key={item.id}
               data-bs-theme="dark"
               className="container-lg mt-4 px-0 itemFavorite"
             >

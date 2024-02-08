@@ -117,7 +117,7 @@ function ConfirmAddress() {
                 onChange={(e) => setCountry(e.target.value)}
                 aria-label="Floating label select example"
               >
-                <option>Open this select menu</option>
+                <option>Seleciona una Provincia</option>
                 <option value="Buenos Aires">Buenos Aires</option>
                 <option value="Catamarca">Catamarca</option>
                 <option value="Chaco">Chaco</option>

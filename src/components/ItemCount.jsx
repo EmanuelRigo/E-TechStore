@@ -29,28 +29,26 @@ function ItemCount({ product }) {
   };
 
   return (
-    <>
-      <div className="container mt-4 rounded itemCount">
-        <div className="row">
-          <Link
-            to={"/item/" + product.id + "/confirmAddition"}
-            onClick={handleConfirmar}
-            className="btn"
-          >
-            agrega {contador} al carrito
-          </Link>
-        </div>
-        <div className="row">
-          <button type="button" onClick={handleSumar} className="btn col ">
-            <AiOutlinePlus />
-          </button>
-
-          <button type="button" onClick={handleRestar} className="btn col ">
-            <AiOutlineLine />
-          </button>
-        </div>
+    <div className="container mt-4 rounded itemCount">
+      <div className="row">
+        <Link
+          to={"/item/" + product.id + "/confirmAddition"}
+          onClick={handleConfirmar}
+          className="btn"
+        >
+          agrega {contador} al carrito
+        </Link>
       </div>
-    </>
+      <div className="row">
+        <button type="button" onClick={handleSumar} className="btn col ">
+          <AiOutlinePlus />
+        </button>
+
+        <button type="button" onClick={handleRestar} className="btn col ">
+          <AiOutlineLine />
+        </button>
+      </div>
+    </div>
   );
 }
 

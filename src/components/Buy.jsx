@@ -3,7 +3,7 @@ import { useContext, useState, useEffect } from "react";
 import { collection, doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import { contexto } from "./CustomProvider";
-import { Container, Spinner, Button, Card } from "react-bootstrap";
+import { Container, Spinner, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 function Buy() {
@@ -47,23 +47,19 @@ function Buy() {
   return (
     <>
       {sale ? (
-        <>
-          <Container>
-            <Card className="text-center">
-              <Card.Body>
-                <Card.Title>
-                  Gracias por la compra {sale.envio.name}!
-                </Card.Title>
-                <Card.Text>
-                  los productos llegaran el {day}/{month}
-                </Card.Text>
-                <Link to={"/"} className="btn btn-verde-neon">
-                  inicio
-                </Link>
-              </Card.Body>
-            </Card>
-          </Container>
-        </>
+        <Container>
+          <Card className="text-center">
+            <Card.Body>
+              <Card.Title>Gracias por la compra {sale.envio.name}!</Card.Title>
+              <Card.Text>
+                los productos llegaran el {day}/{month}
+              </Card.Text>
+              <Link to={"/"} className="btn btn-verde-neon">
+                inicio
+              </Link>
+            </Card.Body>
+          </Card>
+        </Container>
       ) : (
         <Container className="d-flex  align-items-center justify-content-center">
           <Spinner
