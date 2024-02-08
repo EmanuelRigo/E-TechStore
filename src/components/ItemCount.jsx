@@ -28,7 +28,6 @@ function ItemCount({ product }) {
     addProduct(contador, product);
   };
 
-  console.log(product);
   return (
     <>
       <div className="container mt-4 rounded itemCount">
@@ -42,11 +41,11 @@ function ItemCount({ product }) {
           </Link>
         </div>
         <div className="row">
-          <button type="button" onClick={handleSumar} class="btn col ">
+          <button type="button" onClick={handleSumar} className="btn col ">
             <AiOutlinePlus />
           </button>
 
-          <button type="button" onClick={handleRestar} class="btn col ">
+          <button type="button" onClick={handleRestar} className="btn col ">
             <AiOutlineLine />
           </button>
         </div>

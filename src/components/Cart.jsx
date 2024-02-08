@@ -10,11 +10,8 @@ function Cart() {
     carrito,
     eliminarProducto,
     vaciarCarrito,
-
     incrementarCantidad,
-
     decrementarCantidad,
-
     setTotalVentas,
     totalVentas,
     setValorEnvio,
@@ -31,13 +28,11 @@ function Cart() {
     const totalSuma2 = Number(totalSuma.toFixed(2)) + valorEnvio;
     const totalSuma3 = Number(totalSuma.toFixed(2));
 
-    console.log(totalSuma2);
     setTotalVentas(Number(totalSuma2.toFixed(2)));
     if (totalSuma3 > 160) {
       setValorEnvio(0);
     } else {
       setValorEnvio(100);
-      console.log(typeof valorEnvio);
     }
     return totalSuma;
   }

@@ -53,9 +53,8 @@ function ConfirmAddress() {
       setAddressInfo(addressData);
       setLinkHabilitado(true);
       handleShow();
-      console.log(addressData);
     } else {
-      Notify.failure('por favor llene todos los campos');
+      Notify.failure("por favor llene todos los campos");
     }
   };
 

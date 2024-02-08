@@ -1,4 +1,4 @@
-import ItemDetail from "./ItemDetail";
+/* import ItemDetail from "./ItemDetail";
 import React, { useEffect, useState } from "react";
 
 import { useParams } from "react-router-dom";
@@ -19,3 +19,4 @@ function ItemDetailList({ products }) {
 }
 
 export default ItemDetailList;
+ */ ///8-2-24

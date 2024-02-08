@@ -9,8 +9,6 @@ import { Notify } from "notiflix";
 function Favorites() {
   const { favorites, agregarProducto, addFavorites } = useContext(contexto);
 
-  console.log(favorites);
-
   return (
     <>
       {favorites.length === 0 ? (
@@ -48,7 +46,7 @@ function Favorites() {
                     onClick={() => {
                       agregarProducto(1, item);
                       Notify.success("se agrego al carrito", {
-                        success: { background: "#28f100", textColor:"black",  },
+                        success: { background: "#28f100", textColor: "black" },
                       });
                     }}
                     className="d-flex align-items-center justify-content-center px-3 py-1 mx-3"

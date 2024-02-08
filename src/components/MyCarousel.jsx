@@ -5,33 +5,14 @@ import { Carousel, Container, Row, Col, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FaRegHeart, FaHeart } from "react-icons/fa6";
 
-/* const MyCarousel = () => {
-  const { bookdata, favorites, addFavorites, setValorBusqueda } =
-    useContext(contexto);
-
-  setValorBusqueda(false);
-
-  const [conjunto, setConjunto] = useState([]);
-
-  const subconjuntos = bookdata.reduce((acc, _, index) => {
-    if (index % 4 === 0) {
-      acc.push(bookdata.slice(index, index + 4));
-    }
-    return acc;
-  }, []);
-
-  setConjunto(subconjuntos); */
-
 const MyCarousel = () => {
   const { bookdata, favorites, addFavorites, setValorBusqueda } =
     useContext(contexto);
 
-  // useEffect para ejecutar setValorBusqueda solo en el montaje inicial
   useEffect(() => {
     setValorBusqueda(false);
-  }, []); // El array de dependencias vacío asegura que esto solo se ejecute una vez
+  }, []);
 
-  // Calcula los subconjuntos solo cuando bookdata cambia
   const subconjuntos = useMemo(() => {
     return bookdata.reduce((acc, _, index) => {
       if (index % 4 === 0) {
@@ -43,7 +24,6 @@ const MyCarousel = () => {
 
   const [conjunto, setConjunto] = useState(subconjuntos);
 
-  // Actualiza setConjunto cuando subconjuntos cambia
   useEffect(() => {
     setConjunto(subconjuntos);
   }, [subconjuntos]);

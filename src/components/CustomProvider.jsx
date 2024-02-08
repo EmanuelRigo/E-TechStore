@@ -14,7 +14,7 @@ const CustomProvider = ({ children }) => {
   const [navBarCategory, setNavbarCategory] = useState([]);
   const [productAdded, setProductAdded] = useState({});
   const [valorbusqueda, setValorBusqueda] = useState();
-  const [ventas, setVentas] = useState();
+  /*   const [ventas, setVentas] = useState(); */ //8-2-24
   const [totalVentas, setTotalVentas] = useState(0);
   const [valorEnvio, setValorEnvio] = useState(0);
 
@@ -233,7 +233,7 @@ const CustomProvider = ({ children }) => {
 
   const [addressInfo, setAddressInfo] = useState({});
   const [payInfo, setPayInfo] = useState({});
-  const [estaPagado, setEstaPagado] = useState(true);
+  /*  const [estaPagado, setEstaPagado] = useState(true); */ //8-2-24
 
   const cliente = new Client(carrito, addressInfo, payInfo);
 
@@ -244,9 +244,6 @@ const CustomProvider = ({ children }) => {
     copia.push(new Client(carrito, addressInfo, payInfo, true));
     setUsuarios(copia);
   };
-
-  console.log(typeof totalVentas);
-  ////////////////////////////////////////
 
   ////////////////////////////////////////
 
@@ -267,18 +264,17 @@ const CustomProvider = ({ children }) => {
     funcionBuscar: funcionBuscar,
     bookdata: bookdata,
     setCategory: setCategory,
-
     setInputValue: setInputValue,
     inputValue: inputValue,
     setValorBusqueda: setValorBusqueda,
     setAddressInfo: setAddressInfo,
     cliente: cliente,
     setPayInfo: setPayInfo,
-    setEstaPagado: setEstaPagado,
+    /*  setEstaPagado: setEstaPagado, */ //8-2-24
     sumarUsuario: sumarUsuario,
     busquedaCompra: busquedaCompra,
     setBusquedaCompra: setBusquedaCompra,
-    ventas: ventas,
+    /*   ventas: ventas, */ //8-2-24
     setTotalVentas: setTotalVentas,
     totalVentas: totalVentas,
     valorEnvio: valorEnvio,

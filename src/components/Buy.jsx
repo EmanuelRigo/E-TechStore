@@ -31,11 +31,8 @@ function Buy() {
 
           //////
           setDate(fecha);
-          setDay(fecha.getDate())
-          setMonth(fecha.getMonth() + 1)
-          console.log(day, month)
-          console.log(producto.fecha.getDate());
-          console.log(typeof date);
+          setDay(fecha.getDate());
+          setMonth(fecha.getMonth() + 1);
         } else {
           console.log("El documento no existe.");
         }
@@ -61,8 +58,8 @@ function Buy() {
                   los productos llegaran el {day}/{month}
                 </Card.Text>
                 <Link to={"/"} className="btn btn-verde-neon">
-              inicio
-            </Link>
+                  inicio
+                </Link>
               </Card.Body>
             </Card>
           </Container>

@@ -2,9 +2,6 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
@@ -23,8 +20,6 @@ function Navbarbookshop() {
   };
 
   const categoriaBuscada = useLocation();
-
-  console.log(categoriaBuscada);
 
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
@@ -116,34 +111,18 @@ function Navbarbookshop() {
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
-          {/* 
-          <Row > 
-            <Col xs="auto">
-              <Form.Control
-                placeholder="Buscar"
-                className=" mr-sm-2"
+          <Row>
+            <Col className="d-flex input-group ">
+              <button className="btn btn-verde-neon" onClick={funcionBuscar2}>
+                buscar
+              </button>
+              <input
+                type="text"
+                className="form-control"
                 value={inputValue2}
                 onChange={handleInputChange}
                 onKeyDown={handleKeyPress}
               />
-            </Col>
-            <Col xs="auto">
-              <Button
-                className="btn m-1 btn-verde-neon"
-                onClick={funcionBuscar2}
-              >
-                Buscar
-              </Button>
-            </Col>
-          </Row> */}
-
-          <Row>
-            <Col className="d-flex input-group ">
-              
-              <button className="btn btn-verde-neon"  onClick={funcionBuscar2}>buscar</button>
-              <input type="text" className="form-control"   value={inputValue2}
-                onChange={handleInputChange}
-                onKeyDown={handleKeyPress}/>
             </Col>
           </Row>
         </Navbar.Collapse>

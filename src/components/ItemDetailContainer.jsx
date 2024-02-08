@@ -11,24 +11,17 @@ import { Container, Spinner } from "react-bootstrap";
 function ItemDetailContainer() {
   const { id } = useParams();
   const [product, setProduct] = useState();
-
-  console.log(id);
-
   const params = useParams();
-  console.log(params);
 
   useEffect(() => {
     const productosCollection = collection(db, "products");
-    console.log(productosCollection);
+
     const referencia = doc(productosCollection, id);
     const pedido = getDoc(referencia);
-    console.log(pedido);
-
     pedido
       .then((res) => {
         const producto = { ...res.data(), id: res.id };
         setProduct(producto);
-        console.log(producto);
       })
       .catch((err) => {
         console.log(err);

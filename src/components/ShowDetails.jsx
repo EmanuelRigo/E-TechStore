@@ -5,14 +5,7 @@ import { useContext } from "react";
 import { contexto } from "./CustomProvider";
 import { db } from "../firebase";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
-import {
-  Container,
-  Row,
-  Col,
-  Button,
-  Card,
-  ListGroup,
-} from "react-bootstrap";
+import { Container, Row, Col, Button, Card, ListGroup } from "react-bootstrap";
 
 function ShowDetails() {
   const {
@@ -56,12 +49,8 @@ function ShowDetails() {
     navigate("/buy");
   };
 
-  console.log(cliente);
-
   return (
     <>
-
-
       <Container className="bg-dark p-3 rounded">
         <Row>
           <Col md={7} className="mb-md-0 mb-3">
@@ -78,7 +67,8 @@ function ShowDetails() {
                   {cliente.datosEnvio.postalCode}
                 </ListGroup.Item>
                 <ListGroup.Item>
-                  Tarrjeta: **** **** **** {cliente.formasDePago.cardNumber.slice(-4)}
+                  Tarrjeta: **** **** ****{" "}
+                  {cliente.formasDePago.cardNumber.slice(-4)}
                 </ListGroup.Item>
                 <ListGroup.Item>
                   Telefono: {cliente.datosEnvio.phone}
@@ -93,8 +83,7 @@ function ShowDetails() {
               data-bs-theme="dark"
             >
               <ListGroup>
-                
-                <ListGroup.Item variant="light" >
+                <ListGroup.Item variant="light">
                   <Row>
                     <Col sm={6}>producto</Col>
                     <Col sm={3}>cantidad</Col>
@@ -112,11 +101,10 @@ function ShowDetails() {
                     </ListGroup.Item>
                   );
                 })}
-                    <ListGroup.Item variant="light" >
+                <ListGroup.Item variant="light">
                   <Row>
                     <Col sm={9}>Total:</Col>
                     <Col sm={3}>${totalVentas}</Col>
-               
                   </Row>
                 </ListGroup.Item>
               </ListGroup>
