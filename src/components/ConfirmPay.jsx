@@ -109,7 +109,7 @@ function ConfirmPay() {
                   <Form.Control
                     type="number"
                     name="number"
-                    class="form-control"
+                    className="form-control"
                     placeholder="123"
                     value={cardCode}
                     onChange={handleCardCodeChange}
