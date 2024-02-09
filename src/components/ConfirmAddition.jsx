@@ -37,20 +37,22 @@ function ConfirmAddition() {
       </div>
       <Row className="d-initial d-lg-none justify-content-center my-2 mx-0 no-gutters d-flex align-items-center">
         <Col sm={7} className="d-flex justify-content-center">
-          <Button
-            className="d-flex align-items-center justify-content-center"
+          <Link
+            to="/"
+            className="btn m-1 btn-verde-neon d-flex align-items-center justify-content-center"
             variant="verde-neon"
           >
             seguir comprando
-          </Button>
+          </Link>
         </Col>
-        <Col className=" d-flex justify-content-center">
-          <Button
-            className="d-flex align-items-center justify-content-center"
+        <Col className=" pt-2 d-flex justify-content-center">
+          <Link
+            to="/cart"
+            className=" btn m-1 btn-verde-neon d-flex align-items-center justify-content-center"
             variant="verde-neon"
           >
             ir a carrito
-          </Button>
+          </Link>
         </Col>
       </Row>
     </Card>
