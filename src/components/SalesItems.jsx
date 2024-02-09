@@ -43,7 +43,7 @@ function SalesItems({ item }) {
           <Col md={2}>
             <Card.Text>
               <Button
-                className="btn btn-outline-verde-neon"
+                className="btn btn-outline-verde-neon mt-2 mt-md-0"
                 onClick={handleDelete}
               >
                 {" "}
