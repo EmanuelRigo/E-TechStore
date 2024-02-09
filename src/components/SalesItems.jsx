@@ -42,7 +42,13 @@ function SalesItems({ item }) {
           </Col>
           <Col md={2}>
             <Card.Text>
-              <Button onClick={handleDelete}> eliminar</Button>
+              <Button
+                className="btn btn-outline-verde-neon"
+                onClick={handleDelete}
+              >
+                {" "}
+                eliminar
+              </Button>
             </Card.Text>
           </Col>
         </Row>
