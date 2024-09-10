@@ -39,7 +39,7 @@ function Item({ producto }) {
           </Row>
 
           <Link to={"/item/" + producto.id} className="btn btn-verde-neon">
-            ver mas
+            Ver mas
           </Link>
         </div>
       </Card.Body>

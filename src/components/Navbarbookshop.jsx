@@ -74,47 +74,42 @@ function Navbarbookshop() {
                 className="dropdown-item"
                 to={`/categoria/notebooks`}
               >
-                notebooks
+                Notebooks
               </Link>
               <Link
                 value="gaming"
                 className="dropdown-item"
                 to={`/categoria/gaming`}
               >
-                gaming
+                Gaming
               </Link>
               <Link
                 value="phones"
                 className="dropdown-item"
                 to={`/categoria/phones`}
               >
-                phones
+                Phones
               </Link>
               <Link
                 value="games"
                 className="dropdown-item"
                 to={`/categoria/games`}
               >
-                games
+                Games
               </Link>
               <Link
                 value="monitors"
                 className="dropdown-item"
                 to={`/categoria/monitors`}
               >
-                monitores
+                Monitores
               </Link>
-
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Row>
             <Col className="d-flex input-group ">
               <button className="btn btn-verde-neon" onClick={funcionBuscar2}>
-                buscar
+                Buscar
               </button>
               <input
                 type="text"

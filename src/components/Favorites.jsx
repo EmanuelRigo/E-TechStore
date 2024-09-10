@@ -54,7 +54,7 @@ function Favorites() {
                     variant="verde-neon"
                   >
                     <FaCartPlus className="m-md-2"></FaCartPlus>
-                    <p className="d-none d-lg-block m-0">agregar a carrito</p>
+                    <p className="d-none d-lg-block m-0">Agregar a carrito</p>
                   </Button>
                 </Col>
               </Row>

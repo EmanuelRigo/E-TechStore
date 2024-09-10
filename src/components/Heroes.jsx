@@ -50,7 +50,7 @@ function Heroes({ itemFound }) {
                       }}
                     >
                       <FaCartPlus className="m-md-2"></FaCartPlus>
-                      <p className="d-none d-lg-block m-0">agregar a carrito</p>
+                      <p className="d-none d-lg-block m-0">Agregar a carrito</p>
                     </Button>
                   </Col>
                   <Col className="d-flex align-items-center">

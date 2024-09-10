@@ -36,7 +36,7 @@ function ItemCount({ product }) {
           onClick={handleConfirmar}
           className="btn"
         >
-          agrega {contador} al carrito
+          Agrega {contador} al carrito
         </Link>
       </div>
       <div className="row">

@@ -1,18 +1,11 @@
-
-
-
 // Create your own map
 $verde-neon: (
   "verde-neon": #28f100,
 );
 
-
-
 $violeta-personalizado: (
-  "violeta-personalizado" : #100022
+  "violeta-personalizado": #100022,
 );
-
-
 
 .bg-verde-neon {
   .btn-suma-resta {
@@ -23,17 +16,11 @@ $violeta-personalizado: (
   .btn {
     font-size: 25px;
   }
-} 
-
-
-
-
+}
 
 // Merge the maps
-$theme-colors: map-merge($violeta-personalizado, $verde-neon,);
+$theme-colors: map-merge($violeta-personalizado, $verde-neon);
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
-
-
 
 .cart {
   position: relative;
@@ -59,7 +46,6 @@ $theme-colors: map-merge($violeta-personalizado, $verde-neon,);
   }
 }
 
-
 #root {
   background-color: #100022;
   display: flex;
@@ -67,34 +53,55 @@ $theme-colors: map-merge($violeta-personalizado, $verde-neon,);
   min-height: 100vh;
 }
 
-
 main {
-  flex: 1
+  flex: 1;
 }
 .card__item {
   border: none;
   height: 100%;
 
-
   svg {
     font-size: 1.5rem;
-    cursor: pointer
-   
+    cursor: pointer;
   }
-
 }
 
 .card {
   img {
-    background-image: radial-gradient(circle at 75.52% 19.59%, #ffffff 0, #ffffff 10%, #ffffff 20%, #ffffff 30%, #fff4f6 40%, #e0e0e0 50%, #bfccc8 60%, #a5bbb1 70%, #92ad9c 80%, #84a18a 90%, #7d977b 100%);
+    background-image: radial-gradient(
+      circle at 75.52% 19.59%,
+      #ffffff 0,
+      #ffffff 10%,
+      #ffffff 20%,
+      #ffffff 30%,
+      #fff4f6 40%,
+      #e0e0e0 50%,
+      #bfccc8 60%,
+      #a5bbb1 70%,
+      #92ad9c 80%,
+      #84a18a 90%,
+      #7d977b 100%
+    );
   }
 }
 
 .heroe {
-  img {    background-image: radial-gradient(circle at 95.45% -4.17%, #f4ff00 0, #d6ff00 12.5%, #b1ff00 25%, #7fff00 37.5%, #27f100 50%, #00e112 62.5%, #00d52a 75%, #00cd40 87.5%, #00ca58 100%);
+  img {
+    background-image: radial-gradient(
+      circle at 95.45% -4.17%,
+      #f4ff00 0,
+      #d6ff00 12.5%,
+      #b1ff00 25%,
+      #7fff00 37.5%,
+      #27f100 50%,
+      #00e112 62.5%,
+      #00d52a 75%,
+      #00cd40 87.5%,
+      #00ca58 100%
+    );
     object-fit: contain;
     border-radius: 50%;
-    cursor: pointer
+    cursor: pointer;
   }
   p {
     color: white;
@@ -105,15 +112,27 @@ main {
       color: #000;
     }
 
-    svg {font-size: 1.5rem;}
+    svg {
+      font-size: 1.5rem;
+    }
   }
-
-
-
 }
 
 .imgContainer {
-  background-image: radial-gradient(circle at 75.52% 19.59%, #ffffff 0, #ffffff 10%, #ffffff 20%, #ffffff 30%, #fff4f6 40%, #e0e0e0 50%, #bfccc8 60%, #a5bbb1 70%, #92ad9c 80%, #84a18a 90%, #7d977b 100%);
+  background-image: radial-gradient(
+    circle at 75.52% 19.59%,
+    #ffffff 0,
+    #ffffff 10%,
+    #ffffff 20%,
+    #ffffff 30%,
+    #fff4f6 40%,
+    #e0e0e0 50%,
+    #bfccc8 60%,
+    #a5bbb1 70%,
+    #92ad9c 80%,
+    #84a18a 90%,
+    #7d977b 100%
+  );
   min-height: 100%;
   max-height: 500px;
   display: flex;
@@ -125,12 +144,9 @@ main {
 }
 
 .itemCount {
-
   background-color: #00a800;
- 
- 
 
-    a {
+  a {
     padding: 20px 0 20px 0;
   }
   .btn {
@@ -144,46 +160,37 @@ main {
 
   .btn:hover {
     background-color: #239400;
-   
   }
-
-
 }
 
-
-
-
 strong {
-  color: #00a800
+  color: #00a800;
 }
 
 .nav-link:hover {
-  color:#fff
+  color: #fff;
 }
 
 .nav-link:focus {
-  color:#fff
+  color: #fff;
 }
 
-
 .itemFavorite {
-
   img {
     height: 7rem;
   }
-
 
   svg {
     font-size: 2rem;
   }
 }
 
- .carousel-control-prev {
+.carousel-control-prev {
   left: -20px;
   width: 2rem;
 }
 
-.carousel-control-next{
+.carousel-control-next {
   right: -20px;
   width: 2rem;
-} 
+}

@@ -75,7 +75,7 @@ function Cart() {
 
                     <Row>
                       <Card.Title className="col-md-auto d-flex align-items-center justify-content-center my-3">
-                        cantidad: {item.cantidad}
+                        Cantidad: {item.cantidad}
                       </Card.Title>
                       <Col
                         md={"auto"}
@@ -124,7 +124,7 @@ function Cart() {
             <Col className="py-4 px-5 ">
               {valorEnvio === 0 ? (
                 <p className="h5 m-0">
-                  envio <strong>gratis</strong>
+                  Envio <strong>gratis</strong>
                 </p>
               ) : (
                 <p className="h5 m-0">valor envio: $ {valorEnvio} </p>
